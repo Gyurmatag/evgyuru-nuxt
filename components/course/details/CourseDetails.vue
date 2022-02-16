@@ -23,11 +23,11 @@ const { data } =
 
 useMeta({
   meta: [
-    { hid: 'og-type', property: 'og:type', content: 'website' },
-    { hid: 'og-url', property: 'og:url', content: window.location },
-    { hid: 'og-title', property: 'og:title', content: data.value.course.title },
-    { hid: 'og-description', property: 'og:description', content: data.value.course.description },
-    { hid: 'og-image', property: 'og:image', content: data.value.course.imageUrl }
+    { hid: 'og:type', property: 'og:type', content: 'website' },
+    { hid: 'og:url', property: 'og:url', content: window.location },
+    { hid: 'og:title', property: 'og:title', content: data.value.course.title },
+    { hid: 'og:description', property: 'og:description', content: data.value.course.description },
+    { hid: 'og:image', property: 'og:image', content: data.value.course.imageUrl }
   ],
   bodyAttrs: {
     class: 'test'
