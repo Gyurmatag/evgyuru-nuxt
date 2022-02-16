@@ -21,15 +21,13 @@ const { data } =
         `${config.API_BASE}/${apiUrl}/${courseId}`
     )
 
-console.log(route)
-
 useMeta({
   meta: [
-    { name: 'og:type', content: 'website' },
-    { name: 'og:url', content: window.location },
-    { name: 'og:title', content: data.value.course.title },
-    { name: 'og:description', content: data.value.course.description },
-    { name: 'og:image', content: data.value.course.imageUrl }
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: window.location },
+    { property: 'og:title', content: data.value.course.title },
+    { property: 'og:description', content: data.value.course.description },
+    { property: 'og:image', content: data.value.course.imageUrl }
   ],
   bodyAttrs: {
     class: 'test'
