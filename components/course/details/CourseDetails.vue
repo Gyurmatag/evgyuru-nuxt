@@ -23,8 +23,8 @@ const { data } =
 
 useMeta({
   meta: [
+    { hid: 'og:url', property: 'og:url', content: 'https://evgyuru-nuxt.netlify.app/courses/6202902940d4f85bd2542a26' },
     { hid: 'og:type', property: 'og:type', content: 'website' },
-    { hid: 'og:url', property: 'og:url', content: window.location },
     { hid: 'title', property: 'title', content: "Kurzus titleeee" },
     { hid: 'og:title', property: 'og:title', content: "Kurzus titleeee" },
     { hid: 'og:description', property: 'og:description', content: data.value.course.description },
