@@ -19,7 +19,7 @@
             class="inline-block align-bottom p-2 rounded-lg
                    text-red-600 hover:text-red-800 bg-gradient-to-br from-gray-100 to-gray-200"
             active-class="text-primary"
-            :to="{ name: 'projectDetailsView', params: { projectId: '61ed941fd0bd9a48509bee27' } }"
+            :to="{ name: 'projects-projectId', params: { projectId: '61ed941fd0bd9a48509bee27' } }"
           >
             <span class="hidden sm:block">{{ $t('nav.manocska') }}</span>
             <span class="sm:hidden">{{ $t('nav.manocskaShort') }}</span>
