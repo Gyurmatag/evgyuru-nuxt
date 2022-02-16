@@ -1,0 +1,48 @@
+{
+  "title": {
+    "long": "Évgyűrű Alapítvány",
+    "short": "Évgyűrű"
+  },
+  "nav": {
+    "manocska": "Manócska Tanoda",
+    "manocskaShort": "Manócska",
+    "donate": "Támogatás"
+  },
+  "homeFirst": {
+    "firstRowText": "Célunk, hogy az iskolán kívüli színvonalas oktatást széles körben elérhetővé tegyük.",
+    "secondRowText": "A  gyermekek oktatása mellett a felnőttek képzésére is nagy hangsúlyt fektetünk.",
+    "thirdRowText": "Hiszünk az élethosszig tartó tanulásban."
+  },
+  "footer": {
+    "financialStatements": "Pénzügyi beszámolók",
+    "copyright": "© 2022 Évgyűrű Alapítvány"
+  },
+  "donate": {
+    "title": "Támogatás",
+    "donateHeader": "Támogasd az alapítványunkat!",
+    "donateAction": "Támogatom!",
+    "types": {
+      "withWire": "Átutalással",
+      "withOnePercent": "Adó 1%-val"
+    },
+    "withWire": {
+      "accountNameLabel": "Számlatulajdonos neve",
+      "accountName": "Évgyűrű Alapítvány",
+      "accountNumberLabel": "Számlaszám",
+      "accountNumber": "..."
+    }
+  },
+  "project": {
+    "projectDetails": {
+      "courses": "Kurzusok"
+    }
+  },
+  "documents": {
+    "financialStatements": {
+      "title": "Pénzügyi beszámolók",
+      "year": {
+        "2021": "2021-es év"
+      }
+    }
+  }
+}

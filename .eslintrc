@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false,
+    "sourceType": "module"
+  },
+  "extends": [
+    "@nuxtjs/eslint-config-typescript"
+  ],
+  "rules": {
+    "vue/multi-word-component-names": ["error", {
+      "ignores": ["default"]
+    }]
+  }
+}
