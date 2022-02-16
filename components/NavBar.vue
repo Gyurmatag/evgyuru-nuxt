@@ -9,7 +9,7 @@
           >
             <img
               alt="Évgyűrű logó"
-              src="../assets/logo.png"
+              src="~/assets/logo.png"
               class="h-20"
             >
           </nuxt-link>
