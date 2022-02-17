@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <course-card
-      :course-id="data.course._id"
-      :title="data.course.title"
-      :description="data.course.description"
-      :image-url="data.course.imageUrl"
-    />
+  <div class="flex flex-col w-full justify-center items-center">
+    <div
+      class="max-w-6xl w-full p-6 justify-center items-center text-center"
+    >
+      <course-card
+        :course-id="data.course._id"
+        :title="data.course.title"
+        :description="data.course.description"
+        :image-url="data.course.imageUrl"
+      />
+    </div>
   </div>
 </template>
 

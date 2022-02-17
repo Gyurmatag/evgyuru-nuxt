@@ -5,10 +5,10 @@
         <Title>{{ $t('title.long') }}</Title>
       </Head>
     </Html>
-    <div class="flex justify-center bg-gradient-to-b from-cyan-500 to-blue-700">
+    <div class="flex justify-center">
       <home-first />
     </div>
-    <div class="flex justify-center bg-gray-100">
+    <div class="flex justify-center bg-blue-100 bg-opacity-25">
       <home-second />
     </div>
   </div>

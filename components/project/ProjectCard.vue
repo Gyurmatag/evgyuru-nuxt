@@ -2,7 +2,7 @@
   <router-link
     :to="{ name: 'projects-projectId', params: { projectId }}"
     class="flex flex-col space-y-5 overflow-hidden shadow-lg rounded-lg h-auto m-auto p-4
-                      w-full md:w-3/5 bg-white hover:shadow-2xl hover:cursor-pointer"
+                      w-full md:w-3/5 bg-white transition duration-300 ease-in-out hover:shadow-2xl hover:cursor-pointer"
   >
     <img alt="news photo" :src="imageUrl" class="w-full object-cover">
     <div class="w-full">

@@ -1,45 +1,28 @@
 <template>
-  <div class="flex flex-col items-center mb-8 space-y-8">
+  <div class="flex flex-col items-center divide-blue-600 divide-y-2 space-y-4 divide-opacity-20 mb-4">
     <div
-      class="flex flex-col w-full justify-center items-center
-                bg-gradient-to-b from-cyan-500 to-blue-700"
+      class="md:flex-row max-w-6xl px-4 space-y-2
+                  justify-center items-center text-center"
     >
       <div
-        class="md:flex-row max-w-6xl my-8 px-4 space-y-8
-                  justify-center items-center text-center"
-      >
-        <div
-          class="w-full text-xl text-manocska bg-gray-100
-                    pt-2 pb-2 rounded-lg text-center"
-        >
-          {{ data.project.title }}
-        </div>
-        <div
-          class="w-full text-xl text-manocska bg-white
+        class="w-full text-xl text-manocska bg-white
                     pt-2 pb-2 rounded-lg"
+      >
+        <img
+          :alt="data.project.title"
+          :src="data.project.imageUrl"
+          class="lg:w-3/4 xl:w-1/2 rounded-lg m-auto"
         >
-          <img
-            :alt="data.project.title"
-            :src="data.project.imageUrl"
-            class="lg:w-3/4 xl:w-1/2 rounded-lg m-auto"
-          >
-        </div>
-        <div class="text-sm text-gray-200 text-left">
-          {{ data.project.description }}
-        </div>
+      </div>
+      <div class="m-auto text-center lg:w-3/4 xl:w-1/2 text-sm text-gray-800">
+        <p>{{ data.project.description }}</p>
       </div>
     </div>
     <div class="flex flex-col w-full justify-center items-center">
       <div
-        class="max-w-6xl w-full px-4 space-y-8
-                  justify-center items-center text-center"
+        class="max-w-6xl w-full p-6 justify-center items-center text-center"
       >
-        <div class="text-l bg-manocska text-gray-100 pt-2 pb-2 rounded-lg text-center">
-          {{ $t('project.projectDetails.courses') }}
-        </div>
-        <div>
-          <course-list :project-id="data.project._id" />
-        </div>
+        <course-list :project-id="data.project._id" />
       </div>
     </div>
   </div>
