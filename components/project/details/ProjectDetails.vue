@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center divide-blue-600 divide-y-2 space-y-4 divide-opacity-20 mb-4">
+  <div class="flex flex-col items-center divide-blue-600 divide-y-2 space-y-2 divide-opacity-20">
     <div
       class="md:flex-row max-w-6xl px-4 space-y-2
                   justify-center items-center text-center"
@@ -18,7 +18,7 @@
         <p>{{ data.project.description }}</p>
       </div>
     </div>
-    <div class="flex flex-col w-full justify-center items-center">
+    <div class="flex flex-col w-full justify-center items-center bg-blue-100 bg-opacity-25 pb-4">
       <div
         class="max-w-6xl w-full p-6 justify-center items-center text-center"
       >

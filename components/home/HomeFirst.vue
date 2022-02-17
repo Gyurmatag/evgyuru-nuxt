@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col md:flex-row max-w-6xl my-8 px-4
+    class="flex flex-col md:flex-row max-w-6xl px-4
               justify-center items-center text-center"
   >
     <div
