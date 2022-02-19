@@ -1,5 +1,8 @@
 <template>
-  <nav class="text-gray-900 border-b-2 border-gray-200 border-opacity-50">
+  <nav
+    class="nav-bar fixed inset-x-0 h-24 bg-white text-gray-900 border-b-2 border-gray-200 border-opacity-50"
+    :class="{ 'is-hidden': !showNavBar }"
+  >
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between">
         <div class="flex space-x-4">
@@ -35,3 +38,40 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+const showNavBar = ref(true)
+const lastScrollPosition = ref(0)
+const scrollOffset = 40
+
+onMounted(() => {
+  lastScrollPosition.value = window.pageYOffset
+  window.addEventListener('scroll', onScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+})
+
+const onScroll = () => {
+  if (window.top.scrollY < 0) {
+    return
+  }
+  if (Math.abs(window.top.scrollY - lastScrollPosition.value) < scrollOffset) {
+    return
+  }
+  showNavBar.value = window.top.scrollY < lastScrollPosition.value
+  lastScrollPosition.value = window.top.scrollY
+}
+</script>
+
+<style>
+.nav-bar {
+  transform: translateY(0);
+  transition: transform 300ms linear;
+}
+
+.nav-bar.is-hidden {
+  transform: translateY(-100%);
+}
+</style>

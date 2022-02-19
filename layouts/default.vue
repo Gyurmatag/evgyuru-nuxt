@@ -3,7 +3,7 @@
     <header>
       <nav-bar />
     </header>
-    <main class="flex-grow">
+    <main class="flex-grow pt-24">
       <slot />
     </main>
     <footer>
