@@ -1,28 +1,34 @@
 <template>
   <div
-    class="max-w-screen px-4 py-12 mx-auto space-y-8
-              overflow-hidden sm:px-6 lg:px-8 bg-blue-700"
+    class="max-w-screen mx-auto space-y-8 overflow-hidden bg-blue-700 px-4 py-12 sm:px-6 lg:px-8"
   >
-    <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
       <div class="flex flex-col space-y-2 px-5 py-2 text-center">
-        <div
-          class="font-semibold text-gray-300"
-        >
-          {{ $t('footer.financialStatements') }}
+        <div class="font-semibold text-gray-300">
+          {{ $t("footer.financialStatements") }}
         </div>
         <a
           href="https://res.cloudinary.com/gyurmatag/image/upload/v1644427612/%C3%89vgy%C5%B1r%C5%B1/P%C3%A9nz%C3%BCgyi%20besz%C3%A1mol%C3%B3k/OBHGEPI_PK_742_19316750110_E%CC%81vgyu%CC%88ru%CC%88_Alapi%CC%81tva%CC%81ny_6234980117913700_323404567414.pdf"
           target="_blank"
-          class="text-gray-200 text-md transition duration-300 ease-in-out hover:text-gray-300"
+          class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
         >
-          {{ $t('documents.financialStatements.year.2021') }}
+          {{ $t("documents.financialStatements.year.2021") }}
         </a>
       </div>
     </nav>
-    <div class="flex justify-center mt-8 space-x-6">
-      <a href="https://www.facebook.com/profile.php?id=100076628594989" target="_blank" class="text-gray-200 hover:text-gray-300">
+    <div class="mt-8 flex justify-center space-x-6">
+      <a
+        href="https://www.facebook.com/profile.php?id=100076628594989"
+        target="_blank"
+        class="text-gray-200 hover:text-gray-300"
+      >
         <span class="sr-only">Facebook</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+        <svg
+          class="h-6 w-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
           <!-- eslint-disable-next-line max-len -->
           <path
             fill-rule="evenodd"
@@ -31,9 +37,18 @@
           />
         </svg>
       </a>
-      <a href="" target="_blank" class="text-gray-200 transition duration-300 ease-in-out hover:text-gray-300">
+      <a
+        href=""
+        target="_blank"
+        class="text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
+      >
         <span class="sr-only">Instagram</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+        <svg
+          class="h-6 w-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
           <!-- eslint-disable-next-line max-len -->
           <path
             fill-rule="evenodd"
@@ -43,8 +58,8 @@
         </svg>
       </a>
     </div>
-    <p class="mt-8 text-base leading-6 text-center text-gray-200">
-      {{ $t('footer.copyright') }}
+    <p class="mt-8 text-center text-base leading-6 text-gray-200">
+      {{ $t("footer.copyright") }}
     </p>
   </div>
 </template>

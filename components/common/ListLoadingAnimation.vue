@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
-    <div class="h-4 w-4 bg-green-400 rounded-full mr-1 animate-bounce" />
-    <div class="h-4 w-4 bg-red-700 rounded-full mr-1 animate-bounce200" />
-    <div class="h-4 w-4 bg-blue-700 rounded-full animate-bounce400" />
+    <div class="mr-1 h-4 w-4 animate-bounce rounded-full bg-green-400" />
+    <div class="mr-1 h-4 w-4 animate-bounce200 rounded-full bg-red-700" />
+    <div class="h-4 w-4 animate-bounce400 rounded-full bg-blue-700" />
   </div>
 </template>

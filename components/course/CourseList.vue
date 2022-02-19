@@ -16,22 +16,20 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig()
+const config = useRuntimeConfig();
 
 const props = defineProps({
   projectId: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const apiUrl = 'course/courses'
-const currentPage = 1
-const limit = 5
-const projectId = props.projectId
-const { data } =
-    await useFetch(
-        `${config.API_BASE}/${apiUrl}`,
-        { params: { projectId, limit, currentPage } }
-    )
+const apiUrl = "course/courses";
+const currentPage = 1;
+const limit = 5;
+const projectId = props.projectId;
+const { data } = await useFetch(`${config.API_BASE}/${apiUrl}`, {
+  params: { projectId, limit, currentPage },
+});
 </script>

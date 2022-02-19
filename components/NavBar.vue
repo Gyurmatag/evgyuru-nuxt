@@ -1,37 +1,31 @@
 <template>
   <nav
-    class="nav-bar fixed inset-x-0 h-24 bg-white text-gray-900 border-b-2 border-gray-200 border-opacity-50"
+    class="nav-bar fixed inset-x-0 h-24 border-b-2 border-gray-200 border-opacity-50 bg-white text-gray-900"
     :class="{ 'is-hidden': !showNavBar }"
   >
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="mx-auto max-w-6xl px-4">
       <div class="flex justify-between">
         <div class="flex space-x-4">
-          <nuxt-link
-            class="inline-block mr-4 p-1"
-            to="/"
-          >
-            <img
-              alt="Évgyűrű logó"
-              src="~/assets/logo.png"
-              class="h-20"
-            >
+          <nuxt-link class="mr-4 inline-block p-1" to="/">
+            <img alt="Évgyűrű logó" src="~/assets/logo.png" class="h-20" />
           </nuxt-link>
         </div>
         <div class="flex items-center space-x-4">
           <nuxt-link
-            class="inline-block align-bottom p-1.5 rounded-md border-2 border-manocska
-                   transition duration-300 ease-in-out hover:bg-orange-100"
-            :to="{ name: 'projects-projectId', params: { projectId: '61ed941fd0bd9a48509bee27' } }"
+            class="inline-block rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100"
+            :to="{
+              name: 'projects-projectId',
+              params: { projectId: '61ed941fd0bd9a48509bee27' },
+            }"
           >
-            <span class="hidden sm:block">{{ $t('nav.manocska') }}</span>
-            <span class="sm:hidden">{{ $t('nav.manocskaShort') }}</span>
+            <span class="hidden sm:block">{{ $t("nav.manocska") }}</span>
+            <span class="sm:hidden">{{ $t("nav.manocskaShort") }}</span>
           </nuxt-link>
           <nuxt-link
-            class="inline-block align-bottom p-2 rounded-md bg-blue-600 text-white
-                   transition duration-300 ease-in-out hover:bg-blue-800"
+            class="inline-block rounded-md bg-blue-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-blue-800"
             to="/"
           >
-            {{ $t('nav.donate') }}
+            {{ $t("nav.donate") }}
           </nuxt-link>
         </div>
       </div>
@@ -40,29 +34,29 @@
 </template>
 
 <script setup>
-const showNavBar = ref(true)
-const lastScrollPosition = ref(0)
-const scrollOffset = 40
+const showNavBar = ref(true);
+const lastScrollPosition = ref(0);
+const scrollOffset = 40;
 
 onMounted(() => {
-  lastScrollPosition.value = window.pageYOffset
-  window.addEventListener('scroll', onScroll)
-})
+  lastScrollPosition.value = window.pageYOffset;
+  window.addEventListener("scroll", onScroll);
+});
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+  window.removeEventListener("scroll", onScroll);
+});
 
 const onScroll = () => {
   if (window.top.scrollY < 0) {
-    return
+    return;
   }
   if (Math.abs(window.top.scrollY - lastScrollPosition.value) < scrollOffset) {
-    return
+    return;
   }
-  showNavBar.value = window.top.scrollY < lastScrollPosition.value
-  lastScrollPosition.value = window.top.scrollY
-}
+  showNavBar.value = window.top.scrollY < lastScrollPosition.value;
+  lastScrollPosition.value = window.top.scrollY;
+};
 </script>
 
 <style>

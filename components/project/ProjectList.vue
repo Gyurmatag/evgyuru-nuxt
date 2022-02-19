@@ -16,15 +16,13 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig()
+const config = useRuntimeConfig();
 
-const apiUrl = 'project/projects'
-const currentPage = 1
-const limit = 5
+const apiUrl = "project/projects";
+const currentPage = 1;
+const limit = 5;
 // TODO: itt majd meg kell nézni, hogy lehet jól kiszervezni a baseURL adásokat és api-t
-const { data } =
-    await useFetch(
-            `${config.API_BASE}/${apiUrl}`,
-            { params: { limit, currentPage } }
-    )
+const { data } = await useFetch(`${config.API_BASE}/${apiUrl}`, {
+  params: { limit, currentPage },
+});
 </script>

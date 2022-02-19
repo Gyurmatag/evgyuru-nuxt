@@ -1,27 +1,25 @@
 <template>
   <div
-    class="flex flex-col md:flex-row max-w-6xl px-4 my-8
-              justify-center items-center text-center"
+    class="my-8 flex max-w-6xl flex-col items-center justify-center px-4 text-center md:flex-row"
   >
     <div
-      class="flex flex-col divide-y-2 divide-blue-600
-                w-full md:w-1/2 p-4 text-xl text-left font-bold"
+      class="flex w-full flex-col divide-y-2 divide-blue-600 p-4 text-left text-xl font-bold md:w-1/2"
     >
-      <div class="text-3xl font-black text-gray-800 uppercase">
-        {{ $t('title.long') }}
+      <div class="text-3xl font-black uppercase text-gray-800">
+        {{ $t("title.long") }}
       </div>
-      <div class="text-gray-600 pt-3">
-        {{ $t('homeFirst.firstRowText') }}
+      <div class="pt-3 text-gray-600">
+        {{ $t("homeFirst.firstRowText") }}
         <span>
-          {{ $t('homeFirst.secondRowText') }}
+          {{ $t("homeFirst.secondRowText") }}
         </span>
-        {{ $t('homeFirst.thirdRowText') }}
+        {{ $t("homeFirst.thirdRowText") }}
       </div>
     </div>
     <img
       alt="main photo"
       src="https://res.cloudinary.com/gyurmatag/image/upload/v1642196641/A%20J%C3%B6v%C5%91%20a%20Gyermekek%C3%A9/tabla_gyerek.jpg"
-      class="w-full md:w-1/2 rounded-md border-8 border-blue-100 border-opacity-50"
-    >
+      class="w-full rounded-md border-8 border-blue-100 border-opacity-50 md:w-1/2"
+    />
   </div>
 </template>

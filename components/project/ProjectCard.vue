@@ -1,12 +1,11 @@
 <template>
   <router-link
-    :to="{ name: 'projects-projectId', params: { projectId }}"
-    class="flex flex-col space-y-5 overflow-hidden shadow-lg rounded-lg h-auto m-auto p-4
-                      w-full md:w-3/5 bg-white transition duration-300 ease-in-out hover:shadow-2xl hover:cursor-pointer"
+    :to="{ name: 'projects-projectId', params: { projectId } }"
+    class="m-auto flex h-auto w-full flex-col space-y-5 overflow-hidden rounded-lg bg-white p-4 shadow-lg transition duration-300 ease-in-out hover:cursor-pointer hover:shadow-2xl md:w-3/5"
   >
-    <img alt="news photo" :src="imageUrl" class="w-full object-cover">
+    <img alt="news photo" :src="imageUrl" class="w-full object-cover" />
     <div class="w-full">
-      <p class="text-center text-gray-700 text-xl font-medium mb-2">
+      <p class="mb-2 text-center text-xl font-medium text-gray-700">
         {{ title }}
       </p>
     </div>
@@ -17,19 +16,19 @@
 defineProps({
   projectId: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   imageUrl: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>

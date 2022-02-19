@@ -9,17 +9,17 @@
 
 <script setup>
 // TODO: ideiglenes megoldás, ameddig nincs benne natívban a Nuxt 3- ban
-import NuxtLoading from './components/common/nuxt-loading'
+import NuxtLoading from "./components/common/nuxt-loading";
 
-const loading = ref(null)
-const nuxtApp = useNuxtApp()
+const loading = ref(null);
+const nuxtApp = useNuxtApp();
 
-nuxtApp.hook('page:start', () => {
-  loading.value.start()
-})
+nuxtApp.hook("page:start", () => {
+  loading.value.start();
+});
 
-nuxtApp.hook('page:finish', () => {
-  loading.value.finish()
-  window.scrollTo(0, 0)
-})
+nuxtApp.hook("page:finish", () => {
+  loading.value.finish();
+  window.scrollTo(0, 0);
+});
 </script>

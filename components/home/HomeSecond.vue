@@ -1,8 +1,7 @@
 <template>
   <div
     id="projects"
-    class="flex flex-col md:flex-row my-8 px-4
-           justify-center items-center"
+    class="my-8 flex flex-col items-center justify-center px-4 md:flex-row"
   >
     <project-list />
   </div>

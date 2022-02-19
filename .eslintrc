@@ -5,12 +5,13 @@
     "requireConfigFile": false,
     "sourceType": "module"
   },
-  "extends": [
-    "@nuxtjs/eslint-config-typescript"
-  ],
+  "extends": ["@nuxtjs/eslint-config-typescript", "prettier"],
   "rules": {
-    "vue/multi-word-component-names": ["error", {
-      "ignores": ["default"]
-    }]
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        "ignores": ["default"]
+      }
+    ]
   }
 }

@@ -1,6 +1,6 @@
-import { defineNuxtPlugin } from '#app'
-import VouSocialSharing from 'vue-social-sharing'
+import { defineNuxtPlugin } from "#app";
+import VouSocialSharing from "vue-social-sharing";
 
 export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.use(VouSocialSharing)
-})
+  nuxtApp.vueApp.use(VouSocialSharing);
+});

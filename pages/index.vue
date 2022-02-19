@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <Html>
       <Head>
-        <Title>{{ $t('title.long') }}</Title>
+        <Title>{{ $t("title.long") }}</Title>
       </Head>
     </Html>
     <div class="flex justify-center">
