@@ -20,6 +20,5 @@ nuxtApp.hook("page:start", () => {
 
 nuxtApp.hook("page:finish", () => {
   loading.value.finish();
-  window.scrollTo(0, 0);
 });
 </script>
