@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-screen mx-auto space-y-8 overflow-hidden bg-blue-700 px-4 py-12 sm:px-6 lg:px-8"
+    class="max-w-screen mx-auto space-y-8 overflow-hidden bg-blue-700 px-4 py-12 dark:bg-gray-900 sm:px-6 lg:px-8"
   >
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
       <div class="flex flex-col space-y-2 px-5 py-2 text-center">
@@ -61,5 +61,6 @@
     <p class="mt-8 text-center text-base leading-6 text-gray-200">
       {{ $t("footer.copyright") }}
     </p>
+    <common-color-mode-selector></common-color-mode-selector>
   </div>
 </template>

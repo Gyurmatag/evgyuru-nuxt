@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-smooth">
+  <div class="scroll-smooth dark:bg-gray-800">
     <nuxt-loading ref="loading" />
     <NuxtLayout>
       <NuxtPage />
@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-// TODO: ideiglenes megoldás, ameddig nincs benne natívban a Nuxt 3- ban
-import NuxtLoading from "./components/common/nuxt-loading";
+// TODO: ideiglenes megoldás, ameddig nincs benne natívban a Nuxt 3- ban meg amúgy miért kell ezt importálni??
+import NuxtLoading from "./components/common/NuxtLoading";
 
 const loading = ref(null);
 const nuxtApp = useNuxtApp();

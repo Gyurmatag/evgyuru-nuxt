@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="nav-bar fixed inset-x-0 h-24 border-b-2 border-gray-200 border-opacity-50 bg-white text-gray-900"
+    class="nav-bar fixed inset-x-0 h-24 border-b-2 border-gray-200 border-opacity-50 bg-white text-gray-900 dark:bg-gray-900"
     :class="{ 'is-hidden': !showNavBar }"
   >
     <div class="mx-auto max-w-6xl px-4">
@@ -12,7 +12,7 @@
         </div>
         <div class="flex items-center space-x-4">
           <nuxt-link
-            class="inline-block rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100"
+            class="inline-block rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100 dark:text-white dark:hover:bg-orange-900"
             :to="{
               name: 'projects-projectId',
               params: { projectId: '61ed941fd0bd9a48509bee27' },

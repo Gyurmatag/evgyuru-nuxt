@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dark:bg-gray-800">
     <div
       v-for="project in data.projects"
       :key="project._id"

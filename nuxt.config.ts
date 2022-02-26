@@ -26,6 +26,7 @@ export interface IntlifyModuleOptions {
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   buildModules: ["@intlify/nuxt3"],
+  modules: ["@nuxtjs/color-mode"],
   intlify: {
     localeDir: "locales",
     vueI18n: {
@@ -33,6 +34,9 @@ export default defineNuxtConfig({
     },
   },
   css: ["@/assets/styles/main.css"],
+  colorMode: {
+    classSuffix: "",
+  },
   build: {
     postcss: {
       postcssOptions: require("./postcss.config.js"),

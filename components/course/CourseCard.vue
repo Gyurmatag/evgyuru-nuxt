@@ -1,20 +1,20 @@
 <template>
   <div
-    class="m-auto flex h-auto w-full flex-col space-y-5 overflow-hidden rounded-lg bg-white shadow-lg md:w-3/5"
+    class="m-auto flex h-auto w-full flex-col space-y-5 overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800 md:w-3/5"
   >
     <img
       alt="news photo"
       :src="imageUrl"
-      class="m-auto rounded-lg lg:w-3/4 xl:w-1/2"
+      class="m-auto rounded-lg p-4 lg:w-3/4 xl:w-1/2"
     />
     <div class="w-full">
       <router-link
         :to="{ name: 'courses-courseId', params: { courseId } }"
-        class="mb-2 text-center text-2xl font-bold text-blue-600 transition duration-300 ease-in-out hover:text-blue-800"
+        class="mb-2 text-center text-2xl font-bold text-blue-600 transition duration-300 ease-in-out hover:text-blue-800 dark:text-gray-200 dark:hover:text-gray-400"
       >
         {{ title }}
       </router-link>
-      <p class="mb-2 text-center text-sm text-gray-700">
+      <p class="mb-2 p-2 text-center text-sm text-gray-700 dark:text-gray-300">
         {{ description }}
       </p>
       <div
@@ -28,7 +28,7 @@
             :description="description"
           >
             <div
-              class="m-2 bg-gray-100 p-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              class="m-2 bg-gray-100 p-2 transition duration-300 ease-in-out hover:bg-gray-200 dark:bg-gray-500 dark:hover:bg-gray-600"
             >
               <svg class="h-6" fill="currentColor" viewBox="0 0 20 20">
                 <path

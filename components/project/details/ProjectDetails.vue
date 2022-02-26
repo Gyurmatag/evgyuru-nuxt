@@ -1,18 +1,22 @@
 <template>
   <div
-    class="flex flex-col items-center space-y-2 divide-y-2 divide-blue-600 divide-opacity-20"
+    class="mt-8 flex flex-col items-center space-y-2 divide-y-2 divide-blue-600 divide-opacity-20"
   >
     <div
-      class="max-w-6xl items-center justify-center space-y-2 px-4 text-center md:flex-row"
+      class="mb-8 max-w-6xl items-center justify-center space-y-2 px-4 text-center md:flex-row"
     >
-      <div class="w-full rounded-lg bg-white pt-2 pb-2 text-xl text-manocska">
+      <div
+        class="w-full rounded-lg bg-white pt-2 pb-2 text-xl dark:bg-gray-800"
+      >
         <img
           :alt="data.project.title"
           :src="data.project.imageUrl"
           class="m-auto rounded-lg lg:w-3/4 xl:w-1/2"
         />
       </div>
-      <div class="m-auto text-center text-sm text-gray-800 lg:w-3/4 xl:w-1/2">
+      <div
+        class="m-auto text-center text-sm text-gray-800 dark:text-gray-200 lg:w-3/4 xl:w-1/2"
+      >
         <p>{{ data.project.description }}</p>
       </div>
     </div>
