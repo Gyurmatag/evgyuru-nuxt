@@ -9,6 +9,10 @@
         :course-id="course._id"
         :title="course.title"
         :description="course.description"
+        :price="course.price"
+        :occasions="course.occasions"
+        :date-from="course.dateFrom"
+        :date-to="course.dateTo"
         :image-url="course.imageUrl"
       />
     </div>

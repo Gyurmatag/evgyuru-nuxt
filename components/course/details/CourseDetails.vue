@@ -5,6 +5,10 @@
         :course-id="data.course._id"
         :title="data.course.title"
         :description="data.course.description"
+        :price="data.course.price"
+        :occasions="data.course.occasions"
+        :date-from="data.course.dateFrom"
+        :date-to="data.course.dateTo"
         :image-url="data.course.imageUrl"
       />
     </div>

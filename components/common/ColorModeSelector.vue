@@ -1,5 +1,6 @@
 <template>
   <div class="flex justify-center space-x-4">
+    <!-- TODO: itt gond van néha refresh-nél, undefined a colorMode... -->
     <ClientOnly>
       <div
         v-for="color of ['system', 'light', 'dark']"

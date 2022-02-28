@@ -17,6 +17,23 @@
       <p class="mb-2 p-2 text-center text-sm text-gray-700 dark:text-gray-300">
         {{ description }}
       </p>
+      <div class="m-4 flex flex-col content-start justify-between lg:flex-row">
+        <common-card-item
+          :icon-name="'payments'"
+          :value-text="`${price} HUF`"
+        ></common-card-item>
+        <common-card-item
+          :icon-name="'numbers'"
+          :value-text="`${occasions} alkalom`"
+        ></common-card-item>
+        <common-card-item
+          :icon-name="'date_range'"
+          :value-text="`${dateFrom.substring(0, 10)} - ${dateTo.substring(
+            0,
+            10
+          )}`"
+        ></common-card-item>
+      </div>
       <div
         class="flex items-center justify-center border-t-2 border-t-blue-100"
       >
@@ -30,11 +47,7 @@
             <div
               class="m-2 bg-gray-100 p-2 transition duration-300 ease-in-out hover:bg-gray-200 dark:bg-gray-500 dark:hover:bg-gray-600"
             >
-              <svg class="h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M11.194 17v-6.386h2.358l.353-2.5h-2.71v-1.6c0-.72.22-1.212 1.356-1.212L14 5.32V3.098A21.32 21.32 0 0 0 11.886 3c-2.1 0-3.523 1.16-3.523 3.3v1.835H6v2.5h2.365V17h2.83z"
-                />
-              </svg>
+              <common-icon-facebook-share></common-icon-facebook-share>
             </div>
           </share-network>
         </ClientOnly>
@@ -55,6 +68,22 @@ defineProps({
   },
   description: {
     type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  occasions: {
+    type: Number,
+    required: true,
+  },
+  dateFrom: {
+    type: Date,
+    required: true,
+  },
+  dateTo: {
+    type: Date,
     required: true,
   },
   imageUrl: {
