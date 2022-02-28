@@ -23,7 +23,7 @@
           </nuxt-link>
           <nuxt-link
             class="inline-block rounded-md bg-blue-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-blue-800"
-            to="/"
+            to="/donate"
           >
             {{ $t("nav.donate") }}
           </nuxt-link>

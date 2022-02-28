@@ -79,11 +79,11 @@ defineProps({
     required: true,
   },
   dateFrom: {
-    type: Date,
+    type: String,
     required: true,
   },
   dateTo: {
-    type: Date,
+    type: String,
     required: true,
   },
   imageUrl: {

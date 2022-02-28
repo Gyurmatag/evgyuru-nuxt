@@ -18,12 +18,9 @@
     "copyright": "© 2022 Évgyűrű Alapítvány"
   },
   "donate": {
-    "title": "Támogatás",
-    "donateHeader": "Támogasd az alapítványunkat!",
     "donateAction": "Támogatom!",
     "types": {
       "withWire": "Átutalással",
-      "withOnePercent": "Adó 1%-val"
     },
     "withWire": {
       "accountNameLabel": "Számlatulajdonos neve",
@@ -39,7 +36,6 @@
   },
   "documents": {
     "financialStatements": {
-      "title": "Pénzügyi beszámolók",
       "year": {
         "2021": "2021-es év"
       }
