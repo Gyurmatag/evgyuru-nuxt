@@ -10,18 +10,21 @@
         Miért érdemes minket támogatni?
       </h2>
     </div>
-    <div class="flex w-4/5 flex-col md:flex-row lg:w-3/4 xl:w-1/2">
+    <div class="flex w-full flex-col lg:flex-row xl:w-3/4 2xl:w-3/4">
       <donate-reason-card
-        :reason-title="'Indok 1'"
-        reason-description="'Indok leírás Indok leírás Indok leírás Indok leírás Indok leírás'"
+        :img-name="'research'"
+        :reason-title="$t('donate.reasons.reason1.title')"
+        :reason-description="$t('donate.reasons.reason1.description')"
       ></donate-reason-card>
       <donate-reason-card
-        :reason-title="'Indok 2'"
-        reason-description="'Indok leírás Indok leírás Indok leírás Indok leírás Indok leírás'"
+        :img-name="'lifelong_student'"
+        :reason-title="$t('donate.reasons.reason2.title')"
+        :reason-description="$t('donate.reasons.reason2.description')"
       ></donate-reason-card>
       <donate-reason-card
-        :reason-title="'Indok 3'"
-        reason-description="'Indok leírás Indok leírás Indok leírás Indok leírás Indok leírás'"
+        :img-name="'programs'"
+        :reason-title="$t('donate.reasons.reason3.title')"
+        :reason-description="$t('donate.reasons.reason3.description')"
       ></donate-reason-card>
     </div>
   </div>

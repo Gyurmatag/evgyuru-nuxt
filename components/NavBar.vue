@@ -7,7 +7,7 @@
       <div class="flex justify-between">
         <div class="flex space-x-4">
           <nuxt-link class="mr-4 inline-block p-1" to="/">
-            <img alt="Évgyűrű logó" src="~/assets/logo.png" class="h-20" />
+            <img alt="Évgyűrű logó" src="/logo.png" class="h-20" />
           </nuxt-link>
         </div>
         <div class="flex items-center space-x-4">

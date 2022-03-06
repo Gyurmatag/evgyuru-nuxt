@@ -18,15 +18,30 @@
     "copyright": "© 2022 Évgyűrű Alapítvány"
   },
   "donate": {
+    "title": "Támogatás utalással",
     "donateAction": "Támogatom!",
+    "reasons": {
+      "reason1": {
+        "title": "Oktatás Fejlesztése",
+        "description": "Adományod segít abban, hogy a helyi, iskolán kívüli oktatás fejlődjön."
+      },
+      "reason2": {
+        "title": "Élethosszig Tartó Tanulás",
+        "description": "Támogatod az élethosszig tartó tanulást, felnőtteknek szóló képzéseinken keresztül."
+      },
+      "reason3": {
+        "title": "Hiánypótló Programok",
+        "description": "Olyan programokat, projekteket, tanfolyamokat indítunk, amik hiánypótlóak a pedagógia terén."
+      }
+    },
     "types": {
-      "withWire": "Átutalással",
+      "withWire": "Átutalással"
     },
     "withWire": {
       "accountNameLabel": "Számlatulajdonos neve",
       "accountName": "Évgyűrű Alapítvány",
       "accountNumberLabel": "Számlaszám",
-      "accountNumber": "..."
+      "accountNumber": "11739009-23918317"
     }
   },
   "project": {

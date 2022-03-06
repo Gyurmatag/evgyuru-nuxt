@@ -36,6 +36,6 @@ const route = useRoute();
 
 const apiUrl = "project";
 const projectId = route.params.projectId;
-// TODO: itt majd meg kell nézni, hogy lehet jól kiszervezni a baseURL adásokat és api-t
+// TODO: itt majd meg kell nézni, hogy lehet jól kiszervezni a baseURL adásokat és api-t és hogy hogy lehet a Data-t kicsomagolni
 const { data } = await useFetch(`${config.API_BASE}/${apiUrl}/${projectId}`);
 </script>
