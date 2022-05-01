@@ -10,7 +10,7 @@
       </button>
       <button
         class="rounded-md border border-blue-400 p-2 transition duration-300 ease-in-out hover:bg-blue-300 dark:hover:bg-gray-600"
-        @click="isDeleteConfirmationMessageVisible = false"
+        @click="emit('cancelDeleteConfirmation')"
       >
         {{ $t("common.cancel") }}
       </button>
@@ -19,10 +19,8 @@
 </template>
 
 <script setup lang="ts">
-const isDeleteConfirmationMessageVisible = useState<boolean>(
-  "isDeleteConfirmationMessageVisible"
-);
 const emit = defineEmits<{
   (e: "deleteReservation"): void;
+  (e: "cancelDeleteConfirmation"): void;
 }>();
 </script>

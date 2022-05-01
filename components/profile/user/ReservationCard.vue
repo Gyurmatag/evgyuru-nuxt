@@ -17,7 +17,8 @@
   <common-transition-expand>
     <profile-user-delete-reservation-confirmation-panel
       v-if="isDeleteConfirmationMessageVisible"
-      @deleteReservation="deleteReservation(reservationId)"
+      @cancel-delete-confirmation="isDeleteConfirmationMessageVisible = false"
+      @delete-reservation="deleteReservation(reservationId)"
     ></profile-user-delete-reservation-confirmation-panel>
   </common-transition-expand>
 </template>
@@ -28,10 +29,7 @@ import { useUserStore } from "~/stores/user";
 
 const userStore = useUserStore();
 
-const isDeleteConfirmationMessageVisible = useState<boolean>(
-  "isDeleteConfirmationMessageVisible",
-  () => false
-);
+const isDeleteConfirmationMessageVisible = ref(false);
 
 defineProps({
   reservationId: {

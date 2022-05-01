@@ -29,18 +29,9 @@ defineProps({
   },
 });
 
-const reservationListData = useState<ReservationList>(
-  "reservationListData",
-  () => null
-);
-const reservationsPanelOpen = useState<boolean>(
-  "reservationsPanelOpen",
-  () => false
-);
-const reservationsDataPending = useState<boolean>(
-  "reservationsDataPending",
-  () => false
-);
+const reservationListData = ref(null);
+const reservationsPanelOpen = ref(false);
+const reservationsDataPending = ref(false);
 
 const expandCourse = async (courseId) => {
   if (reservationsPanelOpen.value === true) {
