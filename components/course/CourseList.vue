@@ -19,8 +19,8 @@
   </div>
 </template>
 
-<script setup>
-const config = useRuntimeConfig();
+<script setup lang="ts">
+import { CourseList } from "~/models/course";
 
 const props = defineProps({
   projectId: {
@@ -29,11 +29,13 @@ const props = defineProps({
   },
 });
 
-const apiUrl = "course/courses";
+// TODO: error kezelés
+// TODO: ininite lista bevezetése
 const currentPage = 1;
 const limit = 5;
 const projectId = props.projectId;
-const { data } = await useFetch(`${config.API_BASE}/${apiUrl}`, {
+const { data } = await useCustomFetch<CourseList>({
+  path: `/${COURSE}/${COURSES}`,
   params: { projectId, limit, currentPage },
 });
 </script>

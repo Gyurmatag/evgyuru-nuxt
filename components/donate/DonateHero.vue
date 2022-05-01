@@ -1,16 +1,16 @@
 <template>
-  <div class="mb-4 flex flex-col items-center">
+  <div class="mb-4 flex max-w-6xl flex-col items-center">
     <div class="m-8 flex flex-col items-center space-y-6">
       <h1
         class="text-center text-3xl font-black text-gray-800 dark:text-gray-200"
       >
-        Segítsd alapítványunkat támogatásoddal!
+        {{ $t("donate.helpOurCause") }}
       </h1>
       <h2 class="text-center text-lg text-gray-600 dark:text-gray-300">
-        Miért érdemes minket támogatni?
+        {{ $t("donate.why") }}
       </h2>
     </div>
-    <div class="flex w-full flex-col lg:flex-row xl:w-3/4 2xl:w-3/4">
+    <div class="flex w-full flex-col lg:flex-row">
       <donate-reason-card
         :img-name="'research'"
         :reason-title="$t('donate.reasons.reason1.title')"

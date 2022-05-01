@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <nuxt-link
     :to="{ name: 'projects-projectId', params: { projectId } }"
     class="m-auto flex h-auto w-full flex-col space-y-5 overflow-hidden rounded-lg bg-white p-4 shadow-lg transition duration-300 ease-in-out hover:cursor-pointer hover:shadow-2xl dark:bg-gray-800 md:w-3/5"
   >
@@ -11,10 +11,10 @@
         {{ title }}
       </p>
     </div>
-  </router-link>
+  </nuxt-link>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps({
   projectId: {
     type: String,

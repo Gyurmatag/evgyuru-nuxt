@@ -1,26 +1,16 @@
-import { defineNuxtConfig } from "nuxt3";
-import { I18nOptions } from "vue-i18n";
+import { defineNuxtConfig } from "nuxt";
 
-declare module "@nuxt/schema" {
-  export interface NuxtConfig {
-    intlify?: IntlifyModuleOptions;
-  }
-}
-
-export interface IntlifyModuleOptions {
-  vueI18n?: I18nOptions | string;
-  localeDir?: string;
-}
-
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  buildModules: ["@intlify/nuxt3"],
+  buildModules: ["@intlify/nuxt3", "@pinia/nuxt"],
   modules: ["@nuxtjs/color-mode"],
   intlify: {
     localeDir: "locales",
     vueI18n: {
       locale: "hu",
     },
+  },
+  alias: {
+    yup: "yup/lib/index.js",
   },
   css: ["@/assets/styles/main.css"],
   colorMode: {

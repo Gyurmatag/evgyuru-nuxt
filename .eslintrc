@@ -1,17 +1,25 @@
 {
-  "root": true,
-  "parserOptions": {
-    "parser": "@babel/eslint-parser",
-    "requireConfigFile": false,
-    "sourceType": "module"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
   },
-  "extends": ["@nuxtjs/eslint-config-typescript", "prettier"],
-  "rules": {
-    "vue/multi-word-component-names": [
-      "error",
-      {
-        "ignores": ["default"]
-      }
-    ]
-  }
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/essential",
+    "plugin:@typescript-eslint/recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module",
+    "requireConfigFile": false
+  },
+  "plugins": [
+    "vue",
+    "@typescript-eslint"
+  ],
+  "rules": {}
 }

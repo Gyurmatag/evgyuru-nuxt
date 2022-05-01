@@ -3,6 +3,17 @@
     "long": "Évgyűrű Alapítvány",
     "short": "Évgyűrű"
   },
+  "common": {
+    "back": "Vissza",
+    "next": "Folytatás",
+    "go": "Mehet",
+    "greeting": "Szia!",
+    "priceInHuf": "{price} HUF",
+    "occasions": "{occasions} alkalom",
+    "here": "Itt",
+    "yes": "Igen",
+    "cancel": "Mégsem"
+  },
   "nav": {
     "manocska": "Manócska Tanoda",
     "manocskaShort": "Manócska",
@@ -13,11 +24,51 @@
     "secondRowText": "A  gyermekek oktatása mellett a felnőttek képzésére is nagy hangsúlyt fektetünk.",
     "thirdRowText": "Hiszünk az élethosszig tartó tanulásban."
   },
+  "auth": {
+    "form": {
+      "email": "E-mail címed",
+      "password": "Add meg fiókodhoz tartozó jelszavad",
+      "fullName": "Teljes név",
+      "telephoneNumber": "Telefonszám",
+      "address": "Számlázási cím",
+      "passwordFirst": "Biztonságos jelszó",
+      "passwordAgain": "Jelszó mégegyszer",
+      "noProfileHint": "Ha még nincsen fiókod, akkor a következő lépésben létrehozunk egyet!",
+      "newProfileHint": "Még nincsen fiókod. Készítsünk egy új fiókot!",
+      "newProfileSuccess": "Sikeres regisztráció! Mostmár bejelentkezhetsz!"
+    }
+  },
+  "profile": {
+    "greeting": "Szia {name}!",
+    "logout": "Kijelentkezés",
+    "user": {
+      "reservations": {
+        "title": "Kurzusok, amelyekre eddig jelentkeztél",
+        "empty": "Egyelőre üres... :(",
+        "moreCourses": "tudod megnézni jelenlegi kurzusainkat",
+        "deleteConfirm": "Biztosan törlöd a jelentkezésedet?"
+      }
+    },
+    "moderator": {
+      "reservations": {
+        "title": "Kurzusok, amelyekre jelentkezések vannak",
+        "noReservations": "Még nincsenek jelentkezések",
+        "table": {
+          "parentName": "Szülő neve",
+          "childName": "Gyermek neve",
+          "telephoneNumber": "Telefonszám",
+          "address": "Számlázási cím"
+        }
+      }
+    }
+  },
   "footer": {
     "financialStatements": "Pénzügyi beszámolók",
     "copyright": "© 2022 Évgyűrű Alapítvány"
   },
   "donate": {
+    "helpOurCause": "Segítsd alapítványunkat támogatásoddal!",
+    "why": "Miért érdemes minket támogatni?",
     "title": "Támogatás utalással",
     "donateAction": "Támogatom!",
     "reasons": {
@@ -47,6 +98,19 @@
   "project": {
     "projectDetails": {
       "courses": "Kurzusok"
+    }
+  },
+  "course": {
+    "apply": {
+      "start": "Jelentkezem",
+      "alreadyApplied": "Beiratkozva",
+      "cancel": "Mégsem",
+      "form": {
+        "childName": "Gyermek neve",
+        "action": "Jelentkezés",
+        "success": "Sikeres jelentkezés",
+        "hint": "A kurzusokat, amelyekre beiratkoztál a profilodban tudod menedzselni."
+      }
     }
   },
   "documents": {

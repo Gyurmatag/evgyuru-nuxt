@@ -1,0 +1,31 @@
+<template>
+  <span
+    v-if="!isDataLoading"
+    class="material-icons cursor-pointer transition duration-300 ease-in-out hover:text-gray-600 dark:hover:text-gray-400"
+    :class="{
+      'origin-center rotate-180 transform transition duration-300':
+        !isPanelOpen,
+    }"
+    @click="emit('expand')"
+  >
+    expand_less
+  </span>
+  <common-icon-loading-spin v-else></common-icon-loading-spin>
+</template>
+
+<script setup lang="ts">
+defineProps({
+  isDataLoading: {
+    type: Boolean,
+    default: false,
+  },
+  isPanelOpen: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const emit = defineEmits<{
+  (e: "expand"): void;
+}>();
+</script>

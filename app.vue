@@ -7,9 +7,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // TODO: ideiglenes megoldás, ameddig nincs benne natívban a Nuxt 3- ban meg amúgy miért kell ezt importálni??
-import NuxtLoading from "./components/common/NuxtLoading";
+import NuxtLoading from "./components/common/animation/NuxtLoading";
 
 const loading = ref(null);
 const nuxtApp = useNuxtApp();

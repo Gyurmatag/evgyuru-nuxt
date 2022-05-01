@@ -16,6 +16,7 @@
         </a>
       </div>
     </nav>
+    <common-color-mode-selector></common-color-mode-selector>
     <div class="mt-8 flex justify-center space-x-6">
       <a
         href="https://www.facebook.com/profile.php?id=100076628594989"
@@ -38,7 +39,7 @@
         </svg>
       </a>
       <a
-        href=""
+        href="https://www.instagram.com/manocskatanoda"
         target="_blank"
         class="text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
       >
@@ -61,6 +62,5 @@
     <p class="mt-8 text-center text-base leading-6 text-gray-200">
       {{ $t("footer.copyright") }}
     </p>
-    <common-color-mode-selector></common-color-mode-selector>
   </div>
 </template>

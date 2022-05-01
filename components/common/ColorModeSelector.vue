@@ -1,6 +1,5 @@
 <template>
   <div class="flex justify-center space-x-4">
-    <!-- TODO: itt gond van néha refresh-nél, undefined a colorMode... -->
     <ClientOnly>
       <div
         v-for="color of ['system', 'light', 'dark']"
@@ -13,7 +12,9 @@
         }"
         @click="$colorMode.preference = color"
       >
-        <component :is="`common-icon-${color}`" />
+        <common-icon-system v-if="color === 'system'"></common-icon-system>
+        <common-icon-light v-else-if="color === 'light'"></common-icon-light>
+        <common-icon-dark v-else></common-icon-dark>
       </div>
     </ClientOnly>
   </div>

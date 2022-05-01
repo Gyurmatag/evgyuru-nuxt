@@ -15,14 +15,13 @@
   </div>
 </template>
 
-<script setup>
-const config = useRuntimeConfig();
-
-const apiUrl = "project/projects";
+<script setup lang="ts">
 const currentPage = 1;
 const limit = 5;
-// TODO: itt majd meg kell nézni, hogy lehet jól kiszervezni a baseURL adásokat és api-t
-const { data } = await useFetch(`${config.API_BASE}/${apiUrl}`, {
+// TODO: error kezelés
+// TODO: ininite lista bevezetése
+const { data } = await useCustomFetch({
+  path: `/${PROJECT}/${PROJECTS}`,
   params: { limit, currentPage },
 });
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <div class="flex w-full flex-col items-center justify-center">
+  <div
+    class="flex flex-col items-center justify-center bg-white dark:bg-gray-800"
+  >
     <div class="w-full max-w-6xl items-center justify-center p-6 text-center">
       <course-card
         :course-id="data.course._id"
@@ -15,15 +17,17 @@
   </div>
 </template>
 
-<script setup>
-const config = useRuntimeConfig();
+<script setup lang="ts">
+import { Course } from "~/models/course";
+
 const route = useRoute();
 
-const apiUrl = "course";
-const courseId = route.params.courseId;
-// TODO: itt majd meg kell nézni, hogy lehet jól kiszervezni a baseURL adásokat és api-t
-const { data } = await useFetch(`${config.API_BASE}/${apiUrl}/${courseId}`);
+// TODO: error kezelés
+const { data } = await useCustomFetch<Course>({
+  path: `/${COURSE}/${route.params.courseId}`,
+});
 
+// TODO: dinamikussá tétel
 useMeta({
   meta: [
     {
@@ -33,20 +37,17 @@ useMeta({
         "https://evgyuru-nuxt.netlify.app/courses/6202902940d4f85bd2542a26",
     },
     { hid: "og:type", property: "og:type", content: "website" },
-    { hid: "og:title", property: "og:title", content: data.value.course.title },
+    { hid: "og:title", property: "og:title", content: data.value.title },
     {
       hid: "og:description",
       property: "og:description",
-      content: data.value.course.description,
+      content: data.value.description,
     },
     {
       hid: "og:image",
       property: "og:image",
-      content: data.value.course.imageUrl,
+      content: data.value.imageUrl,
     },
   ],
-  bodyAttrs: {
-    class: "test",
-  },
 });
 </script>
