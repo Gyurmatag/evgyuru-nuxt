@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { FormMeta } from "vee-validate";
 import { ApplyCourse } from "~/models/reservation";
 
 defineProps({

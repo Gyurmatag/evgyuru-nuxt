@@ -32,14 +32,16 @@
             :description="description"
           ></course-card-social-shares>
           <course-card-apply-actions
-            v-if="userStore.isSimpleUser"
+            v-if="!userStore.user._id || userStore.isSimpleUser"
+            v-model:is-apply-active="isApplyActive"
             :course-id="courseId"
           ></course-card-apply-actions>
         </div>
-        <ClientOnly v-if="userStore.user._id">
+        <ClientOnly>
           <common-transition-expand>
             <course-card-apply-form
               v-if="isApplyActive"
+              v-model:is-apply-active="isApplyActive"
               :course-id="courseId"
             ></course-card-apply-form>
           </common-transition-expand>
@@ -54,7 +56,7 @@ import { useUserStore } from "~/stores/user";
 
 const userStore = useUserStore();
 
-const isApplyActive = useState<boolean>("isApplyActive", () => false);
+const isApplyActive = ref(false);
 
 defineProps({
   courseId: {
@@ -91,10 +93,8 @@ defineProps({
   },
 });
 
-// TODO: state helyett lehet refet kéne használni, hogy ezt ne kelljen
-onBeforeUnmount(() => {
-  if (isApplyActive.value) {
-    isApplyActive.value = false;
-  }
-});
+const cancelApply = () => {
+  console.log("asdasdasd");
+  isApplyActive.value = false;
+};
 </script>

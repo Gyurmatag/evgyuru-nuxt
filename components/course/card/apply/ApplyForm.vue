@@ -22,7 +22,7 @@
         v-if="!userStore.currentCourseReservedByUser(courseId)"
         type="button"
         class="absolute right-0 bottom-0 mb-4 rounded-md bg-gray-100 p-1 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
-        @click="isApplyActive = false"
+        @click="emit('update:isApplyActive', false)"
       >
         {{ $t("course.apply.cancel") }}
       </button>
@@ -39,14 +39,20 @@ import { FetchMethods } from "~/models/enums";
 
 const userStore = useUserStore();
 
-const isApplyActive = useState<boolean>("isApplyActive");
-
 const props = defineProps({
   courseId: {
     type: String,
     required: true,
   },
+  isApplyActive: {
+    type: Boolean,
+    required: true,
+  },
 });
+
+const emit = defineEmits<{
+  (e: "update:isApplyActive", p: boolean): void;
+}>();
 
 const applyFormData = useState<ApplyCourse>("applyFormData", () => null);
 
