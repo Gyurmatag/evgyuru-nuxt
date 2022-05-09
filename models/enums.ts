@@ -5,6 +5,15 @@ export enum AuthenticationSteps {
   SignupSuccess,
 }
 
+export enum CourseApplySteps {
+  Initial,
+  ExistingUserLogin,
+  NewUserDataAdd,
+  NewUserDataAddWithSignUp,
+  Apply,
+  ApplySuccess,
+}
+
 export enum Roles {
   User = "ROLE_USER",
   Moderator = "ROLE_MODERATOR",

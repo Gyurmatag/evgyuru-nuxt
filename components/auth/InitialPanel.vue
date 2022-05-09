@@ -8,7 +8,16 @@
     <div
       class="rounded-md border border-blue-400 p-2 text-sm text-gray-800 opacity-80 dark:text-gray-300"
     >
-      {{ $t("auth.form.noProfileHint") }}
+      {{ $t(hintTranslateKey) }}
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+defineProps({
+  hintTranslateKey: {
+    type: String,
+    default: "auth.form.noProfileHint",
+  },
+});
+</script>

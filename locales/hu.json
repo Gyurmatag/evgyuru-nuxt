@@ -35,7 +35,8 @@
       "passwordAgain": "Jelszó mégegyszer",
       "noProfileHint": "Ha még nincsen fiókod, akkor a következő lépésben létrehozunk egyet!",
       "newProfileHint": "Még nincsen fiókod. Készítsünk egy új fiókot!",
-      "newProfileSuccess": "Sikeres regisztráció! Mostmár bejelentkezhetsz!"
+      "newProfileSuccess": "Sikeres regisztráció! Mostmár bejelentkezhetsz!",
+      "saveSignupDataOnCourseApply": "Adatok mentése és regisztráció"
     }
   },
   "profile": {
@@ -106,6 +107,8 @@
       "alreadyApplied": "Beiratkozva",
       "cancel": "Mégsem",
       "form": {
+        "noLoginHint": "E-mail cím megadása után be is tudsz lépni (ha van fiókod) vagy regisztráció nélkül is tudsz foglalni",
+        "newProfileHint": "Nincs még fiókod. Adataid megadásával tudsz foglalni kurzust és akár regisztrálhatsz is, ha szeretnél",
         "childName": "Gyermek neve",
         "action": "Jelentkezés",
         "success": "Sikeres jelentkezés",

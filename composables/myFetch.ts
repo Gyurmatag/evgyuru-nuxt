@@ -10,6 +10,7 @@ interface FetchInputs {
   isAuthenticated?: boolean;
 }
 
+// TODO: requestType hozzáadása
 export const useCustomFetch = <ResponseType>({
   path,
   method = FetchMethodEnum.GET,

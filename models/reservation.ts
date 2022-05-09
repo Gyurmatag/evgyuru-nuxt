@@ -14,5 +14,7 @@ export interface ReservationList extends BaseList {
 }
 
 export interface ApplyCourse {
+  courseId: string;
   childName: string;
+  userEmail?: string;
 }

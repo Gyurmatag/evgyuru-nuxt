@@ -37,15 +37,17 @@
             :course-id="courseId"
           ></course-card-apply-actions>
         </div>
-        <ClientOnly>
-          <common-transition-expand>
-            <course-card-apply-form
-              v-if="isApplyActive"
-              v-model:is-apply-active="isApplyActive"
-              :course-id="courseId"
-            ></course-card-apply-form>
-          </common-transition-expand>
-        </ClientOnly>
+        <div class="pb-4">
+          <ClientOnly>
+            <common-transition-expand>
+              <course-card-apply-form
+                v-if="isApplyActive"
+                v-model:is-apply-active="isApplyActive"
+                :course-id="courseId"
+              ></course-card-apply-form>
+            </common-transition-expand>
+          </ClientOnly>
+        </div>
       </div>
     </div>
   </div>
@@ -92,9 +94,4 @@ defineProps({
     required: true,
   },
 });
-
-const cancelApply = () => {
-  console.log("asdasdasd");
-  isApplyActive.value = false;
-};
 </script>
