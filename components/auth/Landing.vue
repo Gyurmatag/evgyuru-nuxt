@@ -76,19 +76,26 @@ const currentStep = useState("currentStep", () => AuthenticationSteps.Initial);
 
 const validationSchemas = {
   [AuthenticationSteps.Initial]: Yup.object().shape({
-    email: Yup.string().email().required(),
+    email: Yup.string()
+      .email("auth.form.errors.email.format")
+      .required("auth.form.errors.email.required"),
   }),
   [AuthenticationSteps.ExistingUserLogin]: Yup.object().shape({
-    password: Yup.string().required(),
+    password: Yup.string().required("auth.form.errors.password.required"),
   }),
   [AuthenticationSteps.NewUserRegister]: Yup.object().shape({
-    fullName: Yup.string().required(),
-    telephoneNumber: Yup.string().required(),
-    address: Yup.string().required(),
-    password: Yup.string().required().min(8),
+    fullName: Yup.string().required("auth.form.errors.fullName.required"),
+    telephoneNumber: Yup.string().required(
+      "auth.form.errors.telephoneNumber.required"
+    ),
+    address: Yup.string().required("auth.form.errors.address.required"),
+    // TODO: dinamikussá tétel (8 karakter)
+    password: Yup.string()
+      .required("auth.form.errors.password.required")
+      .min(8, "auth.form.errors.password.minChars"),
     passwordConfirmation: Yup.string()
-      .required()
-      .oneOf([Yup.ref("password")], "Passwords do not match"),
+      .required("auth.form.errors.password.required")
+      .oneOf([Yup.ref("password")], "auth.form.errors.password.notMatching"),
   }),
 };
 

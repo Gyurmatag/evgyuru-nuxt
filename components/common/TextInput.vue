@@ -19,6 +19,14 @@
       @input="handleChange"
       @blur="handleBlur"
     />
+    <common-transition-expand>
+      <span
+        v-if="errorMessage && meta.touched"
+        class="text-left text-sm text-red-500"
+      >
+        {{ $t(errorMessage) }}
+      </span>
+    </common-transition-expand>
   </div>
 </template>
 
@@ -45,7 +53,7 @@ const props = defineProps({
   },
   wrapperClass: {
     type: String,
-    default: "flex flex-col space-y-2",
+    default: "flex flex-col",
   },
   labelClass: {
     type: String,
@@ -60,6 +68,7 @@ const props = defineProps({
 
 const {
   value: inputValue,
+  errorMessage,
   handleBlur,
   handleChange,
   meta,

@@ -36,7 +36,27 @@
       "noProfileHint": "Ha még nincsen fiókod, akkor a következő lépésben létrehozunk egyet!",
       "newProfileHint": "Még nincsen fiókod. Készítsünk egy új fiókot!",
       "newProfileSuccess": "Sikeres regisztráció! Mostmár bejelentkezhetsz!",
-      "saveSignupDataOnCourseApply": "Adatok mentése és regisztráció"
+      "saveSignupDataOnCourseApply": "Adatok mentése és regisztráció",
+      "errors": {
+        "email": {
+          "required": "E-mail cím kitöltése kötelező!",
+          "format": "E-mail cím formátuma nem megfelelő!"
+        },
+        "password": {
+          "required": "Jelszó kitöltése kötelező!",
+          "notMatching": "A jelszavak nem egyeznek!",
+          "minChars": "A jelszónak legalább 8 karakternek kell lennie"
+        },
+        "fullName": {
+          "required": "Teljes név kitöltése kötelező!"
+        },
+        "telephoneNumber": {
+          "required": "Telefonszám kitöltése kötelező!"
+        },
+        "address": {
+          "required": "Számlázási cím kitöltése kötelező!"
+        }
+      }
     }
   },
   "profile": {
@@ -112,7 +132,12 @@
         "childName": "Gyermek neve",
         "action": "Jelentkezés",
         "success": "Sikeres jelentkezés",
-        "hint": "A kurzusokat, amelyekre beiratkoztál a profilodban tudod menedzselni."
+        "hint": "A kurzusokat, amelyekre beiratkoztál a profilodban tudod menedzselni.",
+        "errors": {
+          "childName": {
+            "required": "A gyermek neve mező kitöltése kötelező!"
+          }
+        }
       }
     }
   },
