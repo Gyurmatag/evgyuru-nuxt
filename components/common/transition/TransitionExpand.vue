@@ -11,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+// TODO: átdolgozoás, hogy kezelje a margint és a paddingot is
 const enter = (element) => {
   const { width } = getComputedStyle(element);
 

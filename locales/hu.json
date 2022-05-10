@@ -31,6 +31,7 @@
       "fullName": "Teljes név",
       "telephoneNumber": "Telefonszám",
       "address": "Számlázási cím",
+      "addressHint": "A lakcím megadása a számlázás miatt szükséges.",
       "passwordFirst": "Biztonságos jelszó",
       "passwordAgain": "Jelszó mégegyszer",
       "noProfileHint": "Ha még nincsen fiókod, akkor a következő lépésben létrehozunk egyet!",

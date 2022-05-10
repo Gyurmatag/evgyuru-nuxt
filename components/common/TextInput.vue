@@ -1,8 +1,28 @@
 <template>
   <div :class="wrapperClass">
-    <label :class="labelClass" :for="name">
-      {{ label }}
-    </label>
+    <div class="mb-1 flex justify-center space-x-2">
+      <label :class="labelClass" :for="name">
+        {{ label }}
+      </label>
+      <span
+        v-if="infoHint"
+        class="cursor-pointer rounded-md border border-blue-100 bg-gray-100 px-2 text-sm text-blue-600 transition duration-300 ease-in-out hover:bg-gray-200 dark:bg-gray-600 dark:text-blue-400 dark:hover:bg-gray-500"
+        @click="infoHintActive = !infoHintActive"
+      >
+        ?
+      </span>
+    </div>
+    <!-- TODO: ez a hint komponens kiszervezése commonban -->
+    <div class="mb-2">
+      <common-transition-expand>
+        <div
+          v-if="infoHintActive"
+          class="rounded-md bg-blue-50 text-sm text-gray-800 opacity-80 dark:bg-gray-800 dark:text-gray-300"
+        >
+          <div class="p-2">{{ $t(infoHint) }}</div>
+        </div>
+      </common-transition-expand>
+    </div>
     <input
       :id="name"
       :name="name"
@@ -33,6 +53,8 @@
 <script setup lang="ts">
 import { useField } from "vee-validate";
 
+const infoHintActive = ref(false);
+
 const props = defineProps({
   // TODO: type-ot tipizálni
   type: {
@@ -50,6 +72,11 @@ const props = defineProps({
   label: {
     type: String,
     required: true,
+  },
+  infoHint: {
+    type: String,
+    required: false,
+    default: null,
   },
   wrapperClass: {
     type: String,

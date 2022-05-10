@@ -21,6 +21,7 @@
       name="address"
       type="text"
       :label="$t('auth.form.address')"
+      info-hint="auth.form.addressHint"
     />
     <div v-if="isOnApplyForm" class="flex justify-center space-y-2">
       <common-text-input
