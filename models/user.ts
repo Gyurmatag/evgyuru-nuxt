@@ -19,7 +19,9 @@ export interface SignUpUser {
   email: string;
   fullName: string;
   telephoneNumber: string;
-  address: string;
+  zipCode: string;
+  city: string;
+  streetAddress: string;
   password: string;
   passwordConfirmation: string;
 }

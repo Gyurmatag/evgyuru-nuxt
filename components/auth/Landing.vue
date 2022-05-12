@@ -85,10 +85,16 @@ const validationSchemas = {
   }),
   [AuthenticationSteps.NewUserRegister]: Yup.object().shape({
     fullName: Yup.string().required("auth.form.errors.fullName.required"),
-    telephoneNumber: Yup.string().required(
-      "auth.form.errors.telephoneNumber.required"
+    telephoneNumber: Yup.string()
+      .required("auth.form.errors.telephoneNumber.required")
+      .min(17, "auth.form.errors.telephoneNumber.minChars"),
+    zipCode: Yup.string()
+      .required("auth.form.errors.zipCode.required")
+      .min(4, "auth.form.errors.zipCode.minChars"),
+    city: Yup.string().required("auth.form.errors.city.required"),
+    streetAddress: Yup.string().required(
+      "auth.form.errors.streetAddress.required"
     ),
-    address: Yup.string().required("auth.form.errors.address.required"),
     // TODO: dinamikussá tétel (8 karakter)
     password: Yup.string()
       .required("auth.form.errors.password.required")
@@ -165,7 +171,7 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           email: signUpFormData.value.email,
           fullName: signUpFormData.value.fullName,
           telephoneNumber: signUpFormData.value.telephoneNumber,
-          address: signUpFormData.value.address,
+          address: `${signUpFormData.value.zipCode} ${signUpFormData.value.city}, ${signUpFormData.value.streetAddress}`,
           password: signUpFormData.value.password,
         },
       });

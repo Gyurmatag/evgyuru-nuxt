@@ -30,7 +30,9 @@
       "password": "Add meg fiókodhoz tartozó jelszavad",
       "fullName": "Teljes név",
       "telephoneNumber": "Telefonszám",
-      "address": "Számlázási cím",
+      "zipCode": "Irányítószám",
+      "city": "Város",
+      "streetAddress": "Utca, házszám, (épület, ajtó)",
       "addressHint": "A lakcím megadása a számlázás miatt szükséges.",
       "passwordFirst": "Biztonságos jelszó",
       "passwordAgain": "Jelszó mégegyszer",
@@ -52,10 +54,18 @@
           "required": "Teljes név kitöltése kötelező!"
         },
         "telephoneNumber": {
-          "required": "Telefonszám kitöltése kötelező!"
+          "required": "Telefonszám kitöltése kötelező!",
+          "minChars": "Telefonszám nem teljes!"
         },
-        "address": {
-          "required": "Számlázási cím kitöltése kötelező!"
+        "zipCode": {
+          "required": "Irányítószám mező kitöltése kötelező!",
+          "minChars": "Irányítószám nem teljes!"
+        },
+        "city": {
+          "required": "Város mező kitöltése kötelező!"
+        },
+        "streetAddress": {
+          "required": "Részletes cím mező kitöltése kötelező!"
         }
       }
     }

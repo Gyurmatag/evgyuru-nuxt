@@ -95,6 +95,21 @@ const applyFormData = ref<ApplyCourse>(null);
 const currentStep = ref(CourseApplySteps.Initial);
 const isDataToBeSaved = ref(false);
 
+// TODO: kiszervezés központi helyre, hogy itt is és az auth-ban is tudjuk használni
+const baseUserDataApplyValidations = {
+  fullName: Yup.string().required("auth.form.errors.fullName.required"),
+  telephoneNumber: Yup.string().required(
+    "auth.form.errors.telephoneNumber.required"
+  ),
+  zipCode: Yup.string()
+    .required("auth.form.errors.zipCode.required")
+    .min(4, "auth.form.errors.zipCode.minChars"),
+  city: Yup.string().required("auth.form.errors.city.required"),
+  streetAddress: Yup.string().required(
+    "auth.form.errors.streetAddress.required"
+  ),
+};
+
 const validationSchemas = {
   [CourseApplySteps.Initial]: Yup.object().shape({
     email: Yup.string()
@@ -104,26 +119,19 @@ const validationSchemas = {
   [CourseApplySteps.ExistingUserLogin]: Yup.object().shape({
     password: Yup.string().required("auth.form.errors.password.required"),
   }),
-  [CourseApplySteps.NewUserDataAdd]: Yup.object().shape({
-    fullName: Yup.string().required("auth.form.errors.fullName.required"),
-    telephoneNumber: Yup.string().required(
-      "auth.form.errors.telephoneNumber.required"
-    ),
-    address: Yup.string().required("auth.form.errors.address.required"),
-  }),
-  // TODO valahogyan konkatenálni kellene ide a newUserData add step-ben lévő elemeket
+  [CourseApplySteps.NewUserDataAdd]: Yup.object().shape(
+    baseUserDataApplyValidations
+  ),
   [CourseApplySteps.NewUserDataAddWithSignUp]: Yup.object().shape({
-    fullName: Yup.string().required("auth.form.errors.fullName.required"),
-    telephoneNumber: Yup.string().required(
-      "auth.form.errors.telephoneNumber.required"
-    ),
-    address: Yup.string().required("auth.form.errors.address.required"),
-    password: Yup.string()
-      .required("auth.form.errors.password.required")
-      .min(8, "auth.form.errors.password.minChars"),
-    passwordConfirmation: Yup.string()
-      .required("auth.form.errors.password.required")
-      .oneOf([Yup.ref("password")], "auth.form.errors.password.notMatching"),
+    ...baseUserDataApplyValidations,
+    ...{
+      password: Yup.string()
+        .required("auth.form.errors.password.required")
+        .min(8, "auth.form.errors.password.minChars"),
+      passwordConfirmation: Yup.string()
+        .required("auth.form.errors.password.required")
+        .oneOf([Yup.ref("password")], "auth.form.errors.password.notMatching"),
+    },
   }),
   [CourseApplySteps.Apply]: Yup.object().shape({
     childName: Yup.string().required(
@@ -166,7 +174,7 @@ const handleUserDataSave = async (formValues: ApplyCourse) => {
       email: signUpFormData.value.email,
       fullName: signUpFormData.value.fullName,
       telephoneNumber: signUpFormData.value.telephoneNumber,
-      address: signUpFormData.value.address,
+      address: `${signUpFormData.value.zipCode} ${signUpFormData.value.city}, ${signUpFormData.value.streetAddress}`,
       password:
         currentStep.value === CourseApplySteps.NewUserDataAdd
           ? null

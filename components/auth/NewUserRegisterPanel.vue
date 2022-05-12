@@ -15,12 +15,31 @@
     <common-text-input
       name="telephoneNumber"
       type="text"
+      input-mask="+36 (##) ###-####"
+      value="+36 "
       :label="$t('auth.form.telephoneNumber')"
     />
+    <div class="flex space-x-3">
+      <common-text-input
+        name="zipCode"
+        type="text"
+        input-mask="####"
+        :label="$t('auth.form.zipCode')"
+        @input="searchForCity"
+      />
+      <common-text-input
+        name="city"
+        type="text"
+        :label="$t('auth.form.city')"
+        :value="fetchedCityName"
+        class="disabled"
+        :class="isCityFetchPending ? 'animate-pulse' : ''"
+      />
+    </div>
     <common-text-input
-      name="address"
+      name="streetAddress"
       type="text"
-      :label="$t('auth.form.address')"
+      :label="$t('auth.form.streetAddress')"
       info-hint="auth.form.addressHint"
     />
     <div v-if="isOnApplyForm" class="flex justify-center space-y-2">
@@ -55,6 +74,11 @@
 </template>
 
 <script setup lang="ts">
+import { City } from "~/models/city";
+
+const fetchedCityName = ref(null);
+const isCityFetchPending = ref(false);
+
 defineProps({
   hintTranslateKey: {
     type: String,
@@ -81,5 +105,19 @@ const emit = defineEmits<{
 // TODO: event type-ja?
 const updateIsDataToBeSaved = (event) => {
   emit("update:isDataToBeSaved", event.target.checked);
+};
+
+// TODO: miért nem jó a property hivatkozás vajon? (_value)
+// TODO: error kezelés
+// TODO: pending meg adat kiszervezése?
+const searchForCity = async (event: InputEvent) => {
+  if (event.target._value.length === 4) {
+    isCityFetchPending.value = true;
+    const { data } = await useFetch<City>(
+      `https://hur.webmania.cc/zips/${event.target._value}.json`
+    );
+    isCityFetchPending.value = false;
+    fetchedCityName.value = data.value?.zips[0]?.name;
+  }
 };
 </script>

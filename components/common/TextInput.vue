@@ -1,5 +1,6 @@
 <template>
-  <div :class="wrapperClass">
+  <!-- TODO: kérdés, hogy kell-e ez a wrapper class??-->
+  <div :class="wrapperClass" class="w-full">
     <div class="mb-1 flex justify-center space-x-2">
       <label :class="labelClass" :for="name">
         {{ label }}
@@ -25,6 +26,7 @@
     </div>
     <input
       :id="name"
+      v-maska="inputMask"
       :name="name"
       :type="type"
       :value="inputValue"
@@ -91,6 +93,10 @@ const props = defineProps({
     default:
       "rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
   },
+  inputMask: {
+    type: String,
+    default: null,
+  },
 });
 
 const {
@@ -102,4 +108,12 @@ const {
 } = useField(props.name, undefined, {
   initialValue: props.value,
 });
+
+// TODO: kérdéses, hogy mennyire szép. Esetleg Githubon megkérdezni?
+watch(
+  () => props.value,
+  (newValue: string) => {
+    handleChange(newValue);
+  }
+);
 </script>
