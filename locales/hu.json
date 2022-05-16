@@ -129,7 +129,10 @@
   },
   "project": {
     "projectDetails": {
-      "courses": "Kurzusok"
+      "courses": {
+        "title": "Kurzusok",
+        "loadMore": "Még több kurzus"
+      }
     }
   },
   "course": {

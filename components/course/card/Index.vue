@@ -1,13 +1,16 @@
 <template>
   <div
-    class="m-auto flex h-auto w-full flex-col space-y-5 overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800 md:w-3/5"
+    class="m-auto flex h-auto w-full flex-col overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800 md:w-3/5"
   >
-    <img
-      alt="news photo"
-      :src="imageUrl"
-      class="m-auto rounded-lg p-4 lg:w-3/4 xl:w-1/2"
-    />
-    <div class="w-full">
+    <common-transition-expand>
+      <img
+        v-if="!isApplyActive"
+        alt="news photo"
+        :src="imageUrl"
+        class="m-auto rounded-lg lg:w-3/4 xl:w-1/2"
+      />
+    </common-transition-expand>
+    <div class="mt-2 w-full">
       <nuxt-link
         :to="{ name: 'courses-courseId', params: { courseId } }"
         class="mb-2 text-center text-2xl font-bold text-blue-600 transition duration-300 ease-in-out hover:text-blue-800 dark:text-gray-200 dark:hover:text-gray-400"
@@ -27,14 +30,19 @@
       </div>
       <div class="border-t-2 border-t-blue-100">
         <div class="m-4 flex">
-          <course-card-social-shares
-            :title="title"
-            :description="description"
-          ></course-card-social-shares>
+          <common-transition-expand>
+            <div v-if="!isApplyActive">
+              <course-card-social-shares
+                :title="title"
+                :description="description"
+              ></course-card-social-shares>
+            </div>
+          </common-transition-expand>
           <course-card-apply-actions
             v-if="!userStore.user._id || userStore.isSimpleUser"
             v-model:is-apply-active="isApplyActive"
             :course-id="courseId"
+            :is-on-details="isOnDetails"
           ></course-card-apply-actions>
         </div>
         <div class="pb-4">
@@ -91,6 +99,10 @@ defineProps({
   },
   imageUrl: {
     type: String,
+    required: true,
+  },
+  isOnDetails: {
+    type: Boolean,
     required: true,
   },
 });

@@ -12,6 +12,7 @@
         :date-from="data.course.dateFrom"
         :date-to="data.course.dateTo"
         :image-url="data.course.imageUrl"
+        :is-on-details="true"
       />
     </div>
   </div>
