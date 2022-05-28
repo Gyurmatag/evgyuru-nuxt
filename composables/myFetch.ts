@@ -8,6 +8,7 @@ interface FetchInputs {
   body?: object;
   headers?: HeadersInit;
   isAuthenticated?: boolean;
+  initialCache?: boolean;
 }
 
 // TODO: requestType hozzáadása
@@ -18,6 +19,7 @@ export const useCustomFetch = <ResponseType>({
   body,
   headers,
   isAuthenticated = false,
+  initialCache = true,
 }: FetchInputs) => {
   const { API_BASE: baseURL } = useRuntimeConfig();
   const userStore = useUserStore();
@@ -32,5 +34,6 @@ export const useCustomFetch = <ResponseType>({
         ? { "x-access-token": userStore.user.accessToken }
         : {}),
     },
+    initialCache,
   });
 };

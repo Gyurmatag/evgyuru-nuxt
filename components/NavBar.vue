@@ -38,7 +38,7 @@
           </nuxt-link>
           <nuxt-link
             v-else
-            to="/auth/profile"
+            to="/profile"
             class="cursor-pointer rounded-full border border-blue-800 bg-blue-50 p-2 text-gray-800 transition duration-300 ease-in-out hover:bg-blue-100 dark:border-blue-700 dark:bg-transparent dark:text-gray-300 dark:hover:bg-black"
           >
             {{ userStore.monogram }}

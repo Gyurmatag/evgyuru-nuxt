@@ -10,3 +10,5 @@ export const COURSE = "course";
 export const COURSES = "courses";
 export const PROJECT = "project";
 export const PROJECTS = "projects";
+export const EXTERNAL = "external";
+export const IMAGE_UPLOAD = "image-upload";

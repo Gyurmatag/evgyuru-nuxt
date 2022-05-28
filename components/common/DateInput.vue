@@ -6,32 +6,14 @@
         <!-- TODO: itt nyelvesítés labelnél -->
         {{ label }}
       </label>
-      <span
-        v-if="infoHint"
-        class="cursor-pointer rounded-md border border-blue-100 bg-gray-100 px-2 text-sm text-blue-600 transition duration-300 ease-in-out hover:bg-gray-200 dark:bg-gray-600 dark:text-blue-400 dark:hover:bg-gray-500"
-        @click="infoHintActive = !infoHintActive"
-      >
-        ?
-      </span>
     </div>
-    <!-- TODO: ez a hint komponens kiszervezése commonban -->
-    <div class="mb-2">
-      <common-transition-expand>
-        <div
-          v-if="infoHintActive"
-          class="rounded-md bg-blue-50 text-sm text-gray-800 opacity-80 dark:bg-gray-800 dark:text-gray-300"
-        >
-          <div class="p-2">{{ $t(infoHint) }}</div>
-        </div>
-      </common-transition-expand>
-    </div>
-    <component
-      :is="isTextArea ? 'textarea' : 'input'"
+    <!-- TODO: ez így biztos jó / szép? $commonDateFormat(inputValue) nézni kell akkor a backnednél is, hogy konvertálni kell! -->
+    <!-- TODO: v-model-es megoldás biztos, hogy jó? -->
+    <datepicker
       :id="name"
-      v-maska="inputMask"
+      v-model="inputValue"
       :name="name"
-      :type="type"
-      :value="inputValue"
+      class="w-full"
       :class="[
         {
           'border-red-300 focus:border-red-500 dark:border-red-300 dark:focus:border-red-500':
@@ -40,7 +22,7 @@
         },
         inputClass,
       ]"
-      @input="handleChange"
+      :locale="hu"
       @blur="handleBlur"
     />
     <common-transition-expand>
@@ -56,22 +38,14 @@
 
 <script setup lang="ts">
 import { useField } from "vee-validate";
-
-const infoHintActive = ref(false);
+// TODO: miért kell importálni a DatePickert? Valmiért nem jó a pluginban.
+import Datepicker from "vue3-datepicker";
+import { hu } from "date-fns/locale";
 
 const props = defineProps({
-  // TODO: type-ot tipizálni
-  type: {
-    type: String,
-    default: "text",
-  },
-  isTextArea: {
-    type: Boolean,
-    default: false,
-  },
   value: {
-    type: String,
-    default: "",
+    type: Date,
+    default: new Date(),
   },
   name: {
     type: String,
@@ -80,11 +54,6 @@ const props = defineProps({
   label: {
     type: String,
     required: true,
-  },
-  infoHint: {
-    type: String,
-    required: false,
-    default: null,
   },
   wrapperClass: {
     type: String,
@@ -99,27 +68,14 @@ const props = defineProps({
     default:
       "rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
   },
-  inputMask: {
-    type: String,
-    default: null,
-  },
 });
 
 const {
   value: inputValue,
   errorMessage,
   handleBlur,
-  handleChange,
   meta,
 } = useField(props.name, undefined, {
   initialValue: props.value,
 });
-
-// TODO: kérdéses, hogy mennyire szép. Esetleg Githubon megkérdezni?
-watch(
-  () => props.value,
-  (newValue: string) => {
-    handleChange(newValue);
-  }
-);
 </script>

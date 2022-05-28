@@ -110,6 +110,7 @@ const updateIsDataToBeSaved = (event) => {
 // TODO: miért nem jó a property hivatkozás vajon? (_value)
 // TODO: error kezelés
 // TODO: pending meg adat kiszervezése?
+// TODO: URL kiemelése
 const searchForCity = async (event: InputEvent) => {
   if (event.target._value.length === 4) {
     isCityFetchPending.value = true;

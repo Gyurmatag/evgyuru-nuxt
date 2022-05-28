@@ -35,9 +35,10 @@
           v-if="currentStep === AuthenticationSteps.NewUserRegister"
           :user-email="loginFormData.email"
         ></auth-new-user-register-panel>
-        <auth-signup-success-panel
+        <common-success-panel
           v-if="currentStep === AuthenticationSteps.SignupSuccess"
-        ></auth-signup-success-panel>
+          :success-message-key="'auth.form.newProfileSuccess'"
+        ></common-success-panel>
         <button
           class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
           type="submit"

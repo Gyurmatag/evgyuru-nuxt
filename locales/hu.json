@@ -12,7 +12,9 @@
     "occasions": "{occasions} alkalom",
     "here": "Itt",
     "yes": "Igen",
-    "cancel": "Mégsem"
+    "cancel": "Mégsem",
+    "browsePicture": "Kép tallózása",
+    "replacePicture": "Kép cseréje"
   },
   "nav": {
     "manocska": "Manócska Tanoda",
@@ -82,14 +84,55 @@
       }
     },
     "moderator": {
-      "reservations": {
-        "title": "Kurzusok, amelyekre jelentkezések vannak",
+      "courses": {
+        "title": "Kurzusok",
         "noReservations": "Még nincsenek jelentkezések",
         "table": {
           "parentName": "Szülő neve",
           "childName": "Gyermek neve",
           "telephoneNumber": "Telefonszám",
           "address": "Számlázási cím"
+        }
+      },
+      "newCourse": {
+        "title": "Adjunk hozzá egy kurzust!",
+        "form": {
+          "project": "Projekt",
+          "title": "Cím",
+          "description": "Leírás",
+          "price": "Díj (HUF)",
+          "occasions": "Alkalmak száma",
+          "dateFrom": "Kezdő dátum",
+          "dateTo": "Vég dátum",
+          "imageUrl": "Borítókép",
+          "success": "Kurzus sikeresen felvéve!",
+          "navigateToProfileAfterSuccess1": "A felvett kurzusukat a",
+          "profileLink": "profil vezőrlőpultból",
+          "navigateToProfileAfterSuccess2": "tudod kezelni.",
+          "errors": {
+            "title": {
+              "required": "Kurzus címének megadása kötelező"
+            },
+            "description": {
+              "required": "Leírás megadása kötelező"
+            },
+            "price": {
+              "required": "Ár megadása kötelező"
+            },
+            "occasions": {
+              "required": "Alkalmak száma megadása kötelező"
+            },
+            "dateFrom": {
+              "required": "Kezdő időpont megadása kötelező"
+            },
+            "dateTo": {
+              "required": "Befejezési időpont megadása kötelező",
+              "beforeDateFrom": "A vég dátum nem lehet korábban a kezdő dátumnál"
+            },
+            "imageUrl": {
+              "required": "Kép felöltése kötelező"
+            }
+          }
         }
       }
     }

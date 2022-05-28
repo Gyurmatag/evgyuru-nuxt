@@ -7,16 +7,16 @@
         >
           <tr>
             <th scope="col" class="px-6 py-3">
-              {{ $t("profile.moderator.reservations.table.parentName") }}
+              {{ $t("profile.moderator.courses.table.parentName") }}
             </th>
             <th scope="col" class="px-6 py-3">
-              {{ $t("profile.moderator.reservations.table.childName") }}
+              {{ $t("profile.moderator.courses.table.childName") }}
             </th>
             <th scope="col" class="px-6 py-3">
-              {{ $t("profile.moderator.reservations.table.telephoneNumber") }}
+              {{ $t("profile.moderator.courses.table.telephoneNumber") }}
             </th>
             <th scope="col" class="px-6 py-3">
-              {{ $t("profile.moderator.reservations.table.address") }}
+              {{ $t("profile.moderator.courses.table.address") }}
             </th>
           </tr>
         </thead>
@@ -45,7 +45,7 @@
         v-if="!reservationList.reservations.length"
         class="py-3 text-sm dark:text-gray-400"
       >
-        {{ $t("profile.moderator.reservations.noReservations") }}
+        {{ $t("profile.moderator.courses.noReservations") }}
       </div>
     </div>
   </div>
