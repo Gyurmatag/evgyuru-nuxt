@@ -11,6 +11,7 @@
     "priceInHuf": "{price} HUF",
     "occasions": "{occasions} alkalom",
     "here": "Itt",
+    "deleteConfirm": "Biztosan törlöd?",
     "yes": "Igen",
     "cancel": "Mégsem",
     "browsePicture": "Kép tallózása",
@@ -87,6 +88,10 @@
       "courses": {
         "title": "Kurzusok",
         "noReservations": "Még nincsenek jelentkezések",
+        "delete": {
+          "courseDeleted": "(törölve)",
+          "confirmation": "Biztosan törlőd ezt a kurzust?",
+        },
         "table": {
           "parentName": "Szülő neve",
           "childName": "Gyermek neve",

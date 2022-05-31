@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col space-y-4 text-sm text-gray-700 dark:text-gray-300">
-    <div>{{ $t("profile.user.reservations.deleteConfirm") }}</div>
-    <div class="flex justify-between">
+    <div>{{ $t(confirmationMsgKey) }}</div>
+    <div class="flex space-x-2">
       <button
         class="rounded-md bg-red-500 p-2 text-gray-200 transition duration-300 ease-in-out hover:bg-red-600"
-        @click="emit('deleteReservation')"
+        @click="emit('delete')"
       >
         {{ $t("common.yes") }}
       </button>
       <button
         class="rounded-md border border-blue-400 p-2 transition duration-300 ease-in-out hover:bg-blue-300 dark:hover:bg-gray-600"
-        @click="emit('cancelDeleteConfirmation')"
+        @click="emit('cancelDelete')"
       >
         {{ $t("common.cancel") }}
       </button>
@@ -19,8 +19,15 @@
 </template>
 
 <script setup lang="ts">
+defineProps({
+  confirmationMsgKey: {
+    type: String,
+    default: "common.deleteConfirm",
+  },
+});
+
 const emit = defineEmits<{
-  (e: "deleteReservation"): void;
-  (e: "cancelDeleteConfirmation"): void;
+  (e: "delete"): void;
+  (e: "cancelDelete"): void;
 }>();
 </script>

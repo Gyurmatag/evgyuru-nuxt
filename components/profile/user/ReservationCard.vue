@@ -15,11 +15,12 @@
   </div>
 
   <common-transition-expand>
-    <profile-user-delete-reservation-confirmation-panel
+    <common-delete-confirmation-panel
       v-if="isDeleteConfirmationMessageVisible"
-      @cancel-delete-confirmation="isDeleteConfirmationMessageVisible = false"
-      @delete-reservation="deleteReservation(reservationId)"
-    ></profile-user-delete-reservation-confirmation-panel>
+      confirmation-msg-key="profile.user.reservations.deleteConfirm"
+      @cancel-delete="isDeleteConfirmationMessageVisible = false"
+      @delete="deleteReservation(reservationId)"
+    ></common-delete-confirmation-panel>
   </common-transition-expand>
 </template>
 
@@ -43,7 +44,7 @@ defineProps({
 });
 
 // TODO: error kezelés
-const deleteReservation = async (reservationId) => {
+const deleteReservation = async (reservationId: string) => {
   const { data } = await useCustomFetch({
     path: `${RESERVATION}/${reservationId}`,
     method: FetchMethods.DELETE,
