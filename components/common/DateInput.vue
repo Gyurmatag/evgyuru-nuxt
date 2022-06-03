@@ -7,7 +7,6 @@
         {{ label }}
       </label>
     </div>
-    <!-- TODO: ez így biztos jó / szép? $commonDateFormat(inputValue) nézni kell akkor a backnednél is, hogy konvertálni kell! -->
     <!-- TODO: v-model-es megoldás biztos, hogy jó? -->
     <datepicker
       :id="name"
@@ -44,7 +43,7 @@ import { hu } from "date-fns/locale";
 
 const props = defineProps({
   value: {
-    type: Date,
+    type: [Date, String] as PropType<Date | string>,
     default: new Date(),
   },
   name: {

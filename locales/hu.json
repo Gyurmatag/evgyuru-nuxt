@@ -99,8 +99,9 @@
           "address": "Számlázási cím"
         }
       },
-      "newCourse": {
-        "title": "Adjunk hozzá egy kurzust!",
+      "manageCourse": {
+        "newTitle": "Adjunk hozzá egy kurzust!",
+        "editTitle": "Módosítsuk a kurzust!",
         "form": {
           "project": "Projekt",
           "title": "Cím",
@@ -110,7 +111,8 @@
           "dateFrom": "Kezdő dátum",
           "dateTo": "Vég dátum",
           "imageUrl": "Borítókép",
-          "success": "Kurzus sikeresen felvéve!",
+          "saveSuccess": "Kurzus sikeresen felvéve!",
+          "editSuccess": "Kurzus sikeresen módosítva!",
           "navigateToProfileAfterSuccess1": "A felvett kurzusukat a",
           "profileLink": "profil vezőrlőpultból",
           "navigateToProfileAfterSuccess2": "tudod kezelni.",
@@ -132,6 +134,7 @@
             },
             "dateTo": {
               "required": "Befejezési időpont megadása kötelező",
+              "afterDateTo": "A kezdő dátum nem lehet a vég dátum után",
               "beforeDateFrom": "A vég dátum nem lehet korábban a kezdő dátumnál"
             },
             "imageUrl": {

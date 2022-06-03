@@ -7,7 +7,7 @@
         {{ $t("profile.moderator.courses.title") }}
       </div>
       <nuxt-link
-        to="/profile/newCourse"
+        to="/profile/course/new"
         class="cursor-pointer rounded-md bg-green-600 px-2 text-2xl font-black text-white transition duration-300 ease-in-out hover:bg-green-700"
       >
         +

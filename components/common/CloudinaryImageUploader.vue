@@ -36,9 +36,20 @@ import { Image } from "~/models/image";
 const uploadPending = ref(false);
 const uploadDone = ref(false);
 
+const props = defineProps({
+  isImageUrlAlreadyProvided: {
+    type: Boolean,
+    default: false,
+  },
+});
+
 const emit = defineEmits<{
   (e: "imageUploaded", url: string): void;
 }>();
+
+if (props.isImageUrlAlreadyProvided) {
+  uploadDone.value = true;
+}
 
 // TODO: hiba kezelés
 const uploadFileSelected = async (event: Event) => {

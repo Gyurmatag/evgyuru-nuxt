@@ -15,16 +15,24 @@
   <common-transition-expand>
     <!-- TODO: kiszervezni a komponenseket --->
     <div v-if="courseDetailPanelOpened">
-      <span
-        v-if="!wasDeleteSuccessful"
-        class="material-icons-outlined cursor-pointer text-3xl text-red-600 transition duration-300 ease-in-out hover:text-red-700"
-        @click="
-          isDeleteConfirmationMessageVisible =
-            !isDeleteConfirmationMessageVisible
-        "
-      >
-        delete
-      </span>
+      <div class="space-x-2">
+        <span
+          v-if="!wasDeleteSuccessful"
+          class="material-icons-outlined cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-red-700 dark:text-gray-400 dark:hover:text-red-700"
+          @click="
+            isDeleteConfirmationMessageVisible =
+              !isDeleteConfirmationMessageVisible
+          "
+        >
+          delete
+        </span>
+        <nuxt-link
+          class="material-icons-outlined cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-orange-700 dark:text-gray-400 dark:hover:text-orange-700"
+          :to="{ name: 'profile-course-edit-courseId', params: { courseId } }"
+        >
+          edit
+        </nuxt-link>
+      </div>
       <common-transition-expand>
         <div v-if="isDeleteConfirmationMessageVisible">
           <!-- TODO: esetlegesen v-model bevezetése @cancel-delete-nél -->

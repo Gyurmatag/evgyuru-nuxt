@@ -4,14 +4,14 @@
   >
     <div class="w-full max-w-6xl items-center justify-center p-6 text-center">
       <course-card
-        :course-id="data.course._id"
-        :title="data.course.title"
-        :description="data.course.description"
-        :price="data.course.price"
-        :occasions="data.course.occasions"
-        :date-from="data.course.dateFrom"
-        :date-to="data.course.dateTo"
-        :image-url="data.course.imageUrl"
+        :course-id="data._id"
+        :title="data.title"
+        :description="data.description"
+        :price="data.price"
+        :occasions="data.occasions"
+        :date-from="data.dateFrom"
+        :date-to="data.dateTo"
+        :image-url="data.imageUrl"
         :is-on-details="true"
       />
     </div>

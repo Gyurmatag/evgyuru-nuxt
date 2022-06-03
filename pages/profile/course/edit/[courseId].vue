@@ -1,5 +1,5 @@
 <template>
   <div class="flex flex-col">
-    <profile-moderator-course-new-course-form />
+    <profile-moderator-course-form :is-edit="true" />
   </div>
 </template>

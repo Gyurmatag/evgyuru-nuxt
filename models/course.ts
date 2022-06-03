@@ -1,27 +1,19 @@
 import { BaseList } from "~/models/baseList";
 
-export interface Course {
-  _id: string;
+export interface BaseCourse {
   title: string;
   description: string;
   price: number;
   occasions: number;
-  dateFrom: string;
-  dateTo: string;
+  dateFrom: Date | string;
+  dateTo: Date | string;
   imageUrl: string;
+}
+
+export interface Course extends BaseCourse {
+  _id: string;
 }
 
 export interface CourseList extends BaseList {
   courses: [Course];
-}
-
-// TODO: base kurzus létrehozása
-export interface NewCourse {
-  title: string;
-  description: string;
-  price: number;
-  occasions: number;
-  dateFrom: Date;
-  dateTo: Date;
-  imageUrl: string;
 }
