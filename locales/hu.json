@@ -147,6 +147,7 @@
   },
   "footer": {
     "financialStatements": "Pénzügyi beszámolók",
+    "privacyPolicy": "Adatvédelem",
     "copyright": "© 2022 Évgyűrű Alapítvány"
   },
   "donate": {
@@ -212,5 +213,9 @@
         "2021": "2021-es év"
       }
     }
+  },
+  "privacyPolicy": {
+    "dataManagementInformation": "Adatkezelési Tájékoztató",
+    "dataProtectionAndDataManagementPolicy": "Adatvédelmi és Adatkezelési Szabályzat"
   }
 }
