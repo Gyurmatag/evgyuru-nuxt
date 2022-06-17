@@ -25,6 +25,7 @@
             v-if="currentStep === CourseApplySteps.Apply"
             :meta="meta"
             :is-submitting="isSubmitting"
+            :is-user-will-be-registered="isDataToBeSaved"
           >
           </course-card-apply-new-apply-panel>
           <course-card-apply-applied-panel
@@ -108,6 +109,11 @@ const baseUserDataApplyValidations = {
   streetAddress: Yup.string().required(
     "auth.form.errors.streetAddress.required"
   ),
+  acceptDataManagement: Yup.boolean().isTrue(),
+};
+
+const acceptDataManagementValidation = {
+  acceptDataManagement: Yup.boolean().isTrue(),
 };
 
 const validationSchemas = {
@@ -131,13 +137,14 @@ const validationSchemas = {
       passwordConfirmation: Yup.string()
         .required("auth.form.errors.password.required")
         .oneOf([Yup.ref("password")], "auth.form.errors.password.notMatching"),
-      acceptDataManagement: Yup.boolean().isTrue(),
+      ...acceptDataManagementValidation,
     },
   }),
   [CourseApplySteps.Apply]: Yup.object().shape({
     childName: Yup.string().required(
       "course.apply.form.errors.childName.required"
     ),
+    ...(isDataToBeSaved ? acceptDataManagementValidation : {}),
   }),
 };
 
