@@ -22,6 +22,9 @@ module.exports = {
       body: ["Montserrat"],
       mono: ["Source Code Pro", "SFMono-Regular"],
     },
+    fontSize: {
+      xxs: ".6em",
+    },
   },
   variants: {
     extend: {

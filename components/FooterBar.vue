@@ -61,22 +61,28 @@
     </div>
     <div class="flex flex-col space-y-2 text-center">
       <a
-        href="https://res.cloudinary.com/gyurmatag/image/upload/v1655310202/%C3%89vgy%C5%B1r%C5%B1/Adatkezel%C3%A9si%20doksik/gdpr_adatkezelesi_tajekoztato_weboldal.pdf"
+        :href="dataManagementInformationLink"
         target="_blank"
         class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
       >
         {{ $t("privacyPolicy.dataManagementInformation") }}
       </a>
       <a
-        href="https://res.cloudinary.com/gyurmatag/image/upload/v1655310442/%C3%89vgy%C5%B1r%C5%B1/Adatkezel%C3%A9si%20doksik/R-Adatve%CC%81delmi-e%CC%81s-Adatkezele%CC%81si-Szaba%CC%81lyzat.pdf"
+        :href="dataProtectionAndDataManagementPolicyLink"
         target="_blank"
         class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
       >
         {{ $t("privacyPolicy.dataProtectionAndDataManagementPolicy") }}
       </a>
     </div>
-    <p class="mt-8 text-center text-base leading-6 text-gray-200">
+    <p class="text-base mt-8 text-center leading-6 text-gray-200">
       {{ $t("footer.copyright") }}
     </p>
   </div>
 </template>
+
+<script setup lang="ts">
+const dataManagementInformationLink = DATA_MANAGEMENT_INFORMATION;
+const dataProtectionAndDataManagementPolicyLink =
+  DATA_PROTECTION_AND_DATA_MANAGEMENT_POLICY_LINK;
+</script>

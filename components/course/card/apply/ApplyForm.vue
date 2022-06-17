@@ -32,7 +32,7 @@
           ></course-card-apply-applied-panel>
           <button
             v-if="!userStore.currentCourseReservedByUser(courseId)"
-            class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
+            class="text-sm rounded-md bg-green-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
             type="submit"
             :disabled="!meta.valid || isSubmitting"
           >
@@ -49,7 +49,7 @@
       <button
         v-if="!userStore.currentCourseReservedByUser(courseId)"
         type="button"
-        class="absolute right-0 bottom-0 rounded-md bg-gray-100 p-1 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
+        class="text-sm absolute right-0 bottom-0 rounded-md bg-gray-100 p-1 transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
         @click="emit('update:isApplyActive', false)"
       >
         {{ $t("course.apply.cancel") }}
@@ -131,6 +131,7 @@ const validationSchemas = {
       passwordConfirmation: Yup.string()
         .required("auth.form.errors.password.required")
         .oneOf([Yup.ref("password")], "auth.form.errors.password.notMatching"),
+      acceptDataManagement: Yup.boolean().isTrue(),
     },
   }),
   [CourseApplySteps.Apply]: Yup.object().shape({

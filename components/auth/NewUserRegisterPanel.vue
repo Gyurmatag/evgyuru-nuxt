@@ -56,7 +56,7 @@
     </div>
     <div>
       <common-transition-expand>
-        <div v-if="isDataToBeSaved" class="space-y-2">
+        <div v-if="isDataToBeSaved" class="space-y-3">
           <common-text-input
             name="password"
             type="password"
@@ -67,6 +67,19 @@
             type="password"
             :label="$t('auth.form.passwordAgain')"
           />
+          <div>
+            <common-checkbox-input name="acceptDataManagement" :value="true" />
+            <p class="text-xxs leading-3 text-gray-700 dark:text-gray-300">
+              {{ $t("auth.form.acceptDataManagementHint") }}
+            </p>
+            <a
+              :href="dataManagementInformationLink"
+              target="_blank"
+              class="text-xxs leading-3 text-gray-700 underline dark:text-gray-300"
+            >
+              {{ $t("auth.form.acceptDataManagementLink") }}
+            </a>
+          </div>
         </div>
       </common-transition-expand>
     </div>
@@ -75,6 +88,8 @@
 
 <script setup lang="ts">
 import { City } from "~/models/city";
+
+const dataManagementInformationLink = DATA_MANAGEMENT_INFORMATION;
 
 const fetchedCityName = ref(null);
 const isCityFetchPending = ref(false);

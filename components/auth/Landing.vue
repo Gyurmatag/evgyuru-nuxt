@@ -10,7 +10,7 @@
           currentStep !== AuthenticationSteps.Initial &&
           currentStep !== AuthenticationSteps.SignupSuccess
         "
-        class="absolute left-0 top-0 h-7 w-16 rounded-br-xl rounded-tl-xl bg-gray-100 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
+        class="text-sm absolute left-0 top-0 h-7 w-16 rounded-br-xl rounded-tl-xl bg-gray-100 transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
         type="button"
         @click="goBackToInitial"
       >
@@ -40,7 +40,7 @@
           :success-message-key="'auth.form.newProfileSuccess'"
         ></common-success-panel>
         <button
-          class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
+          class="text-sm rounded-md bg-green-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
           type="submit"
           :disabled="!meta.valid || isSubmitting"
         >
@@ -103,6 +103,7 @@ const validationSchemas = {
     passwordConfirmation: Yup.string()
       .required("auth.form.errors.password.required")
       .oneOf([Yup.ref("password")], "auth.form.errors.password.notMatching"),
+    acceptDataManagement: Yup.boolean().isTrue(),
   }),
 };
 
