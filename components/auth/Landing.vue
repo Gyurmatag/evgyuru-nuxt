@@ -160,6 +160,7 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           email: "",
           password: "",
         };
+        currentStep.value = AuthenticationSteps.Initial;
         await navigateTo({
           path: "/",
         });
