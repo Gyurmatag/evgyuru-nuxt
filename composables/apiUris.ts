@@ -12,3 +12,4 @@ export const PROJECT = "project";
 export const PROJECTS = "projects";
 export const EXTERNAL = "external";
 export const IMAGE_UPLOAD = "image-upload";
+export const DELETE = "delete";

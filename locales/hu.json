@@ -79,6 +79,10 @@
   "profile": {
     "greeting": "Szia {name}!",
     "logout": "Kijelentkezés",
+    "accountActions": {
+      "deleteAccount": "Fiók törlése",
+      "deleteAccountConfirmationMessage": "Biztosan törlöd a fiókodat?"
+    },
     "user": {
       "reservations": {
         "title": "Kurzusok, amelyekre eddig jelentkeztél",

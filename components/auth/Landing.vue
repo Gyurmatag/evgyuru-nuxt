@@ -10,7 +10,7 @@
           currentStep !== AuthenticationSteps.Initial &&
           currentStep !== AuthenticationSteps.SignupSuccess
         "
-        class="text-sm absolute left-0 top-0 h-7 w-16 rounded-br-xl rounded-tl-xl bg-gray-100 transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
+        class="absolute left-0 top-0 h-7 w-16 rounded-br-xl rounded-tl-xl bg-gray-100 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
         type="button"
         @click="goBackToInitial"
       >
@@ -40,7 +40,7 @@
           :success-message-key="'auth.form.newProfileSuccess'"
         ></common-success-panel>
         <button
-          class="text-sm rounded-md bg-green-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
+          class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
           type="submit"
           :disabled="!meta.valid || isSubmitting"
         >
@@ -126,6 +126,7 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
       const { data } = await useCustomFetch<IsEmailAlreadyRegistered>({
         path: `${AUTH}/${IS_EMAIL_ALREADY_REGISTERED}`,
         params: { email: loginFormData.value.email },
+        initialCache: false,
       });
 
       const isEmailAlreadyRegistered = data.value.isEmailAlreadyRegistered;
@@ -149,10 +150,16 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           email: loginFormData.value.email,
           password: loginFormData.value.password,
         },
+        initialCache: false,
       });
       if (!error.value) {
         userStore.user = userData.value;
         resetForm();
+        // TODO: itt majd reset default value-t meg lehetne határozni
+        loginFormData.value = {
+          email: "",
+          password: "",
+        };
         await navigateTo({
           path: "/",
         });
