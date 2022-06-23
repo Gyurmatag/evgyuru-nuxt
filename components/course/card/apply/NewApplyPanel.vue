@@ -6,14 +6,14 @@
       :label="$t('course.apply.form.childName')"
     />
     <auth-accept-data-management-panel
-      v-if="!isUserWillBeRegistered"
+      v-if="!isUserWillBeRegisteredOrAlreadyLoggedIn"
     ></auth-accept-data-management-panel>
   </div>
 </template>
 
 <script setup lang="ts">
 defineProps({
-  isUserWillBeRegistered: {
+  isUserWillBeRegisteredOrAlreadyLoggedIn: {
     type: Boolean,
     default: false,
   },

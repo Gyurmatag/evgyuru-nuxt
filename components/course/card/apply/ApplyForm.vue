@@ -25,7 +25,9 @@
             v-if="currentStep === CourseApplySteps.Apply"
             :meta="meta"
             :is-submitting="isSubmitting"
-            :is-user-will-be-registered="isDataToBeSaved"
+            :is-user-will-be-registered-or-already-logged-in="
+              isDataToBeSaved || !!userStore.user._id
+            "
           >
           </course-card-apply-new-apply-panel>
           <course-card-apply-applied-panel
@@ -144,12 +146,16 @@ const validationSchemas = {
     childName: Yup.string().required(
       "course.apply.form.errors.childName.required"
     ),
-    ...(isDataToBeSaved ? acceptDataManagementValidation : {}),
+    ...(isDataToBeSaved || !!userStore.user._id
+      ? acceptDataManagementValidation
+      : {}),
   }),
 };
 
 if (!userStore.user._id) {
   currentStep.value = CourseApplySteps.Initial;
+} else {
+  currentStep.value = CourseApplySteps.Apply;
 }
 
 const currentSchema = computed(() => validationSchemas[currentStep.value]);
@@ -228,7 +234,6 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
           email: loginFormData.value.email,
           password: loginFormData.value.password,
         },
-        initialCache: false,
       });
       if (!error.value) {
         userStore.user = userData.value;
@@ -255,15 +260,17 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
         childName: applyFormData.value.childName,
       };
 
-      if (isDataToBeSaved) {
+      if (isDataToBeSaved && signUpFormData.value) {
         applyRequestBody.userEmail = signUpFormData.value.email;
       }
 
       // TODO: error kezelés
       const { data } = await useCustomFetch<Reservation>({
-        path: `${RESERVATION}/${SAVE}`,
+        path: userStore.user._id
+          ? `${RESERVATION}/${LOGGED_IN_SAVE}`
+          : `${RESERVATION}/${SAVE}`,
         method: FetchMethods.POST,
-        isAuthenticated: true,
+        isAuthenticated: !!userStore.user._id,
         body: applyRequestBody,
       });
 

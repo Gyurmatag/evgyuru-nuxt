@@ -5,6 +5,7 @@ export const SIGNUP = "signup";
 export const RESERVATION = "reservation";
 export const RESERVATIONS = "reservations";
 export const SAVE = "save";
+export const LOGGED_IN_SAVE = "logged-in-save";
 export const USER_RESERVATIONS = "user-reservations";
 export const COURSE = "course";
 export const COURSES = "courses";
