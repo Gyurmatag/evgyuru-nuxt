@@ -13,8 +13,12 @@ export interface ReservationList extends BaseList {
   reservations: [Reservation];
 }
 
+interface Child {
+  name: string;
+}
+
 export interface ApplyCourse {
   courseId: string;
-  childName: string;
+  children: [Child];
   userEmail?: string;
 }

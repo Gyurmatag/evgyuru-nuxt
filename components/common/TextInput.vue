@@ -19,30 +19,41 @@
       <common-transition-expand>
         <div
           v-if="infoHintActive"
-          class="rounded-md bg-blue-50 text-sm text-gray-800 opacity-80 dark:bg-gray-800 dark:text-gray-300"
+          class="rounded-lg bg-blue-50 text-sm text-gray-800 opacity-80 dark:bg-gray-800 dark:text-gray-300"
         >
           <div class="p-2">{{ $t(infoHint) }}</div>
         </div>
       </common-transition-expand>
     </div>
-    <component
-      :is="isTextArea ? 'textarea' : 'input'"
-      :id="name"
-      v-maska="inputMask"
-      :name="name"
-      :type="type"
-      :value="inputValue"
-      :class="[
-        {
-          'border-red-300 focus:border-red-500 dark:border-red-300 dark:focus:border-red-500':
-            meta.touched && !meta.valid,
-          'focus:border-green-500 dark:focus:border-green-500': meta.valid,
-        },
-        inputClass,
-      ]"
-      @input="handleChange"
-      @blur="handleBlur"
-    />
+    <div class="flex flex-row">
+      <!--TODO: basis-full jó megoldás-e? -->
+      <component
+        :is="isTextArea ? 'textarea' : 'input'"
+        :id="name"
+        v-maska="inputMask"
+        :name="name"
+        :type="type"
+        :value="inputValue"
+        :class="[
+          {
+            'border-red-300 focus:border-red-500 dark:border-red-300 dark:focus:border-red-500':
+              meta.touched && !meta.valid,
+            'focus:border-green-500 dark:focus:border-green-500': meta.valid,
+          },
+          inputClass,
+        ]"
+        @input="handleChange"
+        @blur="handleBlur"
+      />
+      <button
+        v-if="isRemoveInputActive"
+        class="ml-3 h-10 w-10 rounded-lg border border-2 border-red-600 text-xs text-gray-800 transition duration-300 hover:bg-red-50 dark:text-gray-200 dark:hover:bg-red-500"
+        type="button"
+        @click="emit('deleteInput')"
+      >
+        X
+      </button>
+    </div>
     <common-transition-expand>
       <span
         v-if="errorMessage && meta.touched"
@@ -86,6 +97,11 @@ const props = defineProps({
     required: false,
     default: null,
   },
+  isRemoveInputActive: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
   wrapperClass: {
     type: String,
     default: "flex flex-col",
@@ -97,13 +113,17 @@ const props = defineProps({
   inputClass: {
     type: String,
     default:
-      "rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
+      "basis-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
   },
   inputMask: {
     type: String,
     default: null,
   },
 });
+
+const emit = defineEmits<{
+  (e: "deleteInput"): void;
+}>();
 
 const {
   value: inputValue,

@@ -202,7 +202,11 @@
       "form": {
         "noLoginHint": "E-mail cím megadása után be is tudsz lépni (ha van fiókod) vagy regisztráció nélkül is tudsz foglalni",
         "newProfileHint": "Nincs még fiókod. Adataid megadásával tudsz foglalni kurzust és akár regisztrálhatsz is, ha szeretnél",
-        "childName": "Gyermek neve",
+        "children": {
+          "universalName": "Gyermek neve",
+          "indexedName": "{index}. gyermek neve",
+          "addMore": "{index}. gyermek hozzáadása",
+        },
         "action": "Jelentkezés",
         "success": "Sikeres jelentkezés",
         "hint": "A kurzusokat, amelyekre beiratkoztál a profilodban tudod menedzselni.",

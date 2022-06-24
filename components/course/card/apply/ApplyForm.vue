@@ -143,8 +143,12 @@ const validationSchemas = {
     },
   }),
   [CourseApplySteps.Apply]: Yup.object().shape({
-    childName: Yup.string().required(
-      "course.apply.form.errors.childName.required"
+    children: Yup.array().of(
+      Yup.object().shape({
+        name: Yup.string().required(
+          "course.apply.form.errors.childName.required"
+        ),
+      })
     ),
     ...(isDataToBeSaved || !!userStore.user._id
       ? acceptDataManagementValidation
@@ -172,6 +176,15 @@ const { meta, handleSubmit, isSubmitting } = useForm<
   LoginUser | SignUpUser | ApplyCourse
 >({
   validationSchema: currentSchema,
+  // TODO: initalValues miért kell, kiszervezés?
+  initialValues: {
+    courseId: "",
+    children: [
+      {
+        name: "",
+      },
+    ],
+  },
 });
 
 const handleUserDataSave = async (formValues: ApplyCourse) => {
@@ -257,7 +270,7 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
 
       const applyRequestBody: ApplyCourse = {
         courseId: props.courseId,
-        childName: applyFormData.value.childName,
+        children: applyFormData.value.children,
       };
 
       if (isDataToBeSaved && signUpFormData.value) {
