@@ -15,6 +15,7 @@
     </div>
     <div class="flex justify-end">
       <button
+        v-if="remainingPlacesCount - fields.length > 0"
         type="button"
         class="rounded-md border border-2 border-green-600 p-1.5 text-xs text-gray-800 transition duration-300 hover:bg-green-50 dark:text-gray-200 dark:hover:bg-green-700"
         @click="push({ name: '' })"
@@ -37,6 +38,10 @@ defineProps({
   isUserWillBeRegisteredOrAlreadyLoggedIn: {
     type: Boolean,
     default: false,
+  },
+  remainingPlacesCount: {
+    type: Number,
+    required: true,
   },
 });
 

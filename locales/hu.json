@@ -204,6 +204,8 @@
   "course": {
     "apply": {
       "start": "Jelentkezem",
+      "remainingPlacesCountHint": "férőhely maradt",
+      "courseIsFull": "A kurzus betelt",
       "alreadyApplied": "Beiratkozva",
       "cancel": "Mégsem",
       "form": {

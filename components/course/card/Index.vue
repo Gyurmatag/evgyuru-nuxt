@@ -44,6 +44,8 @@
             v-model:is-apply-active="isApplyActive"
             :course-id="courseId"
             :is-on-details="isOnDetails"
+            :max-group-size="maxGroupSize"
+            :remaining-places-count="remainingPlacesCount"
           ></course-card-apply-actions>
         </div>
         <div class="pb-4">
@@ -53,6 +55,7 @@
                 v-if="isApplyActive"
                 v-model:is-apply-active="isApplyActive"
                 :course-id="courseId"
+                :remaining-places-count="remainingPlacesCount"
               ></course-card-apply-form>
             </common-transition-expand>
           </ClientOnly>
@@ -64,12 +67,13 @@
 
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
+import { ReservationList } from "~/models/reservation";
 
 const userStore = useUserStore();
 
 const isApplyActive = ref(false);
 
-defineProps({
+const props = defineProps({
   courseId: {
     type: String,
     required: true,
@@ -102,6 +106,10 @@ defineProps({
     type: Number,
     required: true,
   },
+  reservations: {
+    type: Object as PropType<ReservationList>,
+    required: true,
+  },
   imageUrl: {
     type: String,
     required: true,
@@ -110,5 +118,16 @@ defineProps({
     type: Boolean,
     required: true,
   },
+});
+
+const remainingPlacesCount = computed(() => {
+  return props.reservations.length
+    ? Math.abs(
+        props.reservations.reduce(
+          (count, current) => count + current.children.length,
+          -props.maxGroupSize
+        )
+      )
+    : props.maxGroupSize;
 });
 </script>

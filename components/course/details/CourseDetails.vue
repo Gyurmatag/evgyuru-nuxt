@@ -12,6 +12,8 @@
         :date-from="data.dateFrom"
         :date-to="data.dateTo"
         :image-url="data.imageUrl"
+        :max-group-size="data.maxGroupSize"
+        :reservations="data.reservations"
         :is-on-details="true"
       />
     </div>
@@ -26,16 +28,16 @@ const route = useRoute();
 // TODO: error kezelés
 const { data } = await useCustomFetch<Course>({
   path: `/${COURSE}/${route.params.courseId}`,
+  initialCache: false,
 });
 
-// TODO: dinamikussá tétel
+// TODO: dinamikussá tétel, beégetett értékek kivétele
 useMeta({
   meta: [
     {
       hid: "og:url",
       property: "og:url",
-      content:
-        "https://evgyuru-nuxt.netlify.app/courses/6202902940d4f85bd2542a26",
+      content: `https://evgyuru-nuxt.netlify.app/courses/${data.value._id}`,
     },
     { hid: "og:type", property: "og:type", content: "website" },
     { hid: "og:title", property: "og:title", content: data.value.title },

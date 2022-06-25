@@ -28,6 +28,7 @@
             :is-user-will-be-registered-or-already-logged-in="
               isDataToBeSaved || !!userStore.user._id
             "
+            :remaining-places-count="remainingPlacesCount"
           >
           </course-card-apply-new-apply-panel>
           <course-card-apply-applied-panel
@@ -84,6 +85,10 @@ const props = defineProps({
   },
   isApplyActive: {
     type: Boolean,
+    required: true,
+  },
+  remainingPlacesCount: {
+    type: Number,
     required: true,
   },
 });

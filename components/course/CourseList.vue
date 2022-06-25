@@ -11,6 +11,7 @@
         :date-to="course.dateTo"
         :image-url="course.imageUrl"
         :max-group-size="course.maxGroupSize"
+        :reservations="course.reservations"
         :is-on-details="false"
       />
     </div>
