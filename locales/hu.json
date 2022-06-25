@@ -103,7 +103,7 @@
         },
         "table": {
           "parentName": "Szülő neve",
-          "childName": "Gyermek neve",
+          "childName": "Gyermek(ek) neve",
           "telephoneNumber": "Telefonszám",
           "address": "Számlázási cím"
         }

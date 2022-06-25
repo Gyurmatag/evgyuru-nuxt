@@ -30,7 +30,9 @@
               {{ reservation.user.fullName }}
             </th>
             <td class="px-6 py-4">
-              {{ reservation.childName }}
+              <div v-for="child in reservation.children" :key="child._id">
+                {{ child.name }}
+              </div>
             </td>
             <td class="px-6 py-4">
               {{ reservation.user.telephoneNumber }}
