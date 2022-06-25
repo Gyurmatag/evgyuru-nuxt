@@ -59,6 +59,12 @@
                 :is-text-area="true"
                 :label="$t('profile.moderator.manageCourse.form.description')"
               />
+              <common-text-input
+                name="maxGroupSize"
+                type="text"
+                input-mask="###"
+                :label="$t('profile.moderator.manageCourse.form.maxGroupSize')"
+              />
               <div
                 class="flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0"
               >
@@ -156,6 +162,9 @@ const validationSchema = Yup.object().shape({
   ),
   description: Yup.string().required(
     "profile.moderator.manageCourse.form.errors.description.required"
+  ),
+  maxGroupSize: Yup.number().required(
+    "profile.moderator.manageCourse.form.errors.maxGroupSize.required"
   ),
   price: Yup.number().required(
     "profile.moderator.manageCourse.form.errors.price.required"

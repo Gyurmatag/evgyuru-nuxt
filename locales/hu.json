@@ -10,6 +10,7 @@
     "greeting": "Szia!",
     "priceInHuf": "{price} HUF",
     "occasions": "{occasions} alkalom",
+    "maxGroupSize": "{maxGroupSize} fő",
     "here": "Itt",
     "deleteConfirm": "Biztosan törlöd?",
     "yes": "Igen",
@@ -115,6 +116,7 @@
           "project": "Projekt",
           "title": "Cím",
           "description": "Leírás",
+          "maxGroupSize": "Maximális létszám",
           "price": "Díj (HUF)",
           "occasions": "Alkalmak száma",
           "dateFrom": "Kezdő dátum",
@@ -131,6 +133,9 @@
             },
             "description": {
               "required": "Leírás megadása kötelező"
+            },
+            "maxGroupSize": {
+              "required": "Maximális létszám megadása kötelező"
             },
             "price": {
               "required": "Ár megadása kötelező"

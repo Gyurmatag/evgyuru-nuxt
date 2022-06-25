@@ -10,6 +10,7 @@
         :date-from="course.dateFrom"
         :date-to="course.dateTo"
         :image-url="course.imageUrl"
+        :max-group-size="course.maxGroupSize"
         :is-on-details="false"
       />
     </div>

@@ -11,6 +11,10 @@
     :icon-name="'date_range'"
     :value-text="$dateIntervalFormat(dateFrom, dateTo)"
   ></common-card-item>
+  <common-card-item
+    :icon-name="'person'"
+    :value-text="$t('common.maxGroupSize', { maxGroupSize })"
+  ></common-card-item>
 </template>
 
 <script setup lang="ts">
@@ -29,6 +33,10 @@ defineProps({
   },
   dateTo: {
     type: String,
+    required: true,
+  },
+  maxGroupSize: {
+    type: Number,
     required: true,
   },
 });

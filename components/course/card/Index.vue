@@ -26,6 +26,7 @@
           :occasions="occasions"
           :date-from="dateFrom"
           :date-to="dateTo"
+          :max-group-size="maxGroupSize"
         ></course-card-description-items>
       </div>
       <div class="border-t-2 border-t-blue-100">
@@ -95,6 +96,10 @@ defineProps({
   },
   dateTo: {
     type: String,
+    required: true,
+  },
+  maxGroupSize: {
+    type: Number,
     required: true,
   },
   imageUrl: {

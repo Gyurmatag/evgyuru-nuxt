@@ -8,6 +8,7 @@ export interface BaseCourse {
   dateFrom: Date | string;
   dateTo: Date | string;
   imageUrl: string;
+  maxGroupSize: number;
 }
 
 export interface Course extends BaseCourse {
