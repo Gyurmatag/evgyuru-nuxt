@@ -1,4 +1,5 @@
 import { BaseList } from "~/models/baseList";
+import { Reservation } from "~/models/reservation";
 
 export interface BaseCourse {
   title: string;
@@ -9,6 +10,7 @@ export interface BaseCourse {
   dateTo: Date | string;
   imageUrl: string;
   maxGroupSize: number;
+  reservations: [Reservation];
 }
 
 export interface Course extends BaseCourse {
