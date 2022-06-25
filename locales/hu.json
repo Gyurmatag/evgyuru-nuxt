@@ -15,7 +15,8 @@
     "yes": "Igen",
     "cancel": "Mégsem",
     "browsePicture": "Kép tallózása",
-    "replacePicture": "Kép cseréje"
+    "replacePicture": "Kép cseréje",
+    "nothing": ""
   },
   "nav": {
     "manocska": "Manócska Tanoda",
@@ -39,6 +40,7 @@
       "addressHint": "A lakcím megadása a számlázás miatt szükséges.",
       "passwordFirst": "Biztonságos jelszó",
       "passwordAgain": "Jelszó mégegyszer",
+      "acceptNewsletter": "Szeretnék frissítéseket a jövőben induló kurzusokról",
       "acceptDataManagement": "",
       "acceptDataManagementHint": "A checkbox pipálásával - az Általános Adatvédelmi Rendelet (GDPR) 6. cikk (1) bekezdés a) pontja, továbbá a 7. cikk rendelkezése alapján - hozzájárulok, hogy az adatkezelő a most megadott személyes adataimat a GDPR, továbbá a saját adatkezelési tájékoztatójának feltételei szerint kezelje. Tudomásul veszem, hogy a GDPR 7. cikk (3) bekezdése szerint a hozzájárulásomat bármikor visszavonhatom, akár egy kattintással.",
       "acceptDataManagementLink": "Adatkezelési tájékoztató",

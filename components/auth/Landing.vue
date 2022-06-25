@@ -183,6 +183,7 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           telephoneNumber: signUpFormData.value.telephoneNumber,
           address: `${signUpFormData.value.zipCode} ${signUpFormData.value.city}, ${signUpFormData.value.streetAddress}`,
           password: signUpFormData.value.password,
+          acceptNewsletter: signUpFormData.value.acceptNewsletter,
         },
       });
       if (!error.value) {

@@ -24,6 +24,7 @@ export interface SignUpUser {
   streetAddress: string;
   password: string;
   passwordConfirmation: string;
+  acceptNewsletter: boolean;
 }
 
 export interface LoginUser {

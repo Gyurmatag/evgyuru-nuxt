@@ -56,7 +56,7 @@
     </div>
     <div>
       <common-transition-expand>
-        <div v-if="isDataToBeSaved" class="space-y-3">
+        <div v-if="isDataToBeSaved" class="space-y-4">
           <common-text-input
             name="password"
             type="password"
@@ -66,6 +66,12 @@
             name="passwordConfirmation"
             type="password"
             :label="$t('auth.form.passwordAgain')"
+          />
+          <common-checkbox-input
+            name="acceptNewsletter"
+            :value="true"
+            label-key="auth.form.acceptNewsletter"
+            label-class="text-sm"
           />
           <auth-accept-data-management-panel></auth-accept-data-management-panel>
         </div>

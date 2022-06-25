@@ -1,5 +1,5 @@
 <template>
-  <div :class="wrapperClass" class="w-full">
+  <div :class="wrapperClass" class="space-x-2">
     <input
       :id="name"
       type="checkbox"
@@ -8,7 +8,9 @@
       :class="inputClass"
       @input="handleChange"
     />
-    <label :class="labelClass" :for="name"></label>
+    <label :class="labelClass" :for="name" class="text-left">
+      {{ $t(labelKey) }}
+    </label>
   </div>
 </template>
 
@@ -26,7 +28,11 @@ const props = defineProps({
   },
   wrapperClass: {
     type: String,
-    default: "flex flex-col space-y-2 items-center",
+    default: "flex",
+  },
+  labelKey: {
+    type: String,
+    default: "common.nothing",
   },
   labelClass: {
     type: String,
