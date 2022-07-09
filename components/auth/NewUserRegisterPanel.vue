@@ -71,7 +71,7 @@
             name="acceptNewsletter"
             :value="true"
             label-key="auth.form.acceptNewsletter"
-            label-class="text-sm"
+            label-class="flex cursor-pointer justify-center text-sm text-gray-800 dark:text-gray-300"
           />
           <auth-accept-data-management-panel></auth-accept-data-management-panel>
         </div>
