@@ -9,6 +9,8 @@ interface FetchInputs {
   headers?: HeadersInit;
   isAuthenticated?: boolean;
   initialCache?: boolean;
+  server?: boolean;
+  lazy?: boolean;
 }
 
 // TODO: requestType hozzáadása
@@ -20,6 +22,8 @@ export const useCustomFetch = <ResponseType>({
   headers,
   isAuthenticated = false,
   initialCache = true,
+  server = true,
+  lazy = false,
 }: FetchInputs) => {
   const { API_BASE: baseURL } = useRuntimeConfig();
   const userStore = useUserStore();
@@ -35,5 +39,16 @@ export const useCustomFetch = <ResponseType>({
         : {}),
     },
     initialCache,
+    server,
+    lazy,
+    async onResponseError({ request, options, response }) {
+      // TODO: itt finomítani: hibakód, refresh token küldése és token frissítés, miért kell kérdőjeles conditional check response-ra?
+      if (response?._data.message === "jwt expired") {
+        await navigateTo({
+          path: "/",
+        });
+        userStore.$reset();
+      }
+    },
   });
 };

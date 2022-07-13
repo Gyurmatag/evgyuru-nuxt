@@ -2,6 +2,7 @@ export const AUTH = "auth";
 export const IS_EMAIL_ALREADY_REGISTERED = "is-email-already-registered";
 export const SIGNIN = "signin";
 export const SIGNUP = "signup";
+export const ACTIVATION = "activation";
 export const RESERVATION = "reservation";
 export const RESERVATIONS = "reservations";
 export const SAVE = "save";

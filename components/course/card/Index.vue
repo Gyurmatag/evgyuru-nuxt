@@ -40,7 +40,10 @@
             </div>
           </common-transition-expand>
           <course-card-apply-actions
-            v-if="!userStore.user._id || userStore.isSimpleUser"
+            v-if="
+              !userStore.user._id ||
+              (userStore.isSimpleUser && userStore.user.isActivated)
+            "
             v-model:is-apply-active="isApplyActive"
             :course-id="courseId"
             :is-on-details="isOnDetails"

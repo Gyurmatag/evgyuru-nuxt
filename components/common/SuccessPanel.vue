@@ -6,6 +6,9 @@
     <div class="text-gray-700 dark:text-gray-200">
       {{ $t(successMessageKey) }}
     </div>
+    <common-hint-card v-if="hintKey" :hint-key="hintKey">
+      <common-icon-inbox></common-icon-inbox>
+    </common-hint-card>
   </div>
 </template>
 
@@ -14,6 +17,10 @@ defineProps({
   successMessageKey: {
     type: String,
     required: true,
+  },
+  hintKey: {
+    type: String,
+    default: "",
   },
 });
 </script>

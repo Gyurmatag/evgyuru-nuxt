@@ -38,6 +38,7 @@
         <common-success-panel
           v-if="currentStep === AuthenticationSteps.SignupSuccess"
           :success-message-key="'auth.form.newProfileSuccess'"
+          :hint-key="'auth.form.newProfileEmailActivationHint'"
         ></common-success-panel>
         <button
           class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
@@ -153,7 +154,13 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
         initialCache: false,
       });
       if (!error.value) {
-        userStore.user = userData.value;
+        userStore.user = {
+          ...userData.value,
+          // TODO: itt miért is kell konvertálni a accessTokenExpireTimeInMs számmá?
+          accessTokenExpireDate: new Date(
+            Date.now() + +userData.value.accessTokenExpireTimeInMs
+          ),
+        };
         resetForm();
         // TODO: itt majd reset default value-t meg lehetne határozni
         loginFormData.value = {

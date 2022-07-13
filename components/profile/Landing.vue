@@ -3,6 +3,10 @@
     class="my-8 flex max-w-6xl flex-col items-center justify-center px-4 md:flex-row"
   >
     <div class="flex w-screen flex-col space-y-4 p-4">
+      <common-hint-card
+        v-if="!userStore.user.isActivated"
+        :hint-key="'profile.notActivatedHint'"
+      ></common-hint-card>
       <div class="flex justify-between">
         <div class="flex flex-col font-bold text-gray-800 dark:text-gray-200">
           <div

@@ -16,8 +16,11 @@ export const useUserStore = defineStore("userStore", {
       telephoneNumber: null,
       address: null,
       accessToken: null,
+      accessTokenExpireTimeInMs: null,
+      accessTokenExpireDate: null,
       roles: [],
       reservations: [],
+      isActivated: false,
     },
   }),
   getters: {
@@ -42,6 +45,9 @@ export const useUserStore = defineStore("userStore", {
     },
   },
   actions: {
+    activateUser() {
+      this.user.isActivated = true;
+    },
     addNewReservation(reservation: Reservation) {
       this.user.reservations.push(reservation);
     },

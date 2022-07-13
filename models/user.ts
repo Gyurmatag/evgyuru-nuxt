@@ -11,8 +11,11 @@ export interface BaseUser {
 
 export interface User extends BaseUser {
   accessToken: string;
+  accessTokenExpireTimeInMs: number;
+  accessTokenExpireDate: Date;
   roles: Roles[];
   reservations: Reservation[];
+  isActivated: boolean;
 }
 
 export interface SignUpUser {

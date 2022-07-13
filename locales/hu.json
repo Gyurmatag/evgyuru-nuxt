@@ -48,6 +48,7 @@
       "noProfileHint": "Ha még nincsen fiókod, akkor a következő lépésben létrehozunk egyet!",
       "newProfileHint": "Még nincsen fiókod. Készítsünk egy új fiókot!",
       "newProfileSuccess": "Sikeres regisztráció! Mostmár bejelentkezhetsz!",
+      "newProfileEmailActivationHint": "Kaptál tőlünk egy megerősítő e-mailt. A benne lévő linkre kattintáskor aktiválódik a profilod, ezután tudsz kurzust foglalni.",
       "saveSignupDataOnCourseApply": "Adatok mentése és regisztráció",
       "errors": {
         "email": {
@@ -77,6 +78,10 @@
           "required": "Részletes cím mező kitöltése kötelező!"
         }
       }
+    },
+    "activation": {
+      "successMsg": "A fiókod aktiválása sikeres volt. Mostmár jelentkezhetsz kurzusokra!",
+      "errorMsg": "Az aktiválás sikertelen. Hibás vagy már felhasznált kód!"
     }
   },
   "profile": {
@@ -86,6 +91,7 @@
       "deleteAccount": "Fiók törlése",
       "deleteAccountConfirmationMessage": "Biztosan törlöd a fiókodat?"
     },
+    "notActivatedHint": "A profilod nincs aktiválva. A kurzus jelentkezéshez erősítsd meg a profilod az e-mail címedre kapott link segítségével!",
     "user": {
       "reservations": {
         "title": "Kurzusok, amelyekre eddig jelentkeztél",
