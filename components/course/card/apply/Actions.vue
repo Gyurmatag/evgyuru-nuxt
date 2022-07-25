@@ -53,9 +53,17 @@
     <common-transition-basic-transition>
       <div
         v-if="userStore.currentCourseReservedByUser(courseId)"
-        class="font-bold text-green-700"
+        class="flex items-baseline space-x-1"
       >
-        {{ $t("course.apply.alreadyApplied") }}
+        <div class="font-bold text-green-700">
+          {{ $t("course.apply.alreadyApplied") }}
+        </div>
+        <div
+          v-if="!userStore.currentCourseReservedByUser(courseId).isActivated"
+          class="text-sm text-gray-600 dark:text-gray-200"
+        >
+          {{ $t("course.apply.reservationNotActive") }}
+        </div>
       </div>
     </common-transition-basic-transition>
   </div>

@@ -31,10 +31,12 @@ export const useUserStore = defineStore("userStore", {
           .reduce((acc, subName) => acc + subName[0], "");
       }
     },
-    currentCourseReservedByUser: (state: UserState) => {
+    currentCourseReservedByUser: (
+      state: UserState
+    ): ((courseId: string) => Reservation) => {
       return (courseId) =>
-        state.user.reservations.find(
-          (reservation) => reservation.course._id === courseId
+        state.user?.reservations.find(
+          (reservation) => reservation?.course._id === courseId
         );
     },
     isSimpleUser: (state: UserState): boolean => {
@@ -57,6 +59,13 @@ export const useUserStore = defineStore("userStore", {
     deleteReservation(reservationId: string) {
       this.user.reservations = this.user.reservations.filter(
         (reservation) => reservation._id !== reservationId
+      );
+    },
+    setReservationToActivated(activationKey: string) {
+      this.user.reservations = this.user.reservations.map((reservation) =>
+        reservation.activationKey === activationKey
+          ? { ...reservation, isActivated: true, activationKey: "" }
+          : reservation
       );
     },
   },

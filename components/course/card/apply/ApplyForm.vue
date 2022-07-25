@@ -31,9 +31,11 @@
             :remaining-places-count="remainingPlacesCount"
           >
           </course-card-apply-new-apply-panel>
-          <course-card-apply-applied-panel
+          <common-success-panel
             v-if="currentStep === CourseApplySteps.ApplySuccess"
-          ></course-card-apply-applied-panel>
+            :success-message-key="'course.apply.form.success'"
+            :hint-key="successPanelHintKey"
+          ></common-success-panel>
           <button
             v-if="!userStore.currentCourseReservedByUser(courseId)"
             class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
@@ -155,7 +157,7 @@ const validationSchemas = {
         ),
       })
     ),
-    ...(isDataToBeSaved || !!userStore.user._id
+    ...(isDataToBeSaved.value || !!userStore.user._id
       ? acceptDataManagementValidation
       : {}),
   }),
@@ -168,6 +170,14 @@ if (!userStore.user._id) {
 }
 
 const currentSchema = computed(() => validationSchemas[currentStep.value]);
+
+const successPanelHintKey = computed(() => {
+  return isDataToBeSaved.value
+    ? userStore.user.isActivated
+      ? "course.apply.form.successHintWithRegisteredUser"
+      : "course.apply.form.successHintWithJustRegisteredUser"
+    : "course.apply.form.successHintWithNotRegisteredUser";
+});
 
 watch(isDataToBeSaved, (newValue) => {
   if (newValue) {
@@ -198,6 +208,7 @@ const handleUserDataSave = async (formValues: ApplyCourse) => {
     email: loginFormData.value.email,
     ...formValues,
   };
+
   // TODO: error kezelése
   const { error } = await useCustomFetch({
     path: `${AUTH}/${SIGNUP}`,
@@ -211,6 +222,7 @@ const handleUserDataSave = async (formValues: ApplyCourse) => {
         currentStep.value === CourseApplySteps.NewUserDataAdd
           ? null
           : signUpFormData.value.password,
+      isNotRegisteredOnlyForCourseApply: !isDataToBeSaved.value,
     },
   });
   if (!error.value) {
@@ -278,8 +290,10 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
         children: applyFormData.value.children,
       };
 
-      if (isDataToBeSaved && signUpFormData.value) {
+      if (!userStore.user._id) {
         applyRequestBody.userEmail = signUpFormData.value.email;
+        applyRequestBody.isNotRegisteredOnlyForCourseApply =
+          !isDataToBeSaved.value;
       }
 
       // TODO: error kezelés

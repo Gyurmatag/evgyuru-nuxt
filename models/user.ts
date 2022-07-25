@@ -28,6 +28,7 @@ export interface SignUpUser {
   password: string;
   passwordConfirmation: string;
   acceptNewsletter: boolean;
+  isNotRegisteredOnlyForCourseApply?: boolean;
 }
 
 export interface LoginUser {

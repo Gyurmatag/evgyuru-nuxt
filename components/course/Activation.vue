@@ -2,8 +2,8 @@
   <common-activation
     :pending="pending"
     :error="!!error"
-    :error-message-key="'auth.activation.errorMsg'"
-    :success-message-key="'auth.activation.successMsg'"
+    :error-message-key="'course.apply.activation.errorMsg'"
+    :success-message-key="'course.apply.activation.successMsg'"
   ></common-activation>
 </template>
 
@@ -17,7 +17,7 @@ const userStore = useUserStore();
 
 // TODO: error kezelése
 const { error, pending } = await useCustomFetch({
-  path: `${AUTH}/${ACTIVATION}/${route.params.activationKey}`,
+  path: `${RESERVATION}/${ACTIVATION}/${route.params.activationKey}`,
   method: FetchMethods.PUT,
   initialCache: false,
   server: false,
@@ -27,7 +27,8 @@ const { error, pending } = await useCustomFetch({
 // TODO: ezt szépíteni, megvizsgálni, miért nem jó error-al? Mert itt igazából az error-t kéne figyelnünk!!
 watch(pending, (_) => {
   if (!error.value) {
-    userStore.activateUser();
+    // TODO: miért kell ide toString()? Miért van tömbben?
+    userStore.setReservationToActivated(route.params.activationKey.toString());
   }
 });
 </script>

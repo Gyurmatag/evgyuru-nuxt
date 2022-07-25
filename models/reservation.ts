@@ -11,6 +11,8 @@ export interface Reservation {
   user: BaseUser;
   children: [Child];
   course: Course;
+  activationKey: string;
+  isActivated: boolean;
 }
 
 export interface ReservationList extends BaseList {
@@ -21,4 +23,5 @@ export interface ApplyCourse {
   courseId: string;
   children: [Child];
   userEmail?: string;
+  isNotRegisteredOnlyForCourseApply?: boolean;
 }

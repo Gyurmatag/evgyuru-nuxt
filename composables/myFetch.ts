@@ -1,3 +1,4 @@
+import { hash } from "ohash";
 import { FetchMethods as FetchMethodEnum } from "~/models/enums";
 import { useUserStore } from "~/stores/user";
 
@@ -29,6 +30,7 @@ export const useCustomFetch = <ResponseType>({
   const userStore = useUserStore();
   return useFetch<ResponseType>(path, {
     baseURL,
+    key: hash(["api-fetch", path, body]),
     method: FetchMethodEnum[method],
     params,
     body,

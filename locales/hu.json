@@ -213,6 +213,7 @@
       "remainingPlacesCountHint": "férőhely maradt",
       "courseIsFull": "A kurzus betelt",
       "alreadyApplied": "Beiratkozva",
+      "reservationNotActive": "(Nincs megerősítve)",
       "cancel": "Mégsem",
       "form": {
         "noLoginHint": "E-mail cím megadása után be is tudsz lépni (ha van fiókod) vagy regisztráció nélkül is tudsz foglalni",
@@ -224,12 +225,18 @@
         },
         "action": "Jelentkezés",
         "success": "Sikeres jelentkezés",
-        "hint": "A kurzusokat, amelyekre beiratkoztál a profilodban tudod menedzselni.",
+        "successHintWithRegisteredUser": "A kurzusokat, amelyekre beiratkoztál a profilodban tudod menedzselni.",
+        "successHintWithJustRegisteredUser": "A kurzus jelentkezésedet és a regisztrációdat az általad megadott e-mail címre küldött üzenetben lévő linkre kattintva tudod véglegesíteni! Mindaddig nem érvényes a jelentkezésed és a profilod sem lesz megerősítve.",
+        "successHintWithNotRegisteredUser": "A kurzus jelentkezésedet az általad megadott e-mail címre küldött üzenetben lévő linkre kattintva tudod véglegesíteni! Mindaddig nem érvényes a jelentkezésed.",
         "errors": {
           "childName": {
             "required": "A gyermek neve mező kitöltése kötelező!"
           }
         }
+      },
+      "activation": {
+        "successMsg": "A kurzus jelentkezésed aktiválása sikeres volt. Ha regisztráltál is, akkor a fiókod is aktiválásra került!",
+        "errorMsg": "A kurzus aktiválás sikertelen. Hibás vagy már felhasznált kód!"
       }
     }
   },

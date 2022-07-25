@@ -126,10 +126,12 @@ const props = defineProps({
 const remainingPlacesCount = computed(() => {
   return props.reservations.length
     ? Math.abs(
-        props.reservations.reduce(
-          (count, current) => count + current.children.length,
-          -props.maxGroupSize
-        )
+        props.reservations
+          .filter((reservation) => reservation.isActivated)
+          .reduce(
+            (count, current) => count + current.children.length,
+            -props.maxGroupSize
+          )
       )
     : props.maxGroupSize;
 });
