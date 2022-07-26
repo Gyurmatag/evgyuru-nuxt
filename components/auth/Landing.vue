@@ -191,7 +191,9 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           address: `${signUpFormData.value.zipCode} ${signUpFormData.value.city}, ${signUpFormData.value.streetAddress}`,
           password: signUpFormData.value.password,
           acceptNewsletter: signUpFormData.value.acceptNewsletter,
+          isNotRegisteredOnlyForCourseApply: false,
         },
+        initialCache: false,
       });
       if (!error.value) {
         currentStep.value = AuthenticationSteps.SignupSuccess;

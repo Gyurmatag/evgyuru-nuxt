@@ -172,7 +172,7 @@ if (!userStore.user._id) {
 const currentSchema = computed(() => validationSchemas[currentStep.value]);
 
 const successPanelHintKey = computed(() => {
-  return isDataToBeSaved.value
+  return userStore.user._id
     ? userStore.user.isActivated
       ? "course.apply.form.successHintWithRegisteredUser"
       : "course.apply.form.successHintWithJustRegisteredUser"
