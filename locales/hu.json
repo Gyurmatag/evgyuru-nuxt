@@ -3,6 +3,14 @@
     "long": "Évgyűrű Alapítvány",
     "short": "Évgyűrű"
   },
+  "page": {
+    "title": {
+      "auth": "Autentikáció",
+      "projects": "Projektek",
+      "donate": "Támogatás",
+      "profile": "Profilom"
+    }
+  },
   "common": {
     "back": "Vissza",
     "next": "Folytatás",

@@ -3,7 +3,7 @@
     <!-- TODO: dinamikus URL -->
     <share-network
       network="facebook"
-      :url="'https://evgyuru-nuxt.netlify.app/courses/6202902940d4f85bd2542a26'"
+      :url="url"
       :title="title"
       :description="description"
     >
@@ -18,6 +18,10 @@
 
 <script setup lang="ts">
 defineProps({
+  url: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,

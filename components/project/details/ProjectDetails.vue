@@ -1,4 +1,8 @@
 <template>
+  <common-page-head
+    :subtitle="data.project.title"
+    :is-dynamic-data="true"
+  ></common-page-head>
   <div
     class="mt-8 flex flex-col items-center divide-y-2 divide-blue-600 divide-opacity-20"
   >

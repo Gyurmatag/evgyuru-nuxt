@@ -1,4 +1,5 @@
 <template>
+  <common-page-head :subtitle="'page.title.donate'"></common-page-head>
   <div class="mb-4 flex max-w-6xl flex-col items-center">
     <div class="m-8 flex flex-col items-center space-y-6">
       <h1

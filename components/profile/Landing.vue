@@ -1,4 +1,5 @@
 <template>
+  <common-page-head :subtitle="'page.title.profile'"></common-page-head>
   <div
     class="my-8 flex max-w-6xl flex-col items-center justify-center px-4 md:flex-row"
   >

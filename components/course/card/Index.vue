@@ -34,6 +34,7 @@
           <common-transition-expand>
             <div v-if="!isApplyActive">
               <course-card-social-shares
+                :url="shareURL"
                 :title="title"
                 :description="description"
               ></course-card-social-shares>
@@ -73,8 +74,11 @@ import { useUserStore } from "~/stores/user";
 import { ReservationList } from "~/models/reservation";
 
 const userStore = useUserStore();
+const route = useRoute();
 
 const isApplyActive = ref(false);
+
+const shareURL = computed(() => `${BASE_DOMAIN_URL}${route.fullPath}`);
 
 const props = defineProps({
   courseId: {

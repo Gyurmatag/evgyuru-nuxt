@@ -1,9 +1,7 @@
 <template>
   <div class="flex flex-col">
     <Html>
-      <Head>
-        <Title>{{ $t("title.long") }}</Title>
-      </Head>
+      <common-page-head></common-page-head>
     </Html>
     <div class="flex justify-center dark:bg-gray-800">
       <home-first />

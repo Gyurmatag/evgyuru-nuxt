@@ -1,4 +1,8 @@
 <template>
+  <common-page-head
+    :subtitle="data.title"
+    :is-dynamic-data="true"
+  ></common-page-head>
   <div
     class="flex flex-col items-center justify-center bg-white dark:bg-gray-800"
   >
@@ -31,13 +35,12 @@ const { data } = await useCustomFetch<Course>({
   initialCache: false,
 });
 
-// TODO: dinamikussá tétel, beégetett értékek kivétele
 useMeta({
   meta: [
     {
       hid: "og:url",
       property: "og:url",
-      content: `https://evgyuru-nuxt.netlify.app/courses/${data.value._id}`,
+      content: `${BASE_DOMAIN_URL}${route.fullPath}`,
     },
     { hid: "og:type", property: "og:type", content: "website" },
     { hid: "og:title", property: "og:title", content: data.value.title },

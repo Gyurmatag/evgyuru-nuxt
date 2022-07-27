@@ -1,4 +1,5 @@
 <template>
+  <common-page-head :subtitle="'page.title.auth'"></common-page-head>
   <div
     class="flex flex-col items-center justify-center bg-blue-100 bg-opacity-10 dark:bg-gray-800"
   >
