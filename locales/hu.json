@@ -11,6 +11,11 @@
       "profile": "Profilom"
     }
   },
+  "error": {
+    "api": {
+      "invalidPassword": "Hibás jelszó"
+    }
+  },
   "common": {
     "back": "Vissza",
     "next": "Folytatás",

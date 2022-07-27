@@ -56,10 +56,10 @@
     </div>
     <common-transition-expand>
       <span
-        v-if="errorMessage && meta.touched"
+        v-if="(errorMessage && meta.touched) || externalErrorMessage"
         class="text-left text-sm text-red-500"
       >
-        {{ $t(errorMessage) }}
+        {{ $t(errorMessage || externalErrorMessage) }}
       </span>
     </common-transition-expand>
   </div>
@@ -91,6 +91,11 @@ const props = defineProps({
   label: {
     type: String,
     required: true,
+  },
+  externalErrorMessage: {
+    type: String,
+    required: false,
+    default: null,
   },
   infoHint: {
     type: String,

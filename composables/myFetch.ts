@@ -1,6 +1,8 @@
 import { hash } from "ohash";
+import { FetchError } from "ohmyfetch";
 import { FetchMethods as FetchMethodEnum } from "~/models/enums";
 import { useUserStore } from "~/stores/user";
+import { useErrorStore } from "~/stores/error";
 
 interface FetchInputs {
   path: string;
@@ -28,7 +30,8 @@ export const useCustomFetch = <ResponseType>({
 }: FetchInputs) => {
   const { API_BASE: baseURL } = useRuntimeConfig();
   const userStore = useUserStore();
-  return useFetch<ResponseType>(path, {
+  const errorStore = useErrorStore();
+  return useFetch<ResponseType, FetchError>(path, {
     baseURL,
     key: hash(["api-fetch", path, body]),
     method: FetchMethodEnum[method],
@@ -43,13 +46,19 @@ export const useCustomFetch = <ResponseType>({
     initialCache,
     server,
     lazy,
-    async onResponseError({ request, options, response }) {
+    async onResponseError({ response }) {
       // TODO: itt finomítani: hibakód, refresh token küldése és token frissítés, miért kell kérdőjeles conditional check response-ra?
+      // TODO: ezt a jwt ecpired üzenetet nyelvesítési kullcsal el kell látni backenden
       if (response?._data.message === "jwt expired") {
         await navigateTo({
           path: "/",
         });
         userStore.$reset();
+      } else {
+        errorStore.setError({
+          code: response.status,
+          messageKey: response._data.message,
+        });
       }
     },
   });
