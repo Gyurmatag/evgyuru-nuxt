@@ -9,7 +9,7 @@
       type="password"
       :label="$t('auth.form.password')"
       :external-error-message="
-        responseStore.response.message === 'error.api.invalidPassword'
+        responseStore.response?.message === 'error.api.invalidPassword'
           ? responseStore.response.message
           : ''
       "
