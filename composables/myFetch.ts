@@ -2,7 +2,7 @@ import { hash } from "ohash";
 import { FetchError } from "ohmyfetch";
 import { FetchMethods as FetchMethodEnum } from "~/models/enums";
 import { useUserStore } from "~/stores/user";
-import { useErrorStore } from "~/stores/error";
+import { useResponseStore } from "~/stores/response";
 
 interface FetchInputs {
   path: string;
@@ -30,7 +30,7 @@ export const useCustomFetch = <ResponseType>({
 }: FetchInputs) => {
   const { API_BASE: baseURL } = useRuntimeConfig();
   const userStore = useUserStore();
-  const errorStore = useErrorStore();
+  const responseStore = useResponseStore();
   return useFetch<ResponseType, FetchError>(path, {
     baseURL,
     key: hash(["api-fetch", path, body]),
@@ -54,12 +54,14 @@ export const useCustomFetch = <ResponseType>({
           path: "/",
         });
         userStore.$reset();
-      } else {
-        errorStore.setError({
-          code: response.status,
-          messageKey: response._data.message,
-        });
       }
+    },
+    async onResponse({ response }) {
+      await responseStore.setResponse({
+        isOk: response.ok,
+        code: response.status,
+        message: response._data.message,
+      });
     },
   });
 };

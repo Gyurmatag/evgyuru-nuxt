@@ -10,15 +10,15 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import { useUserStore } from "~/stores/user";
-import { useErrorStore } from "~/stores/error";
+import { useResponseStore } from "~/stores/response";
 
 const nuxtApp = useNuxtApp();
 const userStore = useUserStore();
-const errorStore = useErrorStore();
+const responseStore = useResponseStore();
 
 nuxtApp.hook("page:start", () => {
-  if (!errorStore.error) {
-    errorStore.$reset();
+  if (responseStore.response) {
+    responseStore.$reset();
   }
 });
 

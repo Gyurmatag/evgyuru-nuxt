@@ -40,7 +40,11 @@
           v-if="currentStep === AuthenticationSteps.SignupSuccess"
           :success-message-key="'auth.form.newProfileSuccess'"
           :hint-key="'auth.form.newProfileEmailActivationHint'"
-        ></common-success-panel>
+        >
+          <template #hint-icon>
+            <common-icon-inbox></common-icon-inbox>
+          </template>
+        </common-success-panel>
         <button
           class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
           type="submit"

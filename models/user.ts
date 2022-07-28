@@ -39,3 +39,8 @@ export interface LoginUser {
 export interface IsEmailAlreadyRegistered {
   isEmailAlreadyRegistered: boolean;
 }
+
+export interface PasswordReset {
+  password: string;
+  passwordConfirmation: string;
+}

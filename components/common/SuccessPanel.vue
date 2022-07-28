@@ -7,8 +7,7 @@
       {{ $t(successMessageKey) }}
     </div>
     <common-hint-card v-if="hintKey" :hint-key="hintKey">
-      <!-- TODO: dinamikussá tétel -->
-      <common-icon-inbox></common-icon-inbox>
+      <slot name="hint-icon"></slot>
     </common-hint-card>
   </div>
 </template>

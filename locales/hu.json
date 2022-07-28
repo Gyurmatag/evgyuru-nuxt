@@ -8,12 +8,14 @@
       "auth": "Autentikáció",
       "projects": "Projektek",
       "donate": "Támogatás",
-      "profile": "Profilom"
+      "profile": "Profilom",
+      "passwordReset": "Jelszó visszaállítása"
     }
   },
   "error": {
     "api": {
-      "invalidPassword": "Hibás jelszó"
+      "invalidPassword": "Hibás jelszó",
+      "userNotFoundWithThisPasswordResetKey": "Hibás vagy már felhasznált jelszó visszaállító kód"
     }
   },
   "common": {
@@ -46,6 +48,9 @@
     "form": {
       "email": "E-mail címed",
       "password": "Add meg fiókodhoz tartozó jelszavad",
+      "forgotPassword": "Elfelejtettem a jelszavam",
+      "passwordResetKeySentHintSmall": "E-mail kiküldve",
+      "passwordResetKeySentHint": "A regisztrált e-mail címedre kiküldtük az új jelszavad kiállításához szükséges linket!",
       "fullName": "Teljes név",
       "telephoneNumber": "Telefonszám",
       "zipCode": "Irányítószám",
@@ -95,6 +100,23 @@
     "activation": {
       "successMsg": "A fiókod aktiválása sikeres volt. Mostmár jelentkezhetsz kurzusokra!",
       "errorMsg": "Az aktiválás sikertelen. Hibás vagy már felhasznált kód!"
+    },
+    "passwordReset": {
+      "greeting": "Add meg az új jelszavadat!",
+      "form": {
+        "passwordFirst": "Új Biztonságos Jelszó",
+        "passwordAgain": "Jelszó mégegyszer",
+        "errors": {
+          "password": {
+            "required": "Jelszó kitöltése kötelező!",
+            "notMatching": "A jelszavak nem egyeznek!",
+            "minChars": "A jelszónak legalább 8 karakternek kell lennie"
+          }
+        },
+        "passwordChangedSuccessFully": "A jelszó sikeresen megváltozott!",
+        "passwordChangedSuccessFullyHint": "Mostantól az új jelszóval fogsz tudni belépni a fiókodba.",
+        "goToLogin": "Belépek!"
+      }
     }
   },
   "profile": {
