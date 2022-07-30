@@ -32,10 +32,10 @@
           v-if="currentStep === AuthenticationSteps.ExistingUserLogin"
           :user-email="loginFormData.email"
         ></auth-existing-user-login-panel>
-        <auth-new-user-register-panel
+        <auth-user-register-panel
           v-if="currentStep === AuthenticationSteps.NewUserRegister"
           :user-email="loginFormData.email"
-        ></auth-new-user-register-panel>
+        ></auth-user-register-panel>
         <common-success-panel
           v-if="currentStep === AuthenticationSteps.SignupSuccess"
           :success-message-key="'auth.form.newProfileSuccess'"
@@ -193,7 +193,9 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           email: signUpFormData.value.email,
           fullName: signUpFormData.value.fullName,
           telephoneNumber: signUpFormData.value.telephoneNumber,
-          address: `${signUpFormData.value.zipCode} ${signUpFormData.value.city}, ${signUpFormData.value.streetAddress}`,
+          zipCode: signUpFormData.value.zipCode,
+          city: signUpFormData.value.city,
+          streetAddress: signUpFormData.value.streetAddress,
           password: signUpFormData.value.password,
           acceptNewsletter: signUpFormData.value.acceptNewsletter,
           isNotRegisteredOnlyForCourseApply: false,

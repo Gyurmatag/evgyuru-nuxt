@@ -6,7 +6,9 @@ export interface BaseUser {
   email: string;
   fullName: string;
   telephoneNumber: string;
-  address: string;
+  zipCode: string;
+  city: string;
+  streetAddress: string;
 }
 
 export interface User extends BaseUser {
@@ -29,6 +31,15 @@ export interface SignUpUser {
   passwordConfirmation: string;
   acceptNewsletter: boolean;
   isNotRegisteredOnlyForCourseApply?: boolean;
+}
+
+export interface EditUser {
+  email: string;
+  fullName: string;
+  telephoneNumber: string;
+  zipCode: string;
+  city: string;
+  streetAddress: string;
 }
 
 export interface LoginUser {

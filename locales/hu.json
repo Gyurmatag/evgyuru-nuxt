@@ -9,6 +9,7 @@
       "projects": "Projektek",
       "donate": "Támogatás",
       "profile": "Profilom",
+      "editProfile": "Profilom szerkesztése",
       "passwordReset": "Jelszó visszaállítása"
     }
   },
@@ -124,7 +125,13 @@
     "logout": "Kijelentkezés",
     "accountActions": {
       "deleteAccount": "Fiók törlése",
-      "deleteAccountConfirmationMessage": "Biztosan törlöd a fiókodat?"
+      "deleteAccountConfirmationMessage": "Biztosan törlöd a fiókodat?",
+      "editAccount": "Adataim szerkesztése"
+    },
+    "edit": {
+      "hint": "Ha megváltoztak az adataid, lentebb módosíthatod őket",
+      "accountUpdatedSuccessFully": "Sikeresen módosítottad a profil adatokat!",
+      "goToMyProfile": "Irány a profilom"
     },
     "notActivatedHint": "A profilod nincs aktiválva. A kurzus jelentkezéshez erősítsd meg a profilod az e-mail címedre kapott link segítségével!",
     "user": {

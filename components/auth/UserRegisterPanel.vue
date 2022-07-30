@@ -1,6 +1,9 @@
 <template>
   <div class="space-y-4">
-    <div class="text-gray-800 dark:text-gray-300">
+    <div class="flex flex-col text-gray-800 dark:text-gray-300">
+      <span v-if="isEdit" class="material-icons-outlined text-5xl font-light">
+        edit
+      </span>
       {{ $t(hintTranslateKey) }}
     </div>
     <div class="text-gray-500 dark:text-gray-400">
@@ -16,7 +19,7 @@
       name="telephoneNumber"
       type="text"
       input-mask="+36 (##) ###-####"
-      value="+36 "
+      :value="isEdit ? null : '+36'"
       :label="$t('auth.form.telephoneNumber')"
     />
     <div class="flex space-x-3">
@@ -56,7 +59,7 @@
     </div>
     <div>
       <common-transition-expand>
-        <div v-if="isDataToBeSaved" class="space-y-4">
+        <div v-if="isDataToBeSaved && !isEdit" class="space-y-4">
           <common-text-input
             name="password"
             type="password"
@@ -102,6 +105,10 @@ defineProps({
   isDataToBeSaved: {
     type: Boolean,
     default: true,
+  },
+  isEdit: {
+    type: Boolean,
+    default: false,
   },
 });
 

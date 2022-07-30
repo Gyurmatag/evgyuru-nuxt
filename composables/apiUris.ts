@@ -5,6 +5,7 @@ export const SIGNUP = "signup";
 export const PASSWORD_RESET = "password-reset";
 export const IS_PASSWORD_RESET_KEY_VALID = "is-password-reset-key-valid";
 export const ACTIVATION = "activation";
+export const EDIT = "edit";
 export const RESERVATION = "reservation";
 export const RESERVATIONS = "reservations";
 export const SAVE = "save";

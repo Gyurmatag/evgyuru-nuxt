@@ -11,7 +11,7 @@
             v-if="currentStep === CourseApplySteps.ExistingUserLogin"
             :user-email="loginFormData.email"
           ></auth-existing-user-login-panel>
-          <auth-new-user-register-panel
+          <auth-user-register-panel
             v-if="
               currentStep === CourseApplySteps.NewUserDataAdd ||
               currentStep === CourseApplySteps.NewUserDataAddWithSignUp
@@ -20,7 +20,7 @@
             :hint-translate-key="'course.apply.form.newProfileHint'"
             :user-email="loginFormData.email"
             :is-on-apply-form="true"
-          ></auth-new-user-register-panel>
+          ></auth-user-register-panel>
           <course-card-apply-new-apply-panel
             v-if="currentStep === CourseApplySteps.Apply"
             :meta="meta"
@@ -217,7 +217,9 @@ const handleUserDataSave = async (formValues: ApplyCourse) => {
       email: signUpFormData.value.email,
       fullName: signUpFormData.value.fullName,
       telephoneNumber: signUpFormData.value.telephoneNumber,
-      address: `${signUpFormData.value.zipCode} ${signUpFormData.value.city}, ${signUpFormData.value.streetAddress}`,
+      zipCode: signUpFormData.value.zipCode,
+      city: signUpFormData.value.city,
+      streetAddress: signUpFormData.value.streetAddress,
       password:
         currentStep.value === CourseApplySteps.NewUserDataAdd
           ? null
