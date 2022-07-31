@@ -199,10 +199,11 @@ const setImageUrl = (url: string) => {
 };
 
 const onSubmit = handleSubmit(async (values: BaseCourse) => {
+  // TODO: kérdés a dátumnál kell ez a "hu-HU"-zás.
   courseFormData.value = {
     ...values,
-    dateFrom: new Date(values.dateFrom).toLocaleDateString(),
-    dateTo: new Date(values.dateTo).toLocaleDateString(),
+    dateFrom: new Date(values.dateFrom).toLocaleDateString("hu-HU"),
+    dateTo: new Date(values.dateTo).toLocaleDateString("hu-HU"),
   };
 
   // TODO: error kezelés
