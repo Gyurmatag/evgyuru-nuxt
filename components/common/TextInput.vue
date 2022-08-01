@@ -15,7 +15,7 @@
       </span>
     </div>
     <!-- TODO: ez a hint komponens kiszervezése commonban -->
-    <div class="mb-2">
+    <div :class="{ 'mb-2': infoHint }">
       <common-transition-expand>
         <div
           v-if="infoHintActive"

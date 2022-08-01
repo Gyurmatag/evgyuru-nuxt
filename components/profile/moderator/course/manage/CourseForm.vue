@@ -87,10 +87,22 @@
                   :value="props.isEdit ? courseFormData.dateFrom : new Date()"
                   :label="$t('profile.moderator.manageCourse.form.dateFrom')"
                 />
+                <common-text-input
+                  name="timeFrom"
+                  type="time"
+                  :label="$t('profile.moderator.manageCourse.form.timeFrom')"
+                />
+              </div>
+              <div class="flex space-x-6">
                 <common-date-input
                   name="dateTo"
                   :value="isEdit ? courseFormData.dateTo : new Date()"
                   :label="$t('profile.moderator.manageCourse.form.dateTo')"
+                />
+                <common-text-input
+                  name="timeTo"
+                  type="time"
+                  :label="$t('profile.moderator.manageCourse.form.timeTo')"
                 />
               </div>
               <div class="flex space-x-6">
@@ -124,7 +136,8 @@
 <script setup lang="ts">
 import * as Yup from "yup";
 import { useForm } from "vee-validate";
-import { BaseCourse, Course } from "~/models/course";
+import dayjs from "dayjs";
+import { Course, CourseForm } from "~/models/course";
 import CloudinaryImageUploader from "~/components/common/CloudinaryImageUploader.vue";
 import { useCustomFetch } from "~/composables/myFetch";
 import { FetchMethods } from "~/models/enums";
@@ -133,7 +146,7 @@ const route = useRoute();
 
 const imageUrlFromUploader = ref(null);
 const isSuccessPanelVisible = ref(false);
-const courseFormData = ref<BaseCourse>(null);
+const courseFormData = ref<CourseForm>(null);
 
 const props = defineProps({
   isEdit: {
@@ -152,6 +165,15 @@ if (props.isEdit) {
     ...data.value,
     dateFrom: new Date(data.value.dateFrom),
     dateTo: new Date(data.value.dateTo),
+    // TODO: szépítési lehetőség? Kiszervezés?
+    timeFrom: `${new Date(data.value.dateFrom)
+      .getHours()
+      .toString()}:${new Date(data.value.dateFrom).getMinutes().toString()}`,
+    timeTo: `${new Date(data.value.dateTo).getHours().toString()}:${new Date(
+      data.value.dateTo
+    )
+      .getMinutes()
+      .toString()}`,
   };
 }
 
@@ -178,18 +200,40 @@ const validationSchema = Yup.object().shape({
       Yup.ref("dateTo"),
       "profile.moderator.manageCourse.form.errors.dateTo.afterDateTo"
     ),
+  timeFrom: Yup.string().required(
+    "profile.moderator.manageCourse.form.errors.timeFrom.required"
+  ),
   dateTo: Yup.date()
     .required("profile.moderator.manageCourse.form.errors.dateTo.required")
     .min(
       Yup.ref("dateFrom"),
       "profile.moderator.manageCourse.form.errors.dateTo.beforeDateFrom"
     ),
+  timeTo: Yup.string()
+    .required("profile.moderator.manageCourse.form.errors.timeTo.required")
+    .test(
+      "is-greater",
+      "profile.moderator.manageCourse.form.errors.timeTo.beforeTimeFrom",
+      // TODO: kiszervezések (dátum formátum, stb...?)
+      function (value) {
+        const { timeFrom, dateFrom, dateTo } = this.parent;
+        const timeFromHoursMinutesSpit = splitHoursAndMinutesTime(timeFrom);
+        const timeFromDate = dayjs(dateFrom, "YYYY-MM-DD")
+          .hour(+timeFromHoursMinutesSpit[0])
+          .minute(+timeFromHoursMinutesSpit[1]);
+        const timeToHoursMinutesSpit = splitHoursAndMinutesTime(value);
+        const timeToDate = dayjs(dateTo, "YYYY-MM-DD")
+          .hour(+timeToHoursMinutesSpit[0])
+          .minute(+timeToHoursMinutesSpit[1]);
+        return dayjs(timeToDate).isAfter(dayjs(timeFromDate));
+      }
+    ),
   imageUrl: Yup.string().required(
     "profile.moderator.manageCourse.form.errors.imageUrl.required"
   ),
 });
 
-const { meta, handleSubmit, isSubmitting } = useForm<BaseCourse>({
+const { meta, handleSubmit, isSubmitting } = useForm<CourseForm>({
   validationSchema,
   initialValues: courseFormData.value,
 });
@@ -198,12 +242,22 @@ const setImageUrl = (url: string) => {
   imageUrlFromUploader.value = url;
 };
 
-const onSubmit = handleSubmit(async (values: BaseCourse) => {
-  // TODO: kérdés a dátumnál kell ez a "hu-HU"-zás.
+const onSubmit = handleSubmit(async (values: CourseForm) => {
+  const timeFromHoursMinutesSpit = splitHoursAndMinutesTime(values.timeFrom);
+  const timeToHoursMinutesSpit = splitHoursAndMinutesTime(values.timeTo);
+  // TODO: szép megoldás-e a .toDate().toLocaleString(). Ez addig lehet releváns, amig nem működik rendes a days js plugin?
   courseFormData.value = {
     ...values,
-    dateFrom: new Date(values.dateFrom).toLocaleDateString("hu-HU"),
-    dateTo: new Date(values.dateTo).toLocaleDateString("hu-HU"),
+    dateFrom: dayjs(values.dateFrom)
+      .hour(+timeFromHoursMinutesSpit[0])
+      .minute(+timeFromHoursMinutesSpit[1])
+      .toDate()
+      .toLocaleString(),
+    dateTo: dayjs(values.dateTo)
+      .hour(+timeToHoursMinutesSpit[0])
+      .minute(+timeToHoursMinutesSpit[1])
+      .toDate()
+      .toLocaleString(),
   };
 
   // TODO: error kezelés
@@ -221,3 +275,9 @@ const onSubmit = handleSubmit(async (values: BaseCourse) => {
   }
 });
 </script>
+
+<style>
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+</style>

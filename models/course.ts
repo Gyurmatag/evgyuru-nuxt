@@ -20,3 +20,8 @@ export interface Course extends BaseCourse {
 export interface CourseList extends BaseList {
   courses: [Course];
 }
+
+export interface CourseForm extends BaseCourse {
+  timeFrom: string;
+  timeTo: string;
+}

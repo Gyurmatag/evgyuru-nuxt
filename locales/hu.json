@@ -168,7 +168,9 @@
           "price": "Díj (HUF)",
           "occasions": "Alkalmak száma",
           "dateFrom": "Kezdő dátum",
+          "timeFrom": "Kezdés",
           "dateTo": "Vég dátum",
+          "timeTo": "Befejezés",
           "imageUrl": "Borítókép",
           "saveSuccess": "Kurzus sikeresen felvéve!",
           "editSuccess": "Kurzus sikeresen módosítva!",
@@ -194,10 +196,17 @@
             "dateFrom": {
               "required": "Kezdő időpont megadása kötelező"
             },
+            "timeFrom": {
+              "required": "Kezdési idő megadása kötelező"
+            },
             "dateTo": {
               "required": "Befejezési időpont megadása kötelező",
               "afterDateTo": "A kezdő dátum nem lehet a vég dátum után",
               "beforeDateFrom": "A vég dátum nem lehet korábban a kezdő dátumnál"
+            },
+            "timeTo": {
+              "required": "Befejezési idő megadása kötelező",
+              "beforeTimeFrom": "A befejezési idő nem lehet a kezdési idő előtt"
             },
             "imageUrl": {
               "required": "Kép felöltése kötelező"
