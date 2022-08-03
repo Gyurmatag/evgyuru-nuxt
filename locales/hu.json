@@ -40,10 +40,50 @@
     "manocskaShort": "Manócska",
     "donate": "Támogatás"
   },
-  "homeFirst": {
-    "firstRowText": "Célunk, hogy az iskolán kívüli színvonalas oktatást széles körben elérhetővé tegyük.",
-    "secondRowText": "A  gyermekek oktatása mellett a felnőttek képzésére is nagy hangsúlyt fektetünk.",
-    "thirdRowText": "Hiszünk az élethosszig tartó tanulásban."
+  "home": {
+    "homeFirst": {
+      "firstRowText": "Célunk, hogy az iskolán kívüli színvonalas oktatást széles körben elérhetővé tegyük.",
+      "secondRowText": "A  gyermekek oktatása mellett a felnőttek képzésére is nagy hangsúlyt fektetünk.",
+      "thirdRowText": "Hiszünk az élethosszig tartó tanulásban."
+    },
+    "homeSecond": {
+      "systemTitle": "Ismerd meg saját fejlesztésű kurzus foglaló rendszerünket!",
+      "systemDescription": "Könnyedén, pár kattintással le tudod adni a jelentkezésedet bármelyik elérhető és szabad kurzusunkra akár regisztráció nélkül is!",
+      "systemManual": {
+        "first": {
+          "title": "Böngéssz elérhető kurzusaink között!",
+          "description": "Az oldalon az összes kurzusunkat megtalálod, a hozzájuk kapcsolódó elérhető információkkal együtt"
+        },
+        "second": {
+          "title": "Regisztrálj vagy foglalj meglévő profil nélkül!",
+          "description": "Az adataid megadásával és e-mail címed visszaigazolásával gyorsan regisztrálhatsz. De arra is lehetőséged van, hogy regisztráció nélkül jelentkezz kurzusokra"
+        },
+        "third": {
+          "title": "Kezeld könyyedén az aktív foglalásaidat!",
+          "description": "Ha regisztráltál, akkor egyszerűen tudod menedzselni a profilod adatait, valamint az aktív jelentkezéseidet"
+        }
+      }
+    },
+    "homeThird": {
+      "reviewsTitle": "Rólunk mondták...",
+      "review": {
+        "first": {
+          "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
+          "reviewDate": "2021.12.27.",
+          "parentName": "Kovács Klára"
+        },
+        "second": {
+          "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
+          "reviewDate": "2022.03.27.",
+          "parentName": "Szabó József"
+        },
+        "third": {
+          "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
+          "reviewDate": "2022.07.27.",
+          "parentName": "Berkics Sándor"
+        }
+      }
+    }
   },
   "auth": {
     "form": {

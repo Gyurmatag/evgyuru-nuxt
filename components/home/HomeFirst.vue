@@ -11,11 +11,11 @@
         {{ $t("title.long") }}
       </div>
       <div class="pt-3 text-gray-600 dark:text-gray-300">
-        {{ $t("homeFirst.firstRowText") }}
+        {{ $t("home.homeFirst.firstRowText") }}
         <span>
-          {{ $t("homeFirst.secondRowText") }}
+          {{ $t("home.homeFirst.secondRowText") }}
         </span>
-        {{ $t("homeFirst.thirdRowText") }}
+        {{ $t("home.homeFirst.thirdRowText") }}
       </div>
     </div>
     <img

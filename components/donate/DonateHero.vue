@@ -12,21 +12,21 @@
       </h2>
     </div>
     <div class="flex w-full flex-col lg:flex-row">
-      <donate-reason-card
+      <common-reason-card
         :img-name="'research'"
-        :reason-title="$t('donate.reasons.reason1.title')"
-        :reason-description="$t('donate.reasons.reason1.description')"
-      ></donate-reason-card>
-      <donate-reason-card
+        :reason-title-key="'donate.reasons.reason1.title'"
+        :reason-description-key="'donate.reasons.reason1.description'"
+      ></common-reason-card>
+      <common-reason-card
         :img-name="'lifelong_student'"
-        :reason-title="$t('donate.reasons.reason2.title')"
-        :reason-description="$t('donate.reasons.reason2.description')"
-      ></donate-reason-card>
-      <donate-reason-card
+        :reason-title-key="'donate.reasons.reason2.title'"
+        :reason-description-key="'donate.reasons.reason2.description'"
+      ></common-reason-card>
+      <common-reason-card
         :img-name="'programs'"
-        :reason-title="$t('donate.reasons.reason3.title')"
-        :reason-description="$t('donate.reasons.reason3.description')"
-      ></donate-reason-card>
+        :reason-title-key="'donate.reasons.reason3.title'"
+        :reason-description-key="'donate.reasons.reason3.description'"
+      ></common-reason-card>
     </div>
   </div>
 </template>
