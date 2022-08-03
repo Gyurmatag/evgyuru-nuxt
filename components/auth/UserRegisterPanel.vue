@@ -128,9 +128,11 @@ const updateIsDataToBeSaved = (event) => {
 const searchForCity = async (event: InputEvent) => {
   if (event.target._value.length === 4) {
     isCityFetchPending.value = true;
-    const { data } = await useFetch<City>(
-      `https://hur.webmania.cc/zips/${event.target._value}.json`
-    );
+    const { data } = await useCustomFetch<City>({
+      customBaseURL: "https://hur.webmania.cc/zips",
+      path: `/${event.target._value}.json`,
+      initialCache: false,
+    });
     isCityFetchPending.value = false;
     fetchedCityName.value = data.value?.zips[0]?.name;
   }

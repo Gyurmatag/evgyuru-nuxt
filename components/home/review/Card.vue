@@ -1,6 +1,6 @@
 <template>
   <div class="w-full space-y-2 border border-2 p-5 text-center">
-    <div class="text-md italic text-gray-800 dark:text-gray-200">
+    <div class="text-sm italic text-gray-800 dark:text-gray-200">
       "{{ $t(reviewTextKey) }}"
     </div>
     <div class="text-gray-600 opacity-50 dark:text-gray-400">

@@ -5,6 +5,7 @@ import { useUserStore } from "~/stores/user";
 import { useResponseStore } from "~/stores/response";
 
 interface FetchInputs {
+  customBaseURL?: string;
   path: string;
   method?: FetchMethodEnum;
   params?: object;
@@ -18,6 +19,7 @@ interface FetchInputs {
 
 // TODO: requestType hozzáadása
 export const useCustomFetch = <ResponseType>({
+  customBaseURL = null,
   path,
   method = FetchMethodEnum.GET,
   params,
@@ -32,7 +34,7 @@ export const useCustomFetch = <ResponseType>({
   const userStore = useUserStore();
   const responseStore = useResponseStore();
   return useFetch<ResponseType, FetchError>(path, {
-    baseURL,
+    baseURL: customBaseURL || baseURL,
     key: hash(["api-fetch", path, body]),
     method: FetchMethodEnum[method],
     params,

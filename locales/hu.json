@@ -68,14 +68,14 @@
       "reviewsTitle": "Rólunk mondták...",
       "review": {
         "first": {
-          "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
+          "reviewText": "A kisfiam érdekes és színes programokon, kirándulásokon vehetett részt, folyamatosan lekötve érdeklődését, kíváncsiságát, így nagyon jól érezte magát. Az óvónénik kedvesek gyermekcentrikusak és mindenben partnerek voltak. Köszönjük a lehetőséget.",
           "reviewDate": "2021.12.27.",
-          "parentName": "Kovács Klára"
+          "parentName": "Henrietta"
         },
         "second": {
-          "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
+          "reviewText": "Szeretnénk megköszönni ezt a fantasztikus 5 napot, amely során izgalmas kalandokban volt része a táborozóknak. Külön köszönetet érdemelnek az Óvónénik a  kedvességükért. A konyhás néni is finomakat készített, minden nap jóllakott pocakkal és kellemesen elfáradva hoztam haza a kis táborlakómat. Nagyon örülök, hogy a kislányom részt tudott venni egy ilyen eseményen. ",
           "reviewDate": "2022.03.27.",
-          "parentName": "Szabó József"
+          "parentName": "Melánia"
         },
         "third": {
           "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
@@ -188,7 +188,7 @@
         "noReservations": "Még nincsenek jelentkezések",
         "delete": {
           "courseDeleted": "(törölve)",
-          "confirmation": "Biztosan törlőd ezt a kurzust?",
+          "confirmation": "Biztosan törlőd ezt a kurzust?"
         },
         "table": {
           "parentName": "Szülő neve",
@@ -312,7 +312,7 @@
         "children": {
           "universalName": "Gyermek neve",
           "indexedName": "{index}. gyermek neve",
-          "addMore": "{index}. gyermek hozzáadása",
+          "addMore": "{index}. gyermek hozzáadása"
         },
         "action": "Jelentkezés",
         "success": "Sikeres jelentkezés",

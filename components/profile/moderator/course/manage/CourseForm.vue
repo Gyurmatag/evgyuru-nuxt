@@ -31,7 +31,10 @@
         </div>
       </div>
       <div v-else class="space-y-4">
-        <common-back-button class="text-left"></common-back-button>
+        <common-back-button
+          to="/profile"
+          class="text-left"
+        ></common-back-button>
         <h1 class="text-2xl text-gray-700 dark:text-gray-300">
           {{
             props.isEdit

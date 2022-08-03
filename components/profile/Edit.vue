@@ -6,6 +6,7 @@
     <div
       class="relative m-8 max-w-6xl items-center justify-center rounded-lg bg-white p-4 text-center shadow-xl dark:border-gray-500 dark:bg-gray-700 sm:w-3/4 lg:w-2/5"
     >
+      <common-back-button to="/profile" class="text-left"></common-back-button>
       <!-- TODO: hibakezelés és success kezelés átgondolása, érvényes mindenhol, ahol ilyen van -->
       <form
         v-if="

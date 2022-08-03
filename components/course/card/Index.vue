@@ -2,6 +2,11 @@
   <div
     class="m-auto flex h-auto w-full flex-col overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800 md:w-3/5"
   >
+    <!-- TODO: beégetett projekt eltávolítása -->
+    <common-back-button
+      to="/projects/61ed941fd0bd9a48509bee27"
+      class="m-4 text-left"
+    ></common-back-button>
     <common-transition-expand>
       <img
         v-if="!isApplyActive"
