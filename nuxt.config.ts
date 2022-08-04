@@ -9,14 +9,6 @@ export default defineNuxtConfig({
       locale: "hu",
     },
   },
-  vite: {
-    optimizeDeps: {
-      include: ["pinia"],
-    },
-  },
-  alias: {
-    yup: "yup/lib/index.js",
-  },
   css: ["@/assets/styles/main.css"],
   colorMode: {
     classSuffix: "",
