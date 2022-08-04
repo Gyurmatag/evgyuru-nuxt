@@ -42,6 +42,7 @@ const courses = ref<Course[]>([]);
 const projectId = props.projectId;
 const { API_BASE: baseURL } = useRuntimeConfig();
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
+// TODO: params-ban nem működik a reaktivitás (currentPage.value)
 // TODO: szép töltési allapot kezelés impelementálása
 const { data, refresh } = await useFetch<CourseList>(
   () => `/${COURSE}/${COURSES}?page=${currentPage.value}`,

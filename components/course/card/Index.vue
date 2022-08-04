@@ -4,6 +4,7 @@
   >
     <!-- TODO: beégetett projekt eltávolítása -->
     <common-back-button
+      v-if="isOnDetails"
       to="/projects/61ed941fd0bd9a48509bee27"
       class="m-4 text-left"
     ></common-back-button>

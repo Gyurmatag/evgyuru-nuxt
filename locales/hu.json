@@ -33,7 +33,9 @@
     "cancel": "Mégsem",
     "browsePicture": "Kép tallózása",
     "replacePicture": "Kép cseréje",
-    "nothing": ""
+    "nothing": "",
+    "details": "Részletek",
+    "lessDetails": "Kevesebb"
   },
   "nav": {
     "manocska": "Manócska Tanoda",
@@ -179,7 +181,9 @@
         "title": "Kurzusok, amelyekre eddig jelentkeztél",
         "empty": "Egyelőre üres... :(",
         "moreCourses": "tudod megnézni jelenlegi kurzusainkat",
-        "deleteConfirm": "Biztosan törlöd a jelentkezésedet?"
+        "delete": "Jelentkezés törlése",
+        "deleteConfirm": "Biztosan törlöd a jelentkezésedet?",
+        "loadMore": "Még több foglalás"
       }
     },
     "moderator": {
