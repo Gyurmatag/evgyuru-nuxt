@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     classSuffix: "",
   },
   build: {
+    transpile: ["pinia"],
     postcss: {
       postcssOptions: require("./postcss.config.js"),
     },
