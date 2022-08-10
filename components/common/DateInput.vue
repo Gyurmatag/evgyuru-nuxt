@@ -39,7 +39,7 @@
 import { useField } from "vee-validate";
 // TODO: miért kell importálni a DatePickert? Valmiért nem jó a pluginban.
 import Datepicker from "vue3-datepicker";
-import { hu } from "date-fns/index";
+import { hu } from "date-fns/index.js";
 
 const props = defineProps({
   value: {
