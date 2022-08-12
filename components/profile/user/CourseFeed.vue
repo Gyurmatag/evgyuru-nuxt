@@ -3,11 +3,19 @@
     <div class="border-b-2 border-blue-600">
       {{ $t("profile.user.reservations.title") }}
     </div>
+    <div>
+      <form @submit="onSubmit" @change="formOnChange">
+        <common-custom-radio-button
+          name="filterDateFromAfterToday"
+        ></common-custom-radio-button>
+      </form>
+    </div>
     <profile-user-empty-course-panel
-      v-if="!reservations?.length"
+      v-if="!reservationsListResponse.reservations[0]?.totalCount[0]?.count"
     ></profile-user-empty-course-panel>
     <div
-      v-for="reservation in reservations"
+      v-for="reservation in reservationsListResponse.reservations[0]
+        .paginatedResults"
       :key="reservation._id"
       class="mt-4 rounded-md bg-blue-200 p-6 dark:bg-gray-700"
     >
@@ -22,11 +30,15 @@
         "
         :course-image-url="reservation.course.imageUrl"
         :children="reservation.children"
+        @delete-reservation="reservationDeleted"
       ></profile-user-reservation-card>
     </div>
     <div class="flex justify-center">
       <button
-        v-if="reservations.length !== data.totalItems"
+        v-if="
+          reservationsListResponse.length > 0 &&
+          reservationsListResponse.length !== data.totalItems
+        "
         class="rounded-md bg-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-gray-200 dark:hover:bg-gray-300"
         @click="loadNextPage"
       >
@@ -37,22 +49,43 @@
 </template>
 
 <script setup lang="ts">
-import { Reservation, ReservationList } from "~/models/reservation";
+import { useForm } from "vee-validate";
+import {
+  ReservationFilter,
+  ReservationListResponse,
+} from "~/models/reservation";
 import { useUserStore } from "~/stores/user";
 
 const userStore = useUserStore();
 
+const courseFilterFormData = ref<ReservationFilter>(null);
 const currentPage = ref(1);
 const limit = 5;
-const reservations = ref<Reservation[]>([]);
+const reservationsListResponse = ref<ReservationListResponse>(null);
+
+const { handleSubmit } = useForm({});
+
+const formOnChange = () => {
+  onSubmit();
+};
+
+const onSubmit = handleSubmit(async (values) => {
+  courseFilterFormData.value = {
+    ...courseFilterFormData.value,
+    ...values,
+  };
+  await refresh();
+  reservationsListResponse.value = data.value;
+});
 
 // TODO: error kezelés
 const { API_BASE: baseURL } = useRuntimeConfig();
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
 // TODO: szép töltési allapot kezelés impelementálása
-const { data, refresh } = await useFetch<ReservationList>(
-  () => `${RESERVATION}/${USER_RESERVATIONS}?page=${currentPage.value}`,
+const { data, refresh } = await useFetch<ReservationListResponse>(
+  () =>
+    `${RESERVATION}/${USER_RESERVATIONS}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
   {
     headers: {
       "x-access-token": userStore.user.accessToken,
@@ -63,11 +96,24 @@ const { data, refresh } = await useFetch<ReservationList>(
   }
 );
 
-reservations.value = [...data.value.reservations];
+reservationsListResponse.value = data.value;
 
 const loadNextPage = async () => {
   currentPage.value++;
   await refresh();
-  reservations.value.push(...data.value.reservations);
+  reservationsListResponse.value.reservations[0].paginatedResults.push(
+    ...data.value.reservations[0].paginatedResults
+  );
+};
+
+const reservationDeleted = async (deletedReservationId: string) => {
+  await refresh();
+  reservationsListResponse.value.reservations[0].totalCount[0] =
+    data.value.reservations[0].totalCount[0];
+  // TODO: valamiért nem jó a typeolás, miért?
+  reservationsListResponse.value.reservations[0].paginatedResults =
+    reservationsListResponse.value.reservations[0].paginatedResults.filter(
+      (reservation) => reservation._id !== deletedReservationId
+    );
 };
 </script>

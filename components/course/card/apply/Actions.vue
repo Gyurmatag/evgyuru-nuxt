@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-grow items-center justify-end space-x-2">
     <div
-      v-if="!userStore.currentCourseReservedByUser(courseId)"
+      v-if="
+        !userStore.currentCourseReservedByUser(reservations) && !isApplySuccess
+      "
       class="border-r-2 border-blue-100 p-2 text-sm text-gray-700 dark:border-blue-900 dark:text-gray-300"
     >
       <div
@@ -27,7 +29,7 @@
         isOnDetails &&
         !isApplyActive &&
         isRemainingPlacesBiggerThanZero &&
-        !userStore.currentCourseReservedByUser(courseId) &&
+        !userStore.currentCourseReservedByUser(reservations) &&
         isRemainingPlacesBiggerThanZero
       "
       class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"
@@ -39,7 +41,7 @@
       v-if="
         !isOnDetails &&
         !isApplyActive &&
-        !userStore.currentCourseReservedByUser(courseId) &&
+        !userStore.currentCourseReservedByUser(reservations) &&
         isRemainingPlacesBiggerThanZero
       "
       :to="{
@@ -52,14 +54,16 @@
     </nuxt-link>
     <common-transition-basic-transition>
       <div
-        v-if="userStore.currentCourseReservedByUser(courseId)"
+        v-if="userStore.currentCourseReservedByUser(reservations)"
         class="flex items-baseline space-x-1"
       >
         <div class="font-bold text-green-700">
           {{ $t("course.apply.alreadyApplied") }}
         </div>
         <div
-          v-if="!userStore.currentCourseReservedByUser(courseId).isActivated"
+          v-if="
+            !userStore.currentCourseReservedByUser(reservations).isActivated
+          "
           class="text-sm text-gray-600 dark:text-gray-200"
         >
           {{ $t("course.apply.reservationNotActive") }}
@@ -71,11 +75,16 @@
 
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
+import { Reservation } from "~/models/reservation";
 
 const route = useRoute();
 const userStore = useUserStore();
 
 const props = defineProps({
+  reservations: {
+    type: Object as PropType<[Reservation]>,
+    required: true,
+  },
   courseId: {
     type: String,
     required: true,
@@ -95,6 +104,11 @@ const props = defineProps({
   remainingPlacesCount: {
     type: Number,
     required: true,
+  },
+  isApplySuccess: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 });
 

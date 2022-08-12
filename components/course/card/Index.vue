@@ -52,10 +52,12 @@
               (userStore.isSimpleUser && userStore.user.isActivated)
             "
             v-model:is-apply-active="isApplyActive"
+            :reservations="reservations"
             :course-id="courseId"
             :is-on-details="isOnDetails"
             :max-group-size="maxGroupSize"
             :remaining-places-count="remainingPlacesCount"
+            :is-apply-success="isApplySuccess"
           ></course-card-apply-actions>
         </div>
         <div class="pb-4">
@@ -65,7 +67,9 @@
                 v-if="isApplyActive"
                 v-model:is-apply-active="isApplyActive"
                 :course-id="courseId"
+                :reservations="reservations"
                 :remaining-places-count="remainingPlacesCount"
+                @applied-successfully="isApplySuccess = true"
               ></course-card-apply-form>
             </common-transition-expand>
           </ClientOnly>
@@ -77,12 +81,13 @@
 
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
-import { ReservationList } from "~/models/reservation";
+import { Reservation } from "~/models/reservation";
 
 const userStore = useUserStore();
 const route = useRoute();
 
 const isApplyActive = ref(false);
+const isApplySuccess = ref(false);
 
 const shareURL = computed(() => `${BASE_DOMAIN_URL}${route.fullPath}`);
 
@@ -120,7 +125,7 @@ const props = defineProps({
     required: true,
   },
   reservations: {
-    type: Object as PropType<ReservationList>,
+    type: Object as PropType<[Reservation]>,
     required: true,
   },
   imageUrl: {

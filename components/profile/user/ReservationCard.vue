@@ -67,9 +67,6 @@
 
 <script setup lang="ts">
 import { FetchMethods } from "~/models/enums";
-import { useUserStore } from "~/stores/user";
-
-const userStore = useUserStore();
 
 const isDetailsVisible = ref(false);
 const isDeleteConfirmationMessageVisible = ref(false);
@@ -97,6 +94,10 @@ defineProps({
   },
 });
 
+const emit = defineEmits<{
+  (e: "deleteReservation", reservationId: string): void;
+}>();
+
 // TODO: error kezelés
 const deleteReservation = async (reservationId: string) => {
   const { data } = await useCustomFetch({
@@ -106,7 +107,7 @@ const deleteReservation = async (reservationId: string) => {
   });
 
   if (data) {
-    userStore.deleteReservation(reservationId);
+    emit("deleteReservation", reservationId);
   }
 };
 </script>

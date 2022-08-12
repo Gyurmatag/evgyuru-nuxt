@@ -2,7 +2,7 @@
   <!-- TODO: kérdés, hogy kell-e ez a wrapper class??-->
   <div :class="wrapperClass" class="w-full">
     <div class="mb-1 flex justify-center space-x-2">
-      <label :class="labelClass" :for="name">
+      <label :class="labelClass" :for="name || inputId">
         <!-- TODO: itt nyelvesítés labelnél -->
         {{ label }}
       </label>
@@ -29,7 +29,7 @@
       <!--TODO: basis-full jó megoldás-e? -->
       <component
         :is="isTextArea ? 'textarea' : 'input'"
-        :id="name"
+        :id="name || inputId"
         v-maska="inputMask"
         :name="name"
         :type="type"
@@ -87,6 +87,10 @@ const props = defineProps({
   name: {
     type: String,
     required: true,
+  },
+  inputId: {
+    type: String,
+    default: null,
   },
   label: {
     type: String,

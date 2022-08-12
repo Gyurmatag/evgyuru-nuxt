@@ -179,6 +179,8 @@
     "user": {
       "reservations": {
         "title": "Kurzusok, amelyekre eddig jelentkeztél",
+        "activeReservations": "Aktív foglalások",
+        "pastReservations": "Régebbi foglalások",
         "empty": "Egyelőre üres... :(",
         "moreCourses": "tudod megnézni jelenlegi kurzusainkat",
         "delete": "Jelentkezés törlése",

@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ReservationList } from "~/models/reservation";
+import { ReservationListResponse } from "~/models/reservation";
 import { FetchMethods } from "~/models/enums";
 
 const isDeleteConfirmationMessageVisible = ref(false);
@@ -80,7 +80,7 @@ const expandCourse = async (courseId) => {
     // TODO: error kezelés
     // TODO: beégetett paraméterek kivezetése
     // TODO: esetleg itt a data-t ki lehetne szervezni?
-    const { data } = await useCustomFetch<ReservationList>({
+    const { data } = await useCustomFetch<ReservationListResponse>({
       path: `${RESERVATION}/${RESERVATIONS}`,
       params: { courseId, limit: 5, currentPage: 1 },
       isAuthenticated: true,

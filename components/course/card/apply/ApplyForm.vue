@@ -37,7 +37,7 @@
             :hint-key="successPanelHintKey"
           ></common-success-panel>
           <button
-            v-if="!userStore.currentCourseReservedByUser(courseId)"
+            v-if="currentStep !== CourseApplySteps.ApplySuccess"
             class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
             type="submit"
             :disabled="!meta.valid || isSubmitting"
@@ -53,7 +53,7 @@
     </form>
     <common-transition-basic-transition>
       <button
-        v-if="!userStore.currentCourseReservedByUser(courseId)"
+        v-if="currentStep !== CourseApplySteps.ApplySuccess"
         type="button"
         class="absolute right-0 bottom-0 rounded-md bg-gray-100 p-1 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
         @click="emit('update:isApplyActive', false)"
@@ -81,6 +81,10 @@ import { useCustomFetch } from "~/composables/myFetch";
 const userStore = useUserStore();
 
 const props = defineProps({
+  reservations: {
+    type: Object as PropType<[Reservation]>,
+    required: true,
+  },
   courseId: {
     type: String,
     required: true,
@@ -97,6 +101,7 @@ const props = defineProps({
 
 const emit = defineEmits<{
   (e: "update:isApplyActive", p: boolean): void;
+  (e: "appliedSuccessfully"): void;
 }>();
 
 const loginFormData = ref<LoginUser>(null);
@@ -309,8 +314,9 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
       });
 
       if (data) {
-        userStore.addNewReservation(data.value);
         currentStep.value = CourseApplySteps.ApplySuccess;
+        // TODO: lehet szebb megoldás itt?
+        emit("appliedSuccessfully");
       }
       break;
     }

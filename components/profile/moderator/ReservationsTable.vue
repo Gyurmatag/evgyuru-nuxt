@@ -54,11 +54,11 @@
 </template>
 
 <script setup lang="ts">
-import { ReservationList } from "~/models/reservation";
+import { ReservationListResponse } from "~/models/reservation";
 
 defineProps({
   reservationList: {
-    type: Object as PropType<ReservationList>,
+    type: Object as PropType<ReservationListResponse>,
     default: null,
   },
 });

@@ -35,10 +35,10 @@ export const useUserStore = defineStore("userStore", {
     },
     currentCourseReservedByUser: (
       state: UserState
-    ): ((courseId: string) => Reservation) => {
-      return (courseId) =>
-        state.user?.reservations.find(
-          (reservation) => reservation?.course._id === courseId
+    ): ((reservations: [Reservation]) => Reservation) => {
+      return (reservations: [Reservation]) =>
+        reservations.find(
+          (reservation) => reservation?.user === state.user._id
         );
     },
     isSimpleUser: (state: UserState): boolean => {
@@ -51,24 +51,6 @@ export const useUserStore = defineStore("userStore", {
   actions: {
     activateUser() {
       this.user.isActivated = true;
-    },
-    addNewReservation(reservation: Reservation) {
-      this.user.reservations.push(reservation);
-    },
-    setReservations(reservations: [Reservation]) {
-      this.user.reservations = reservations;
-    },
-    deleteReservation(reservationId: string) {
-      this.user.reservations = this.user.reservations.filter(
-        (reservation) => reservation._id !== reservationId
-      );
-    },
-    setReservationToActivated(activationKey: string) {
-      this.user.reservations = this.user.reservations.map((reservation) =>
-        reservation.activationKey === activationKey
-          ? { ...reservation, isActivated: true, activationKey: "" }
-          : reservation
-      );
     },
   },
 
