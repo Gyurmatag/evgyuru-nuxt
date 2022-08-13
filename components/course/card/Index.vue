@@ -48,7 +48,7 @@
           </common-transition-expand>
           <course-card-apply-actions
             v-if="
-              !userStore.user._id ||
+              !userStore.user.accessToken ||
               (userStore.isSimpleUser && userStore.user.isActivated)
             "
             v-model:is-apply-active="isApplyActive"

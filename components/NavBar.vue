@@ -31,7 +31,7 @@
           >
             {{ $t("nav.donate") }}
           </nuxt-link>
-          <nuxt-link v-if="!userStore.user._id" to="/auth/login">
+          <nuxt-link v-if="!userStore.user.accessToken" to="/auth/login">
             <common-icon-account-circle
               class="w-10 cursor-pointer fill-gray-600 transition duration-300 ease-in-out hover:fill-gray-700 dark:fill-gray-500 dark:hover:fill-gray-400"
             ></common-icon-account-circle>

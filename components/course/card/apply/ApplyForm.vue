@@ -26,7 +26,7 @@
             :meta="meta"
             :is-submitting="isSubmitting"
             :is-user-will-be-registered-or-already-logged-in="
-              isDataToBeSaved || !!userStore.user._id
+              isDataToBeSaved || !!userStore.user.accessToken
             "
             :remaining-places-count="remainingPlacesCount"
           >
@@ -162,7 +162,7 @@ const validationSchemas = {
         ),
       })
     ),
-    ...(isDataToBeSaved.value || !!userStore.user._id
+    ...(isDataToBeSaved.value || !!userStore.user.accessToken
       ? acceptDataManagementValidation
       : {}),
   }),
@@ -177,7 +177,7 @@ if (!userStore.user._id) {
 const currentSchema = computed(() => validationSchemas[currentStep.value]);
 
 const successPanelHintKey = computed(() => {
-  return userStore.user._id
+  return userStore.user.accessToken
     ? userStore.user.isActivated
       ? "course.apply.form.successHintWithRegisteredUser"
       : "course.apply.form.successHintWithJustRegisteredUser"
@@ -215,7 +215,7 @@ const handleUserDataSave = async (formValues: ApplyCourse) => {
   };
 
   // TODO: error kezelése
-  const { error } = await useCustomFetch({
+  const { data, error } = await useCustomFetch<User>({
     path: `${AUTH}/${SIGNUP}`,
     method: FetchMethods.POST,
     body: {
@@ -233,6 +233,7 @@ const handleUserDataSave = async (formValues: ApplyCourse) => {
     },
   });
   if (!error.value) {
+    userStore.user._id = data.value._id;
     currentStep.value = CourseApplySteps.Apply;
   }
 };
@@ -297,7 +298,7 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
         children: applyFormData.value.children,
       };
 
-      if (!userStore.user._id) {
+      if (!userStore.user.accessToken) {
         applyRequestBody.userEmail = signUpFormData.value.email;
         applyRequestBody.isNotRegisteredOnlyForCourseApply =
           !isDataToBeSaved.value;
@@ -305,11 +306,11 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
 
       // TODO: error kezelés
       const { data } = await useCustomFetch<Reservation>({
-        path: userStore.user._id
+        path: userStore.user.accessToken
           ? `${RESERVATION}/${LOGGED_IN_SAVE}`
           : `${RESERVATION}/${SAVE}`,
         method: FetchMethods.POST,
-        isAuthenticated: !!userStore.user._id,
+        isAuthenticated: !!userStore.user.accessToken,
         body: applyRequestBody,
       });
 
