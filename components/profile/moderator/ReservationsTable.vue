@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="reservation in reservationList.reservations"
+            v-for="reservation in reservationList"
             :key="reservation._id"
             class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
           >
@@ -38,13 +38,14 @@
               {{ reservation.user.telephoneNumber }}
             </td>
             <td class="px-6 py-4">
-              {{ reservation.user.address }}
+              {{ reservation.user.zipCode }}, {{ reservation.user.city }},
+              {{ reservation.user.streetAddress }}
             </td>
           </tr>
         </tbody>
       </table>
       <div
-        v-if="!reservationList.reservations.length"
+        v-if="!reservationList.length"
         class="py-3 text-sm dark:text-gray-400"
       >
         {{ $t("profile.moderator.courses.noReservations") }}
@@ -54,11 +55,11 @@
 </template>
 
 <script setup lang="ts">
-import { ReservationListResponse } from "~/models/reservation";
+import { Reservation } from "~/models/reservation";
 
 defineProps({
   reservationList: {
-    type: Object as PropType<ReservationListResponse>,
+    type: Object as PropType<[Reservation]>,
     default: null,
   },
 });

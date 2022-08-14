@@ -51,7 +51,10 @@
 </template>
 
 <script setup lang="ts">
-import { ReservationListResponse } from "~/models/reservation";
+import {
+  Reservation,
+  ReservationListBasicResponse,
+} from "~/models/reservation";
 import { FetchMethods } from "~/models/enums";
 
 const isDeleteConfirmationMessageVisible = ref(false);
@@ -68,7 +71,7 @@ defineProps({
   },
 });
 
-const reservationListData = ref(null);
+const reservationListData = ref<[Reservation]>(null);
 const courseDetailPanelOpened = ref(false);
 const reservationsDataPending = ref(false);
 
@@ -78,15 +81,14 @@ const expandCourse = async (courseId) => {
   } else {
     reservationsDataPending.value = true;
     // TODO: error kezelés
-    // TODO: beégetett paraméterek kivezetése
     // TODO: esetleg itt a data-t ki lehetne szervezni?
-    const { data } = await useCustomFetch<ReservationListResponse>({
+    const { data } = await useCustomFetch<ReservationListBasicResponse>({
       path: `${RESERVATION}/${RESERVATIONS}`,
-      params: { courseId, limit: 5, currentPage: 1 },
+      params: { courseId, limit: 0, currentPage: 0 },
       isAuthenticated: true,
     });
 
-    reservationListData.value = data.value;
+    reservationListData.value = data.value.reservations;
     reservationsDataPending.value = false;
     courseDetailPanelOpened.value = true;
   }

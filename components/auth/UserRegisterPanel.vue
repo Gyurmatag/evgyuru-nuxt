@@ -22,23 +22,7 @@
       :value="isEdit ? null : '+36'"
       :label="$t('auth.form.telephoneNumber')"
     />
-    <div class="flex space-x-3">
-      <common-text-input
-        name="zipCode"
-        type="text"
-        input-mask="####"
-        :label="$t('auth.form.zipCode')"
-        @input="searchForCity"
-      />
-      <common-text-input
-        name="city"
-        type="text"
-        :label="$t('auth.form.city')"
-        :value="fetchedCityName"
-        class="disabled"
-        :class="isCityFetchPending ? 'animate-pulse' : ''"
-      />
-    </div>
+    <common-zip-code-city-name-inputs></common-zip-code-city-name-inputs>
     <common-text-input
       name="streetAddress"
       type="text"
@@ -84,11 +68,6 @@
 </template>
 
 <script setup lang="ts">
-import { City } from "~/models/city";
-
-const fetchedCityName = ref(null);
-const isCityFetchPending = ref(false);
-
 defineProps({
   hintTranslateKey: {
     type: String,
@@ -119,22 +98,5 @@ const emit = defineEmits<{
 // TODO: event type-ja?
 const updateIsDataToBeSaved = (event) => {
   emit("update:isDataToBeSaved", event.target.checked);
-};
-
-// TODO: miért nem jó a property hivatkozás vajon? (_value)
-// TODO: error kezelés
-// TODO: pending meg adat kiszervezése?
-// TODO: URL kiemelése
-const searchForCity = async (event: InputEvent) => {
-  if (event.target._value.length === 4) {
-    isCityFetchPending.value = true;
-    const { data } = await useCustomFetch<City>({
-      customBaseURL: "https://hur.webmania.cc/zips",
-      path: `/${event.target._value}.json`,
-      initialCache: false,
-    });
-    isCityFetchPending.value = false;
-    fetchedCityName.value = data.value?.zips[0]?.name;
-  }
 };
 </script>

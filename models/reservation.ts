@@ -11,6 +11,10 @@ export interface Reservation {
   isActivated: boolean;
 }
 
+export interface ReservationListBasicResponse extends BaseList {
+  reservations: [Reservation];
+}
+
 export interface ReservationListResponse extends BaseList {
   reservations: [AggregatedList<Reservation>];
 }

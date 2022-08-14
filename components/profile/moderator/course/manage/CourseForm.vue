@@ -108,6 +108,15 @@
                   :label="$t('profile.moderator.manageCourse.form.timeTo')"
                 />
               </div>
+              <h2 class="text-xl text-gray-700 dark:text-gray-300">
+                {{ $t("profile.moderator.manageCourse.form.location") }}
+              </h2>
+              <common-zip-code-city-name-inputs></common-zip-code-city-name-inputs>
+              <common-text-input
+                name="streetAddress"
+                type="text"
+                :label="$t('profile.moderator.manageCourse.form.streetAddress')"
+              />
               <div class="flex space-x-6">
                 <cloudinary-image-uploader
                   :is-image-url-already-provided="isEdit"
@@ -168,15 +177,21 @@ if (props.isEdit) {
     ...data.value,
     dateFrom: new Date(data.value.dateFrom),
     dateTo: new Date(data.value.dateTo),
-    // TODO: szépítési lehetőség? Kiszervezés?
+    // TODO: szépítési, refaktorálási lehetőség? Kiszervezés?
     timeFrom: `${new Date(data.value.dateFrom)
       .getHours()
-      .toString()}:${new Date(data.value.dateFrom).getMinutes().toString()}`,
-    timeTo: `${new Date(data.value.dateTo).getHours().toString()}:${new Date(
-      data.value.dateTo
-    )
+      .toString()
+      .padStart(2, "0")}:${new Date(data.value.dateFrom)
       .getMinutes()
-      .toString()}`,
+      .toString()
+      .padStart(2, "0")}`,
+    timeTo: `${new Date(data.value.dateTo)
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${new Date(data.value.dateTo)
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}`,
   };
 }
 
@@ -231,6 +246,15 @@ const validationSchema = Yup.object().shape({
         return dayjs(timeToDate).isAfter(dayjs(timeFromDate));
       }
     ),
+  zipCode: Yup.string()
+    .required("profile.moderator.manageCourse.form.errors.zipCode.required")
+    .min(4, "profile.moderator.manageCourse.form.errors.zipCode.minChars"),
+  city: Yup.string().required(
+    "profile.moderator.manageCourse.form.errors.city.required"
+  ),
+  streetAddress: Yup.string().required(
+    "profile.moderator.manageCourse.form.errors.streetAddress.required"
+  ),
   imageUrl: Yup.string().required(
     "profile.moderator.manageCourse.form.errors.imageUrl.required"
   ),

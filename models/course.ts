@@ -6,6 +6,9 @@ export interface BaseCourse {
   description: string;
   price: number;
   occasions: number;
+  zipCode: string;
+  city: string;
+  streetAddress: string;
   dateFrom: Date | string;
   dateTo: Date | string;
   imageUrl: string;

@@ -35,7 +35,9 @@
     "replacePicture": "Kép cseréje",
     "nothing": "",
     "details": "Részletek",
-    "lessDetails": "Kevesebb"
+    "lessDetails": "Kevesebb",
+    "zipCode": "Irányítószám",
+    "city": "Város"
   },
   "nav": {
     "manocska": "Manócska Tanoda",
@@ -96,8 +98,6 @@
       "passwordResetKeySentHint": "A regisztrált e-mail címedre kiküldtük az új jelszavad kiállításához szükséges linket!",
       "fullName": "Teljes név",
       "telephoneNumber": "Telefonszám",
-      "zipCode": "Irányítószám",
-      "city": "Város",
       "streetAddress": "Utca, házszám, (épület, ajtó)",
       "addressHint": "A lakcím megadása a számlázás miatt szükséges.",
       "passwordFirst": "Biztonságos jelszó",
@@ -217,6 +217,8 @@
           "timeFrom": "Kezdés",
           "dateTo": "Vég dátum",
           "timeTo": "Befejezés",
+          "location": "Helyszín adatok",
+          "streetAddress": "Utca, házszám",
           "imageUrl": "Borítókép",
           "saveSuccess": "Kurzus sikeresen felvéve!",
           "editSuccess": "Kurzus sikeresen módosítva!",
@@ -253,6 +255,16 @@
             "timeTo": {
               "required": "Befejezési idő megadása kötelező",
               "beforeTimeFrom": "A befejezési idő nem lehet a kezdési idő előtt"
+            },
+            "zipCode": {
+              "required": "Irányítószám mező kitöltése kötelező!",
+              "minChars": "Irányítószám nem teljes!"
+            },
+            "city": {
+              "required": "Város mező kitöltése kötelező!"
+            },
+            "streetAddress": {
+              "required": "Részletes cím mező kitöltése kötelező!"
             },
             "imageUrl": {
               "required": "Kép felöltése kötelező"
