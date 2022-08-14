@@ -9,6 +9,12 @@ export default defineNuxtConfig({
       locale: "hu",
     },
   },
+  // TODO: ez egy workaround, ha megoldják az issue-t amit bejelentettem ki lehet szedni remélhetőleg: https://github.com/nuxt/framework/issues/6495
+  nitro: {
+    externals: {
+      inline: ["date-fns"],
+    },
+  },
   css: ["@/assets/styles/main.css"],
   colorMode: {
     classSuffix: "",
