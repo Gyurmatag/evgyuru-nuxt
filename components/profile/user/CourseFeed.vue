@@ -7,6 +7,8 @@
       <form @submit="onSubmit" @change="formOnChange">
         <common-custom-radio-button
           name="filterDateFromAfterToday"
+          first-radio-label-key="profile.user.reservations.filter.activeReservations"
+          second-radio-label-key="profile.user.reservations.filter.pastReservations"
         ></common-custom-radio-button>
       </form>
     </div>
@@ -58,7 +60,7 @@ import { useUserStore } from "~/stores/user";
 
 const userStore = useUserStore();
 
-const courseFilterFormData = ref<ReservationFilter>(null);
+const reservationFilterFormData = ref<ReservationFilter>(null);
 const currentPage = ref(1);
 const limit = 5;
 const reservationsListResponse = ref<ReservationListResponse>(null);
@@ -70,22 +72,22 @@ const formOnChange = () => {
 };
 
 const onSubmit = handleSubmit(async (values) => {
-  courseFilterFormData.value = {
-    ...courseFilterFormData.value,
+  reservationFilterFormData.value = {
+    ...reservationFilterFormData.value,
     ...values,
   };
   await refresh();
   reservationsListResponse.value = data.value;
 });
 
-// TODO: error kezelés
 const { API_BASE: baseURL } = useRuntimeConfig();
+// TODO: error kezelés
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
 // TODO: szép töltési allapot kezelés impelementálása
 const { data, refresh } = await useFetch<ReservationListResponse>(
   () =>
-    `${RESERVATION}/${USER_RESERVATIONS}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
+    `${RESERVATION}/${USER_RESERVATIONS}?page=${currentPage.value}&filterDateFromAfterToday=${reservationFilterFormData.value?.filterDateFromAfterToday}`,
   {
     headers: {
       "x-access-token": userStore.user.accessToken,

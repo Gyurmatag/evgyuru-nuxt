@@ -179,8 +179,10 @@
     "user": {
       "reservations": {
         "title": "Kurzusok, amelyekre eddig jelentkeztél",
-        "activeReservations": "Aktív foglalások",
-        "pastReservations": "Régebbi foglalások",
+        "filter": {
+          "activeReservations": "Aktív foglalások",
+          "pastReservations": "Régebbi foglalások"
+        },
         "empty": "Egyelőre üres... :(",
         "moreCourses": "tudod megnézni jelenlegi kurzusainkat",
         "delete": "Jelentkezés törlése",
@@ -192,6 +194,10 @@
       "courses": {
         "title": "Kurzusok",
         "noReservations": "Még nincsenek jelentkezések",
+        "filter": {
+          "activeCourses": "Aktív kurzusok",
+          "pastCourses": "Régebbi kurzusok"
+        },
         "delete": {
           "courseDeleted": "(törölve)",
           "confirmation": "Biztosan törlőd ezt a kurzust?"
@@ -312,6 +318,10 @@
     "projectDetails": {
       "courses": {
         "title": "Kurzusok",
+        "filter": {
+          "activeCourses": "Aktív kurzusok",
+          "pastCourses": "Régebbi kurzusok"
+        },
         "loadMore": "Még több kurzus"
       }
     }

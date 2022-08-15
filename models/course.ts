@@ -16,6 +16,10 @@ export interface BaseCourse {
   reservations: [Reservation];
 }
 
+export interface CourseFilter {
+  filterDateFromAfterToday: boolean;
+}
+
 export interface Course extends BaseCourse {
   _id: string;
 }

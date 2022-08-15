@@ -13,8 +13,17 @@
         +
       </nuxt-link>
     </div>
+    <div>
+      <form @submit="onSubmit" @change="formOnChange">
+        <common-custom-radio-button
+          name="filterDateFromAfterToday"
+          first-radio-label-key="profile.moderator.courses.filter.activeCourses"
+          second-radio-label-key="profile.moderator.courses.filter.pastCourses"
+        ></common-custom-radio-button>
+      </form>
+    </div>
     <div
-      v-for="course in courseData.courses"
+      v-for="course in courses"
       :key="course._id"
       class="mt-4 flex flex-col rounded-md bg-blue-200 p-6 dark:bg-gray-700"
     >
@@ -23,17 +32,60 @@
         :course-title="course.title"
       ></profile-moderator-course-card>
     </div>
+    <button
+      v-if="courses.length !== data.totalItems"
+      class="rounded-md bg-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-gray-200 dark:hover:bg-gray-300"
+      @click="loadNextPage"
+    >
+      {{ $t("project.projectDetails.courses.loadMore") }}
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CourseList } from "~/models/course";
+import { useForm } from "vee-validate";
+import { Course, CourseFilter, CourseList } from "~/models/course";
 
-// TODO: error kezelés
-// TODO: beégetett paraméterek kivezetése
-const { data: courseData } = await useCustomFetch<CourseList>({
-  path: `${COURSE}/${COURSES}`,
-  params: { projectId: "61ed941fd0bd9a48509bee27", limit: 5, currentPage: 1 },
-  initialCache: false,
+const courseFilterFormData = ref<CourseFilter>(null);
+const currentPage = ref(1);
+const limit = 5;
+const courses = ref<Course[]>([]);
+
+const { handleSubmit } = useForm({});
+
+const formOnChange = () => {
+  onSubmit();
+};
+
+const onSubmit = handleSubmit(async (values) => {
+  courseFilterFormData.value = {
+    ...courseFilterFormData.value,
+    ...values,
+  };
+  await refresh();
+  courses.value = data.value.courses;
 });
+
+const { API_BASE: baseURL } = useRuntimeConfig();
+// TODO: error kezelés
+// TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni (https://github.com/nuxt/framework/issues/5993)
+// TODO: params-ban nem működik a reaktivitás (currentPage.value)
+// TODO: szép töltési allapot kezelés impelementálása
+const { data, refresh } = await useFetch<CourseList>(
+  () =>
+    `/${COURSE}/${COURSES}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
+  {
+    params: { projectId: "61ed941fd0bd9a48509bee27", limit },
+    baseURL,
+    initialCache: false,
+  }
+);
+
+courses.value = data.value.courses;
+
+const loadNextPage = async () => {
+  currentPage.value++;
+  await refresh();
+  courses.value.push(...data.value.courses);
+};
 </script>

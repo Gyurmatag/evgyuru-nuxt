@@ -4,6 +4,7 @@ import { FetchMethods as FetchMethodEnum } from "~/models/enums";
 import { useUserStore } from "~/stores/user";
 import { useResponseStore } from "~/stores/response";
 
+// TODO: további type-ok megadása
 interface FetchInputs {
   customBaseURL?: string;
   path: string;
