@@ -86,6 +86,7 @@ const expandCourse = async (courseId) => {
       path: `${RESERVATION}/${RESERVATIONS}`,
       params: { courseId, limit: 0, currentPage: 0 },
       isAuthenticated: true,
+      initialCache: false,
     });
 
     reservationListData.value = data.value.reservations;
