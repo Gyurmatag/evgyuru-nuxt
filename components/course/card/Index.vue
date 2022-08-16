@@ -57,6 +57,7 @@
             :is-on-details="isOnDetails"
             :max-group-size="maxGroupSize"
             :remaining-places-count="remainingPlacesCount"
+            :date-from="dateFrom"
             :is-apply-success="isApplySuccess"
           ></course-card-apply-actions>
         </div>

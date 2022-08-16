@@ -2,7 +2,9 @@
   <div class="flex flex-grow items-center justify-end space-x-2">
     <div
       v-if="
-        !userStore.currentCourseReservedByUser(reservations) && !isApplySuccess
+        !userStore.currentCourseReservedByUser(reservations) &&
+        !isApplySuccess &&
+        isDateFromAlreadyPassed
       "
       class="border-r-2 border-blue-100 p-2 text-sm text-gray-700 dark:border-blue-900 dark:text-gray-300"
     >
@@ -74,6 +76,7 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from "dayjs";
 import { useUserStore } from "~/stores/user";
 import { Reservation } from "~/models/reservation";
 
@@ -105,6 +108,10 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  dateFrom: {
+    type: String,
+    required: true,
+  },
   isApplySuccess: {
     type: Boolean,
     required: false,
@@ -126,6 +133,10 @@ const calculatedRemainingPlacesClass = computed(() => {
 
 const isRemainingPlacesBiggerThanZero = computed(() => {
   return props.remainingPlacesCount > 0;
+});
+
+const isDateFromAlreadyPassed = computed(() => {
+  return dayjs(new Date()).isBefore(props.dateFrom);
 });
 
 onMounted(() => {
