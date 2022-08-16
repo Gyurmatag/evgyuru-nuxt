@@ -7,13 +7,15 @@
         <div class="font-semibold text-gray-300">
           {{ $t("footer.financialStatements") }}
         </div>
-        <a
-          href="https://res.cloudinary.com/gyurmatag/image/upload/v1644427612/%C3%89vgy%C5%B1r%C5%B1/P%C3%A9nz%C3%BCgyi%20besz%C3%A1mol%C3%B3k/OBHGEPI_PK_742_19316750110_E%CC%81vgyu%CC%88ru%CC%88_Alapi%CC%81tva%CC%81ny_6234980117913700_323404567414.pdf"
-          target="_blank"
-          class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
-        >
-          {{ $t("documents.financialStatements.year.2021") }}
-        </a>
+        <div>
+          <a
+            href="https://res.cloudinary.com/gyurmatag/image/upload/v1644427612/%C3%89vgy%C5%B1r%C5%B1/P%C3%A9nz%C3%BCgyi%20besz%C3%A1mol%C3%B3k/OBHGEPI_PK_742_19316750110_E%CC%81vgyu%CC%88ru%CC%88_Alapi%CC%81tva%CC%81ny_6234980117913700_323404567414.pdf"
+            target="_blank"
+            class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
+          >
+            {{ $t("documents.financialStatements.year.2021") }}
+          </a>
+        </div>
       </div>
     </nav>
     <common-color-mode-selector></common-color-mode-selector>
@@ -25,7 +27,7 @@
       >
         <span class="sr-only">Facebook</span>
         <svg
-          class="h-6 w-6"
+          class="h-10 w-10 sm:h-8 sm:w-8 md:h-6 lg:w-6"
           aria-hidden="true"
           fill="currentColor"
           viewBox="0 0 24 24"
@@ -45,7 +47,7 @@
       >
         <span class="sr-only">Instagram</span>
         <svg
-          class="h-6 w-6"
+          class="h-10 w-10 sm:h-8 sm:w-8 md:h-6 lg:w-6"
           aria-hidden="true"
           fill="currentColor"
           viewBox="0 0 24 24"
@@ -59,23 +61,27 @@
         </svg>
       </a>
     </div>
-    <div class="flex flex-col space-y-2 text-center">
-      <a
-        :href="dataManagementInformationLink"
-        target="_blank"
-        class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
-      >
-        {{ $t("privacyPolicy.dataManagementInformation") }}
-      </a>
-      <a
-        :href="dataProtectionAndDataManagementPolicyLink"
-        target="_blank"
-        class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
-      >
-        {{ $t("privacyPolicy.dataProtectionAndDataManagementPolicy") }}
-      </a>
+    <div class="flex flex-col space-y-4 text-center md:space-y-2">
+      <div>
+        <a
+          :href="dataManagementInformationLink"
+          target="_blank"
+          class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
+        >
+          {{ $t("privacyPolicy.dataManagementInformation") }}
+        </a>
+      </div>
+      <div>
+        <a
+          :href="dataProtectionAndDataManagementPolicyLink"
+          target="_blank"
+          class="text-md text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
+        >
+          {{ $t("privacyPolicy.dataProtectionAndDataManagementPolicy") }}
+        </a>
+      </div>
     </div>
-    <p class="text-base mt-8 text-center leading-6 text-gray-200">
+    <p class="mt-8 text-center text-base leading-6 text-gray-200">
       {{ $t("footer.copyright") }}
     </p>
   </div>

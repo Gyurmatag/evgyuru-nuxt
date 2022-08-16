@@ -72,19 +72,19 @@
       "reviewsTitle": "Rólunk mondták...",
       "review": {
         "first": {
-          "reviewText": "A kisfiam érdekes és színes programokon, kirándulásokon vehetett részt, folyamatosan lekötve érdeklődését, kíváncsiságát, így nagyon jól érezte magát. Az óvónénik kedvesek gyermekcentrikusak és mindenben partnerek voltak. Köszönjük a lehetőséget.",
-          "reviewDate": "2021.12.27.",
+          "reviewText": "A kisfiam érdekes és színes programokon, kirándulásokon vehetett részt, folyamatosan lekötve érdeklődését, kíváncsiságát, így nagyon jól érezte magát. Az óvónénik kedvesek, gyermekcentrikusak és mindenben partnerek voltak. Köszönjük a lehetőséget.",
+          "reviewDate": "2022.07.21.",
           "parentName": "Henrietta"
         },
         "second": {
-          "reviewText": "Szeretnénk megköszönni ezt a fantasztikus 5 napot, amely során izgalmas kalandokban volt része a táborozóknak. Külön köszönetet érdemelnek az Óvónénik a  kedvességükért. A konyhás néni is finomakat készített, minden nap jóllakott pocakkal és kellemesen elfáradva hoztam haza a kis táborlakómat. Nagyon örülök, hogy a kislányom részt tudott venni egy ilyen eseményen. ",
-          "reviewDate": "2022.03.27.",
+          "reviewText": "Szeretnénk megköszönni ezt a fantasztikus 5 napot, amely során izgalmas kalandokban volt része a táborozóknak. Külön köszönetet érdemelnek az Óvónénik a  kedvességükért. A konyhás néni is finomakat készített, minden nap jóllakott pocakkal és kellemesen elfáradva hoztam haza a kis táborlakómat. Nagyon örülök, hogy a kislányom részt tudott venni egy ilyen eseményen.",
+          "reviewDate": "2022.07.20.",
           "parentName": "Melánia"
         },
         "third": {
-          "reviewText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque gravida in fermentum et sollicitudin ac orci.",
-          "reviewDate": "2022.07.27.",
-          "parentName": "Berkics Sándor"
+          "reviewText": "Először jelentkeztünk a Manócska Tanoda által rendezett táborba. Rendkívül kedves, lelkiismeretes óvónénik várták hatalmas mosollyal fiamat minden reggel. A változatos, mozgalmas programokkal, kirándulásokkal rengeteg örömet szereztek fiamnak. Minden nap csodálatos volt, gyorsan elrepült az egy hét! Köszönjük a rengeteg törődést és odafigyelést! Mindenkinek csak ajánlani tudjuk Önöket!",
+          "reviewDate": "2022.08.25.",
+          "parentName": "Melinda"
         }
       }
     }
@@ -330,6 +330,7 @@
     "apply": {
       "start": "Jelentkezem",
       "remainingPlacesCountHint": "férőhely maradt",
+      "remainingPlacesCountHintShort": "férőhely",
       "courseIsFull": "A kurzus betelt",
       "alreadyApplied": "Beiratkozva",
       "reservationNotActive": "(Nincs megerősítve)",

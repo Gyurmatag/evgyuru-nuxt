@@ -2,7 +2,7 @@
   <div class="mx-4">
     <form :validation-schema="currentSchema" @submit="onSubmit">
       <common-transition-basic-transition>
-        <div class="space-y-2">
+        <div class="space-y-6">
           <auth-initial-panel
             v-if="currentStep === CourseApplySteps.Initial"
             :hint-translate-key="'course.apply.form.noLoginHint'"

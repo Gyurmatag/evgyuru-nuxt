@@ -1,14 +1,16 @@
 <template>
   <common-page-head :subtitle="'page.title.profile'"></common-page-head>
   <div
-    class="my-8 flex max-w-6xl flex-col items-center justify-center px-4 md:flex-row"
+    class="my-8 flex max-w-6xl flex-col items-center justify-center md:flex-row"
   >
     <div class="flex w-screen flex-col space-y-4 p-4">
       <common-hint-card
         v-if="!userStore.user.isActivated"
         :hint-key="'profile.notActivatedHint'"
       ></common-hint-card>
-      <div class="flex justify-between">
+      <div
+        class="flex flex-col-reverse justify-between space-y-4 space-y-reverse md:flex-row"
+      >
         <div class="flex flex-col font-bold text-gray-800 dark:text-gray-200">
           <div
             class="flex cursor-pointer items-center space-x-1 text-2xl hover:text-gray-600 dark:hover:text-gray-400"
@@ -54,13 +56,15 @@
             </div>
           </common-transition-expand>
         </div>
-        <button
-          v-if="!isProfileSettingsExpanded"
-          class="text-sm text-red-600 hover:text-red-700"
-          @click="logoutUser"
-        >
-          {{ $t("profile.logout") }}
-        </button>
+        <div class="flex h-8 justify-end">
+          <button
+            v-if="!isProfileSettingsExpanded"
+            class="text-md text-red-600 hover:text-red-700 md:text-sm"
+            @click="logoutUser"
+          >
+            {{ $t("profile.logout") }}
+          </button>
+        </div>
       </div>
       <div>
         <NuxtLink v-slot="{ navigate }" to="/profile/edit" custom>

@@ -19,41 +19,44 @@
           <span>{{ remainingPlacesCount }}</span>
         </div>
         <div>
-          {{ $t("course.apply.remainingPlacesCountHint") }}
+          <span class="hidden sm:block">{{
+            $t("course.apply.remainingPlacesCountHint")
+          }}</span>
+          <span class="sm:hidden">{{
+            $t("course.apply.remainingPlacesCountHintShort")
+          }}</span>
         </div>
       </div>
       <div v-else class="text-red-600">
         {{ $t("course.apply.courseIsFull") }}
       </div>
     </div>
-    <button
+    <template
       v-if="
-        isOnDetails &&
         !isApplyActive &&
+        !userStore.currentCourseReservedByUser(reservations) &&
         isRemainingPlacesBiggerThanZero &&
-        !userStore.currentCourseReservedByUser(reservations) &&
-        isRemainingPlacesBiggerThanZero
+        isDateFromAlreadyPassed
       "
-      class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"
-      @click="emit('update:isApplyActive', !isApplyActive)"
     >
-      {{ $t("course.apply.start") }}
-    </button>
-    <nuxt-link
-      v-if="
-        !isOnDetails &&
-        !isApplyActive &&
-        !userStore.currentCourseReservedByUser(reservations) &&
-        isRemainingPlacesBiggerThanZero
-      "
-      :to="{
-        name: 'courses-courseId',
-        params: { courseId, isApplyFormVisible: true },
-      }"
-      class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"
-    >
-      {{ $t("course.apply.start") }}
-    </nuxt-link>
+      <button
+        v-if="isOnDetails"
+        class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"
+        @click="emit('update:isApplyActive', !isApplyActive)"
+      >
+        {{ $t("course.apply.start") }}
+      </button>
+      <nuxt-link
+        v-else
+        :to="{
+          name: 'courses-courseId',
+          params: { courseId, isApplyFormVisible: true },
+        }"
+        class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"
+      >
+        {{ $t("course.apply.start") }}
+      </nuxt-link>
+    </template>
     <common-transition-basic-transition>
       <div
         v-if="userStore.currentCourseReservedByUser(reservations)"

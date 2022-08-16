@@ -4,14 +4,14 @@
     class="flex flex-col items-center justify-center bg-blue-100 bg-opacity-10 dark:bg-gray-800"
   >
     <div
-      class="relative m-8 max-w-6xl items-center justify-center rounded-lg bg-white p-4 text-center shadow-xl dark:border-gray-500 dark:bg-gray-700 sm:w-3/4 lg:w-2/5"
+      class="relative m-4 max-w-6xl items-center justify-center rounded-lg bg-white p-4 text-center shadow-xl dark:border-gray-500 dark:bg-gray-700 sm:w-3/4 md:m-8 lg:w-2/5"
     >
       <button
         v-if="
           currentStep !== AuthenticationSteps.Initial &&
           currentStep !== AuthenticationSteps.SignupSuccess
         "
-        class="absolute left-0 top-0 h-7 w-16 rounded-br-xl rounded-tl-xl bg-gray-100 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
+        class="absolute left-0 top-0 h-9 w-16 rounded-br-xl rounded-tl-xl bg-gray-100 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 md:h-7 md:w-16"
         type="button"
         @click="goBackToInitial"
       >

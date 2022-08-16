@@ -1,5 +1,7 @@
 <template>
-  <div class="flex space-x-3">
+  <div
+    class="flex flex-col space-x-0 space-y-3 md:flex-row md:space-y-0 md:space-x-3"
+  >
     <common-text-input
       name="zipCode"
       type="text"

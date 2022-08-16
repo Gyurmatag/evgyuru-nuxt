@@ -1,5 +1,8 @@
 <template>
-  <div :class="wrapperClass" class="space-x-2">
+  <div
+    :class="wrapperClass"
+    class="flex flex-col items-center space-x-0 space-y-2 md:flex-row md:items-start md:space-x-2 md:space-y-0"
+  >
     <input
       :id="name"
       type="checkbox"
@@ -8,7 +11,7 @@
       :class="inputClass"
       @input="handleChange"
     />
-    <label :class="labelClass" :for="name" class="text-left">
+    <label :class="labelClass" :for="name" class="text-center md:text-left">
       {{ $t(labelKey) }}
     </label>
   </div>
@@ -42,7 +45,7 @@ const props = defineProps({
   inputClass: {
     type: String,
     default:
-      "h-5 w-5 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
+      "md:h-5 md:w-5 w-7 h-7 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
   },
 });
 
