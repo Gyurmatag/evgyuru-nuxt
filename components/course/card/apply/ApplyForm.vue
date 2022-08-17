@@ -316,6 +316,11 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
 
       if (data) {
         currentStep.value = CourseApplySteps.ApplySuccess;
+        // TODO: szépítés, kiszervezés, nuxt natív megoldás használata
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
         // TODO: lehet szebb megoldás itt?
         emit("appliedSuccessfully");
       }
