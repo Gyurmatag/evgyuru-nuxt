@@ -1,8 +1,8 @@
 <template>
-  <ul class="flex space-x-2">
+  <ul class="flex space-x-2 text-gray-800 dark:text-gray-200">
     <li>
       <input
-        id="activeReservations"
+        id="firstRadioId"
         v-model="value"
         class="peer sr-only"
         type="radio"
@@ -10,8 +10,8 @@
         :name="props.name"
       />
       <label
-        class="flex cursor-pointer rounded-lg border border-gray-300 bg-white p-3 transition duration-300 ease-in-out hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-green-500 dark:bg-gray-700"
-        for="activeReservations"
+        class="flex cursor-pointer rounded-lg border border-gray-300 bg-white p-3 transition duration-300 ease-in-out hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-green-500 dark:bg-gray-700 dark:hover:bg-gray-600"
+        for="firstRadioId"
       >
         {{ $t(firstRadioLabelKey) }}
       </label>
@@ -19,7 +19,7 @@
 
     <li>
       <input
-        id="pastReservations"
+        id="secondRadioId"
         v-model="value"
         class="peer sr-only"
         type="radio"
@@ -27,8 +27,8 @@
         :name="props.name"
       />
       <label
-        class="flex cursor-pointer rounded-lg border border-gray-300 bg-white p-3 transition duration-300 ease-in-out hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-red-500 dark:bg-gray-700"
-        for="pastReservations"
+        class="flex cursor-pointer rounded-lg border border-gray-300 bg-white p-3 transition duration-300 ease-in-out hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-red-500 dark:bg-gray-700 dark:hover:bg-gray-600"
+        for="secondRadioId"
       >
         {{ $t(secondRadioLabelKey) }}
       </label>

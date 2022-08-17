@@ -1,5 +1,5 @@
 <template>
-  <div class="text-md space-y-4 text-gray-800 dark:text-gray-200">
+  <div class="text-md space-y-4">
     <div class="border-b-2 border-blue-600">
       {{ $t("profile.user.reservations.title") }}
     </div>
