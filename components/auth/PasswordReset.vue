@@ -4,7 +4,7 @@
     class="flex flex-col items-center justify-center bg-blue-100 bg-opacity-10 dark:bg-gray-800"
   >
     <div
-      class="relative m-4 md:m-8 max-w-6xl items-center justify-center rounded-lg bg-white p-4 text-center shadow-xl dark:border-gray-500 dark:bg-gray-700 sm:w-3/4 lg:w-2/5"
+      class="relative m-4 max-w-6xl items-center justify-center rounded-lg bg-white p-4 text-center shadow-xl dark:border-gray-500 dark:bg-gray-700 sm:w-3/4 md:m-8 lg:w-2/5"
     >
       <form
         v-if="
@@ -61,7 +61,7 @@
         ></common-success-panel>
         <div>
           <nuxt-link
-            to="/autentikáció/bejelentkezes"
+            to="/autentikacio/bejelentkezes"
             class="rounded-md bg-green-600 p-2 text-sm text-white transition duration-300 ease-in-out hover:bg-green-800"
           >
             {{ $t("auth.passwordReset.form.goToLogin") }}
