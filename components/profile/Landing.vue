@@ -67,7 +67,7 @@
         </div>
       </div>
       <div>
-        <NuxtLink v-slot="{ navigate }" to="/profile/edit" custom>
+        <NuxtLink v-slot="{ navigate }" to="/profilom/szerkesztes" custom>
           <button
             class="flex items-center space-x-2 rounded-md border border-orange-500 p-2 text-sm text-gray-800 transition duration-300 ease-in-out hover:bg-orange-100 dark:text-gray-200 dark:hover:bg-orange-900"
             @click="navigate"

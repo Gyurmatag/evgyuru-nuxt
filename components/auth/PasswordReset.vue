@@ -61,7 +61,7 @@
         ></common-success-panel>
         <div>
           <nuxt-link
-            to="/auth/login"
+            to="/autentikáció/bejelentkezes"
             class="rounded-md bg-green-600 p-2 text-sm text-white transition duration-300 ease-in-out hover:bg-green-800"
           >
             {{ $t("auth.passwordReset.form.goToLogin") }}

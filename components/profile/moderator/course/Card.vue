@@ -28,7 +28,10 @@
         </span>
         <nuxt-link
           class="material-icons-outlined cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-orange-700 dark:text-gray-400 dark:hover:text-orange-700"
-          :to="{ name: 'profile-course-edit-courseId', params: { courseId } }"
+          :to="{
+            name: 'profilom-kurzusok-szerkesztes-courseId',
+            params: { courseId },
+          }"
         >
           edit
         </nuxt-link>

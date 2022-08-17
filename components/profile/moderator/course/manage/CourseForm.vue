@@ -20,7 +20,7 @@
               "profile.moderator.manageCourse.form.navigateToProfileAfterSuccess1"
             )
           }}
-          <nuxt-link to="/profile" class="cursor-pointer underline">
+          <nuxt-link to="/profilom" class="cursor-pointer underline">
             {{ $t("profile.moderator.manageCourse.form.profileLink") }}
           </nuxt-link>
           {{
@@ -32,7 +32,7 @@
       </div>
       <div v-else class="space-y-4">
         <common-back-button
-          to="/profile"
+          to="/profilom"
           class="text-left"
         ></common-back-button>
         <h1 class="text-2xl text-gray-700 dark:text-gray-300">

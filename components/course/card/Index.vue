@@ -5,7 +5,7 @@
     <!-- TODO: beégetett projekt eltávolítása -->
     <common-back-button
       v-if="isOnDetails"
-      to="/projects/61ed941fd0bd9a48509bee27"
+      to="/projektek/61ed941fd0bd9a48509bee27"
       class="m-4 text-left"
     ></common-back-button>
     <common-transition-expand>
@@ -18,7 +18,7 @@
     </common-transition-expand>
     <div class="mt-2 w-full">
       <nuxt-link
-        :to="{ name: 'courses-courseId', params: { courseId } }"
+        :to="{ name: 'kurzusok-courseId', params: { courseId } }"
         class="mb-2 text-center text-2xl font-bold text-blue-600 transition duration-300 ease-in-out hover:text-blue-800 dark:text-gray-200 dark:hover:text-gray-400"
       >
         {{ title }}

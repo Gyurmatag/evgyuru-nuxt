@@ -6,7 +6,7 @@
     <div
       class="relative m-4 md:m-8 max-w-6xl items-center justify-center rounded-lg bg-white p-4 text-center shadow-xl dark:border-gray-500 dark:bg-gray-700 sm:w-3/4 lg:w-2/5"
     >
-      <common-back-button to="/profile" class="text-left"></common-back-button>
+      <common-back-button to="/profilom" class="text-left"></common-back-button>
       <!-- TODO: hibakezelés és success kezelés átgondolása, érvényes mindenhol, ahol ilyen van -->
       <form
         v-if="
@@ -36,7 +36,7 @@
         ></common-success-panel>
         <div>
           <nuxt-link
-            to="/profile"
+            to="/profilom"
             class="rounded-md bg-green-600 p-2 text-sm text-white transition duration-300 ease-in-out hover:bg-green-800"
           >
             {{ $t("profile.edit.goToMyProfile") }}

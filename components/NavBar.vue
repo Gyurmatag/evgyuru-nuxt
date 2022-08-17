@@ -18,7 +18,7 @@
           <nuxt-link
             class="inline-block rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100 dark:text-white dark:hover:bg-orange-900"
             :to="{
-              name: 'projects-projectId',
+              name: 'projektek-projectId',
               params: { projectId: '61ed941fd0bd9a48509bee27' },
             }"
           >
@@ -27,11 +27,14 @@
           </nuxt-link>
           <nuxt-link
             class="inline-block rounded-md bg-blue-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-blue-800"
-            to="/donate"
+            to="/tamogatas"
           >
             {{ $t("nav.donate") }}
           </nuxt-link>
-          <nuxt-link v-if="!userStore.user.accessToken" to="/auth/login">
+          <nuxt-link
+            v-if="!userStore.user.accessToken"
+            to="/autentikacio/bejelentkezes"
+          >
             <common-icon-account-circle
               class="w-10 cursor-pointer fill-gray-600 transition duration-300 ease-in-out hover:fill-gray-700 dark:fill-gray-500 dark:hover:fill-gray-400"
             ></common-icon-account-circle>
