@@ -31,13 +31,22 @@
             :remaining-places-count="remainingPlacesCount"
           >
           </course-card-apply-new-apply-panel>
+          <common-hint-card
+            v-if="
+              currentStep === CourseApplySteps.CourseAlreadyAppliedAfterLogin
+            "
+            hint-key="course.apply.form.alreadyApplied"
+          ></common-hint-card>
           <common-success-panel
             v-if="currentStep === CourseApplySteps.ApplySuccess"
             :success-message-key="'course.apply.form.success'"
             :hint-key="successPanelHintKey"
           ></common-success-panel>
           <button
-            v-if="currentStep !== CourseApplySteps.ApplySuccess"
+            v-if="
+              currentStep !== CourseApplySteps.ApplySuccess &&
+              currentStep !== CourseApplySteps.CourseAlreadyAppliedAfterLogin
+            "
             class="rounded-md bg-green-600 p-2 align-bottom text-sm text-white transition duration-300 ease-in-out hover:bg-green-800 disabled:opacity-30 disabled:hover:bg-green-600"
             type="submit"
             :disabled="!meta.valid || isSubmitting"
@@ -53,7 +62,10 @@
     </form>
     <common-transition-basic-transition>
       <button
-        v-if="currentStep !== CourseApplySteps.ApplySuccess"
+        v-if="
+          currentStep !== CourseApplySteps.ApplySuccess &&
+          currentStep !== CourseApplySteps.CourseAlreadyAppliedAfterLogin
+        "
         type="button"
         class="absolute right-0 bottom-0 rounded-md bg-gray-100 p-1 text-sm transition duration-300 ease-in-out hover:bg-gray-100 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500"
         @click="emit('update:isApplyActive', false)"
@@ -275,7 +287,11 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
       });
       if (!error.value) {
         userStore.user = userData.value;
-        currentStep.value = CourseApplySteps.Apply;
+        if (userStore.currentCourseReservedByUser(props.reservations)) {
+          currentStep.value = CourseApplySteps.CourseAlreadyAppliedAfterLogin;
+        } else {
+          currentStep.value = CourseApplySteps.Apply;
+        }
       }
       break;
     }

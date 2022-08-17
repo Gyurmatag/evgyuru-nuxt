@@ -18,7 +18,7 @@
       </div>
     </div>
     <button
-      class="cursor-pointer rounded-md border-2 border-blue-800 p-1 text-sm transition duration-300 ease-in-out hover:bg-blue-300 dark:hover:bg-blue-800"
+      class="cursor-pointer rounded-md border-2 border-blue-800 p-1 text-sm text-gray-800 transition duration-300 ease-in-out hover:bg-blue-300 dark:text-gray-200 dark:hover:bg-blue-800"
       @click="isDetailsVisible = !isDetailsVisible"
     >
       {{ isDetailsVisible ? $t("common.lessDetails") : $t("common.details") }}

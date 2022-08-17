@@ -1,6 +1,6 @@
 <template>
   <div class="text-md space-y-4">
-    <div class="border-b-2 border-blue-600">
+    <div class="border-b-2 border-blue-600 text-gray-800 dark:text-gray-200">
       {{ $t("profile.user.reservations.title") }}
     </div>
     <div>

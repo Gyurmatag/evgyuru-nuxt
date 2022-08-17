@@ -11,6 +11,7 @@ export enum CourseApplySteps {
   NewUserDataAdd,
   NewUserDataAddWithSignUp,
   Apply,
+  CourseAlreadyAppliedAfterLogin,
   ApplySuccess,
 }
 
