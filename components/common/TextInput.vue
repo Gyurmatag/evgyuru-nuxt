@@ -42,16 +42,25 @@
           },
           inputClass,
         ]"
+        class="relative pr-10"
         @input="handleChange"
-        @blur="handleBlur"
+        @blur="handleCustomBlur"
+        @focus="isInputFocused = true"
       />
+      <div
+        v-if="inputValue && isInputFocused"
+        class="material-icons-outlined absolute right-px right-6 cursor-pointer rounded-md p-2 text-gray-800 dark:text-gray-300 md:hidden"
+        @mousedown="resetFieldCustom"
+      >
+        close
+      </div>
       <button
         v-if="isRemoveInputActive"
-        class="ml-3 h-10 w-10 rounded-lg border border-2 border-red-600 text-xs text-gray-800 transition duration-300 hover:bg-red-50 dark:text-gray-200 dark:hover:bg-red-500"
+        class="material-icons-outlined ml-3 h-10 w-10 rounded-lg border border-2 border-red-600 text-xs text-gray-800 transition duration-300 hover:bg-red-50 dark:text-gray-200 dark:hover:bg-red-500"
         type="button"
         @click="emit('deleteInput')"
       >
-        X
+        close
       </button>
     </div>
     <common-transition-expand>
@@ -69,6 +78,7 @@
 import { useField } from "vee-validate";
 
 const infoHintActive = ref(false);
+const isInputFocused = ref(false);
 
 const props = defineProps({
   // TODO: type-ot tipizálni
@@ -140,9 +150,20 @@ const {
   handleBlur,
   handleChange,
   meta,
+  resetField,
 } = useField(props.name, undefined, {
   initialValue: props.value,
 });
+
+const resetFieldCustom = () => {
+  resetField();
+};
+
+// TODO: event type-ja mi? Ki kell majd egészíteni
+const handleCustomBlur = (event) => {
+  isInputFocused.value = false;
+  handleBlur(event);
+};
 
 // TODO: kérdéses, hogy mennyire szép. Esetleg Githubon megkérdezni?
 watch(
