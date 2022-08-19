@@ -14,6 +14,9 @@
     }
   },
   "error": {
+    "notAuthenticatedOrAuthorized": "Az oldal megtekintéséhez jogosultság szükséges",
+    "404": "A keresett oldal nem található",
+    "backToHomePage": "Vissza a főoldalra",
     "api": {
       "invalidPassword": "Hibás jelszó",
       "userNotFoundWithThisPasswordResetKey": "Hibás vagy már felhasznált jelszó visszaállító kód"
