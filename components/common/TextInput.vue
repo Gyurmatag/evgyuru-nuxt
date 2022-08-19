@@ -30,6 +30,7 @@
       <component
         :is="isTextArea ? 'textarea' : 'input'"
         :id="name || inputId"
+        ref="inputElement"
         v-maska="inputMask"
         :name="name"
         :type="type"
@@ -77,8 +78,10 @@
 <script setup lang="ts">
 import { useField } from "vee-validate";
 
+const inputElement = ref(null);
 const infoHintActive = ref(false);
 const isInputFocused = ref(false);
+const fieldResetActive = ref(false);
 
 const props = defineProps({
   // TODO: type-ot tipizálni
@@ -156,13 +159,22 @@ const {
 });
 
 const resetFieldCustom = () => {
-  resetField();
+  console.log("resetFieldCustom");
+  resetField({
+    value: "",
+  });
+  fieldResetActive.value = true;
 };
 
 // TODO: event type-ja mi? Ki kell majd egészíteni
 const handleCustomBlur = (event) => {
+  console.log("handleCustomtBlur");
   isInputFocused.value = false;
   handleBlur(event);
+  if (fieldResetActive.value) {
+    inputElement.value.focus();
+    fieldResetActive.value = false;
+  }
 };
 
 // TODO: kérdéses, hogy mennyire szép. Esetleg Githubon megkérdezni?
