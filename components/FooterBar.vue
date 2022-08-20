@@ -61,6 +61,15 @@
         </svg>
       </a>
     </div>
+    <div class="flex justify-center space-x-2 text-gray-200">
+      <span class="material-icons-outlined">email</span>
+      <a
+        href="mailto:info@evgyuru.hu"
+        class="cursor-pointer transition duration-300 ease-in-out hover:text-gray-300"
+      >
+        info@evgyuru.hu
+      </a>
+    </div>
     <div class="flex flex-col space-y-4 text-center md:space-y-2">
       <div>
         <a
