@@ -236,19 +236,28 @@
           "navigateToProfileAfterSuccess2": "tudod kezelni.",
           "errors": {
             "title": {
-              "required": "Kurzus címének megadása kötelező"
+              "required": "Kurzus címének megadása kötelező",
+              "minChars": "A kurzus címének legalább 2 karakternek kell lennie",
+              "maxChars": "A kurzus címe maximum 100 karakter lehet"
             },
             "description": {
-              "required": "Leírás megadása kötelező"
+              "required": "Leírás megadása kötelező",
+              "minChars": "A kurzus címének legalább 10 karakternek kell lennie"
             },
             "maxGroupSize": {
-              "required": "Maximális létszám megadása kötelező"
+              "required": "Maximális létszám megadása kötelező",
+              "min": "Legalább 1 főnek kell lennie",
+              "max": "Maximum 500 fő lehet"
             },
             "price": {
-              "required": "Ár megadása kötelező"
+              "required": "Ár megadása kötelező",
+              "min": "Minimum 1 HUF-nak kell lennie",
+              "max": "Maximum 10000000 HUF lehet"
             },
             "occasions": {
-              "required": "Alkalmak száma megadása kötelező"
+              "required": "Alkalmak száma megadása kötelező",
+              "min": "Legalább 1 alkalomnak kell lennie",
+              "max": "Maximum 200 alkalom lehet"
             },
             "dateFrom": {
               "required": "Kezdő időpont megadása kötelező"
@@ -270,10 +279,14 @@
               "minChars": "Irányítószám nem teljes!"
             },
             "city": {
-              "required": "Város mező kitöltése kötelező!"
+              "required": "Város mező kitöltése kötelező!",
+              "minChars": "A városnak  legalább 2 karakternek kell lennie",
+              "maxChars": "A város maximum 100 karakter lehet"
             },
             "streetAddress": {
-              "required": "Részletes cím mező kitöltése kötelező!"
+              "required": "Részletes cím mező kitöltése kötelező!",
+              "minChars": "A részletes címnek legalább 5 karakternek kell lennie",
+              "maxChars": "A részletes cím hossza maximum 200 karakter lehet"
             },
             "imageUrl": {
               "required": "Kép felöltése kötelező"

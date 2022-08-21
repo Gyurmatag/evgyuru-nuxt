@@ -159,7 +159,6 @@ const {
 });
 
 const resetFieldCustom = () => {
-  console.log("resetFieldCustom");
   resetField({
     value: "",
   });
@@ -168,7 +167,6 @@ const resetFieldCustom = () => {
 
 // TODO: event type-ja mi? Ki kell majd egészíteni
 const handleCustomBlur = (event) => {
-  console.log("handleCustomtBlur");
   isInputFocused.value = false;
   handleBlur(event);
   if (fieldResetActive.value) {

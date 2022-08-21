@@ -197,21 +197,36 @@ if (props.isEdit) {
 
 const validationSchema = Yup.object().shape({
   project: Yup.string().required(),
-  title: Yup.string().required(
-    "profile.moderator.manageCourse.form.errors.title.required"
-  ),
-  description: Yup.string().required(
-    "profile.moderator.manageCourse.form.errors.description.required"
-  ),
-  maxGroupSize: Yup.number().required(
-    "profile.moderator.manageCourse.form.errors.maxGroupSize.required"
-  ),
-  price: Yup.number().required(
-    "profile.moderator.manageCourse.form.errors.price.required"
-  ),
-  occasions: Yup.number().required(
-    "profile.moderator.manageCourse.form.errors.occasions.required"
-  ),
+  title: Yup.string()
+    .required("profile.moderator.manageCourse.form.errors.title.required")
+    .min(4, "profile.moderator.manageCourse.form.errors.title.minChars")
+    .max(100, "profile.moderator.manageCourse.form.errors.title.maxChars"),
+  description: Yup.string()
+    .required("profile.moderator.manageCourse.form.errors.description.required")
+    .min(10, "profile.moderator.manageCourse.form.errors.description.minChars"),
+  maxGroupSize: Yup.number()
+    .required(
+      "profile.moderator.manageCourse.form.errors.maxGroupSize.required"
+    )
+    .min(1, "profile.moderator.manageCourse.form.errors.maxGroupSize.min")
+    .max(
+      500,
+      "profile.moderator.manageCourse.form.errors.maxGroupSize.max"
+    ),
+  price: Yup.number()
+    .required("profile.moderator.manageCourse.form.errors.price.required")
+    .min(1, "profile.moderator.manageCourse.form.errors.price.min")
+    .max(
+      10000000,
+      "profile.moderator.manageCourse.form.errors.price.max"
+    ),
+  occasions: Yup.number()
+    .required("profile.moderator.manageCourse.form.errors.occasions.required")
+    .min(1, "profile.moderator.manageCourse.form.errors.occasions.min")
+    .max(
+      200,
+      "profile.moderator.manageCourse.form.errors.occasions.max"
+    ),
   dateFrom: Yup.date()
     .required("profile.moderator.manageCourse.form.errors.dateFrom.required")
     .max(
@@ -249,12 +264,19 @@ const validationSchema = Yup.object().shape({
   zipCode: Yup.string()
     .required("profile.moderator.manageCourse.form.errors.zipCode.required")
     .min(4, "profile.moderator.manageCourse.form.errors.zipCode.minChars"),
-  city: Yup.string().required(
-    "profile.moderator.manageCourse.form.errors.city.required"
-  ),
-  streetAddress: Yup.string().required(
-    "profile.moderator.manageCourse.form.errors.streetAddress.required"
-  ),
+  city: Yup.string()
+    .required("profile.moderator.manageCourse.form.errors.city.required")
+    .min(2, "profile.moderator.manageCourse.form.errors.city.minChars")
+    .max(200, "profile.moderator.manageCourse.form.errors.city.maxChars"),
+  streetAddress: Yup.string()
+    .required(
+      "profile.moderator.manageCourse.form.errors.streetAddress.required"
+    )
+    .min(5, "profile.moderator.manageCourse.form.errors.streetAddress.minChars")
+    .max(
+      200,
+      "profile.moderator.manageCourse.form.errors.streetAddress.maxChars"
+    ),
   imageUrl: Yup.string().required(
     "profile.moderator.manageCourse.form.errors.imageUrl.required"
   ),
