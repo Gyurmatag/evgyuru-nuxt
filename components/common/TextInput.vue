@@ -44,7 +44,7 @@
           ref="inputElement"
           v-maska="inputMask"
           :name="name"
-          class="w-full bg-gray-50 focus:outline-none"
+          class="w-full bg-gray-50 focus:outline-none dark:bg-gray-700 dark:text-white"
           :type="type"
           :value="inputValue"
           @input="handleChange"
