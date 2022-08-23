@@ -111,7 +111,7 @@
       "acceptDataManagementLink": "Adatkezelési tájékoztató",
       "noProfileHint": "Ha még nincsen fiókod, akkor a következő lépésben létrehozunk egyet!",
       "newProfileHint": "Még nincsen fiókod. Készítsünk egy új fiókot!",
-      "newProfileSuccess": "Sikeres regisztráció! Mostmár bejelentkezhetsz!",
+      "newProfileSuccess": "Sikeres regisztráció! Most már bejelentkezhetsz!",
       "newProfileEmailActivationHint": "Kaptál tőlünk egy megerősítő e-mailt. A benne lévő linkre kattintáskor aktiválódik a profilod, ezután tudsz kurzust foglalni.",
       "saveSignupDataOnCourseApply": "Adatok mentése és regisztráció",
       "errors": {
@@ -144,7 +144,7 @@
       }
     },
     "activation": {
-      "successMsg": "A fiókod aktiválása sikeres volt. Mostmár jelentkezhetsz kurzusokra!",
+      "successMsg": "A fiókod aktiválása sikeres volt. Most már jelentkezhetsz kurzusokra!",
       "errorMsg": "Az aktiválás sikertelen. Hibás vagy már felhasznált kód!"
     },
     "passwordReset": {
