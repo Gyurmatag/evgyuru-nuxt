@@ -3,7 +3,6 @@
     <div v-for="(field, idx) in fields" :key="idx">
       <common-text-input
         :name="`children[${idx}].name`"
-        type="text"
         :label="
           fields.length > 1
             ? $t('course.apply.form.children.indexedName', { index: idx + 1 })

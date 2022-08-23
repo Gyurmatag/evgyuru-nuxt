@@ -26,15 +26,8 @@
       </common-transition-expand>
     </div>
     <div class="flex flex-row">
-      <!--TODO: basis-full jó megoldás-e? -->
-      <component
-        :is="isTextArea ? 'textarea' : 'input'"
-        :id="name || inputId"
-        ref="inputElement"
-        v-maska="inputMask"
-        :name="name"
-        :type="type"
-        :value="inputValue"
+      <div
+        class="flex h-11"
         :class="[
           {
             'border-red-300 focus:border-red-500 dark:border-red-300 dark:focus:border-red-500':
@@ -43,17 +36,28 @@
           },
           inputClass,
         ]"
-        class="relative pr-10"
-        @input="handleChange"
-        @blur="handleCustomBlur"
-        @focus="isInputFocused = true"
-      />
-      <div
-        v-if="inputValue && isInputFocused"
-        class="material-icons-outlined absolute right-px right-6 cursor-pointer rounded-md p-2 text-gray-800 dark:text-gray-300 md:hidden"
-        @mousedown="resetFieldCustom"
       >
-        close
+        <!--TODO: basis-full jó megoldás-e? -->
+        <component
+          :is="isTextArea ? 'textarea' : 'input'"
+          :id="name || inputId"
+          ref="inputElement"
+          v-maska="inputMask"
+          :name="name"
+          class="w-full bg-gray-50 focus:outline-none"
+          :type="type"
+          :value="inputValue"
+          @input="handleChange"
+          @blur="handleCustomBlur"
+          @focus="isInputFocused = true"
+        />
+        <div
+          v-if="inputValue && isInputFocused"
+          class="material-icons-outlined cursor-pointer px-2 text-gray-800 dark:text-gray-300 md:hidden"
+          @mousedown="resetFieldCustom"
+        >
+          close
+        </div>
       </div>
       <button
         v-if="isRemoveInputActive"

@@ -10,14 +10,9 @@
       <!-- TODO: readonly input készítése az e-mailből, mert csak így lesz jó a jelszó megjegyzés -->
       <p>{{ userEmail }}</p>
     </div>
-    <common-text-input
-      name="fullName"
-      type="text"
-      :label="$t('auth.form.fullName')"
-    />
+    <common-text-input name="fullName" :label="$t('auth.form.fullName')" />
     <common-text-input
       name="telephoneNumber"
-      type="text"
       input-mask="+36 (##) ###-####"
       :value="isEdit ? null : '+36'"
       :label="$t('auth.form.telephoneNumber')"
@@ -25,7 +20,6 @@
     <common-zip-code-city-name-inputs></common-zip-code-city-name-inputs>
     <common-text-input
       name="streetAddress"
-      type="text"
       :label="$t('auth.form.streetAddress')"
       info-hint="auth.form.addressHint"
     />
