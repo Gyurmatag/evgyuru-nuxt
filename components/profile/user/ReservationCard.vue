@@ -4,9 +4,16 @@
       <div class="flex space-x-2">
         <!-- TODO: image kilóg az elementből, belelóg a paddingba, refakt / javítás kell -->
         <img alt="course image" :src="courseImageUrl" class="h-6 rounded-md" />
-        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+        <nuxt-link
+          :to="{
+            name: 'kurzusok-courseId',
+            params: { courseId },
+            query: { fromPage: '/profilom' },
+          }"
+          class="text-lg font-bold text-gray-800 dark:text-gray-200"
+        >
           {{ courseTitle }}
-        </div>
+        </nuxt-link>
       </div>
       <div
         class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400"
@@ -37,7 +44,7 @@
           person
         </i>
         <div>
-          <ul v-for="(child) in children" :key="child._id">
+          <ul v-for="child in children" :key="child._id">
             <li>
               {{ child.name }}
             </li>
@@ -79,6 +86,10 @@ defineProps({
     required: true,
   },
   courseImageUrl: {
+    type: String,
+    required: true,
+  },
+  courseId: {
     type: String,
     required: true,
   },

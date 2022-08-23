@@ -5,7 +5,7 @@
     <!-- TODO: beégetett projekt eltávolítása -->
     <common-back-button
       v-if="isOnDetails"
-      to="/projektek/61ed941fd0bd9a48509bee27"
+      :to="route.query.fromPage || '/projektek/61ed941fd0bd9a48509bee27'"
       class="m-4 text-left"
     ></common-back-button>
     <common-transition-expand>
@@ -84,6 +84,7 @@
 import { useUserStore } from "~/stores/user";
 import { Reservation } from "~/models/reservation";
 
+const route = useRoute();
 const userStore = useUserStore();
 
 const isApplyActive = ref(false);

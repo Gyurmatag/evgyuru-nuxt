@@ -23,6 +23,7 @@
     >
       <profile-user-reservation-card
         :reservation-id="reservation._id"
+        :course-id="reservation.course._id"
         :course-title="reservation.course.title"
         :course-date-interval="
           $dateIntervalFormat(
