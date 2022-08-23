@@ -36,11 +36,13 @@
         <i class="material-icons-outlined text-gray-700 dark:text-gray-300">
           person
         </i>
-        <ul v-for="(child, index) in children" :key="child._id">
-          <li>
-            {{ child.name }}{{ index + 1 !== children.length ? "," : "" }}
-          </li>
-        </ul>
+        <div>
+          <ul v-for="(child) in children" :key="child._id">
+            <li>
+              {{ child.name }}
+            </li>
+          </ul>
+        </div>
       </div>
       <div>
         <button
