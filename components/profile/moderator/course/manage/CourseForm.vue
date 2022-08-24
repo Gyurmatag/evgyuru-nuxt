@@ -135,7 +135,9 @@
                 type="submit"
                 :disabled="!meta.valid || isSubmitting"
               >
-                {{ $t("common.go") }}
+                <common-simple-submit-button-inside
+                  :is-submitting="isSubmitting"
+                ></common-simple-submit-button-inside>
               </button>
             </div>
           </form>
@@ -209,24 +211,15 @@ const validationSchema = Yup.object().shape({
       "profile.moderator.manageCourse.form.errors.maxGroupSize.required"
     )
     .min(1, "profile.moderator.manageCourse.form.errors.maxGroupSize.min")
-    .max(
-      500,
-      "profile.moderator.manageCourse.form.errors.maxGroupSize.max"
-    ),
+    .max(500, "profile.moderator.manageCourse.form.errors.maxGroupSize.max"),
   price: Yup.number()
     .required("profile.moderator.manageCourse.form.errors.price.required")
     .min(1, "profile.moderator.manageCourse.form.errors.price.min")
-    .max(
-      10000000,
-      "profile.moderator.manageCourse.form.errors.price.max"
-    ),
+    .max(10000000, "profile.moderator.manageCourse.form.errors.price.max"),
   occasions: Yup.number()
     .required("profile.moderator.manageCourse.form.errors.occasions.required")
     .min(1, "profile.moderator.manageCourse.form.errors.occasions.min")
-    .max(
-      200,
-      "profile.moderator.manageCourse.form.errors.occasions.max"
-    ),
+    .max(200, "profile.moderator.manageCourse.form.errors.occasions.max"),
   dateFrom: Yup.date()
     .required("profile.moderator.manageCourse.form.errors.dateFrom.required")
     .max(

@@ -27,7 +27,9 @@
           type="submit"
           :disabled="!meta.valid || isSubmitting"
         >
-          {{ $t("common.go") }}
+          <common-simple-submit-button-inside
+            :is-submitting="isSubmitting"
+          ></common-simple-submit-button-inside>
         </button>
       </form>
       <div v-else class="space-y-6">

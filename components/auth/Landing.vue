@@ -50,12 +50,13 @@
           type="submit"
           :disabled="!meta.valid || isSubmitting"
         >
-          {{
-            currentStep === AuthenticationSteps.Initial ||
-            currentStep === AuthenticationSteps.SignupSuccess
-              ? $t("common.next")
-              : $t("common.go")
-          }}
+          <span class="flex">
+            {{ $t(submitButtonText) }}
+            <common-icon-loading-spin
+              v-if="isSubmitting"
+              class="ml-2"
+            ></common-icon-loading-spin>
+          </span>
         </button>
       </form>
     </div>
@@ -114,6 +115,15 @@ const validationSchemas = {
 };
 
 const currentSchema = computed(() => validationSchemas[currentStep.value]);
+
+const submitButtonText = computed(() => {
+  return !isSubmitting.value
+    ? currentStep.value === AuthenticationSteps.Initial ||
+      currentStep.value === AuthenticationSteps.SignupSuccess
+      ? "common.next"
+      : "common.go"
+    : "common.wait";
+});
 
 const { meta, handleSubmit, setFieldValue, isSubmitting } = useForm<
   LoginUser | SignUpUser

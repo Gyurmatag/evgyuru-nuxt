@@ -26,6 +26,7 @@
     "back": "Vissza",
     "next": "Folytatás",
     "go": "Mehet",
+    "wait": "Kérlek várj...",
     "greeting": "Szia!",
     "priceInHuf": "{price} HUF",
     "occasions": "{occasions} alkalom",

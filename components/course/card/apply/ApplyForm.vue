@@ -51,11 +51,13 @@
             type="submit"
             :disabled="!meta.valid || isSubmitting"
           >
-            {{
-              currentStep === CourseApplySteps.Initial
-                ? $t("common.next")
-                : $t("common.go")
-            }}
+            <span class="flex">
+              {{ $t(submitButtonText) }}
+              <common-icon-loading-spin
+                v-if="isSubmitting"
+                class="ml-2"
+              ></common-icon-loading-spin>
+            </span>
           </button>
         </div>
       </common-transition-basic-transition>
@@ -81,7 +83,11 @@ import * as Yup from "yup";
 import { useForm } from "vee-validate";
 import { ApplyCourse, Reservation } from "~/models/reservation";
 import { useUserStore } from "~/stores/user";
-import { CourseApplySteps, FetchMethods } from "~/models/enums";
+import {
+  AuthenticationSteps,
+  CourseApplySteps,
+  FetchMethods,
+} from "~/models/enums";
 import {
   IsEmailAlreadyRegistered,
   LoginUser,
@@ -187,6 +193,14 @@ if (!userStore.user._id) {
 }
 
 const currentSchema = computed(() => validationSchemas[currentStep.value]);
+
+const submitButtonText = computed(() => {
+  return !isSubmitting.value
+    ? currentStep.value === CourseApplySteps.Initial
+      ? "common.next"
+      : "common.go"
+    : "common.wait";
+});
 
 const successPanelHintKey = computed(() => {
   return userStore.user.accessToken
