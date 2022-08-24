@@ -45,7 +45,7 @@
           v-maska="inputMask"
           :name="name"
           class="w-full bg-gray-50 focus:outline-none dark:bg-gray-700 dark:text-white"
-          :type="type"
+          :type="typeValue"
           :value="inputValue"
           @input="handleChange"
           @blur="handleCustomBlur"
@@ -67,6 +67,13 @@
       >
         close
       </button>
+      <div
+        v-if="type === 'password'"
+        class="material-icons-outlined ml-2 flex cursor-pointer items-center rounded-lg border border-gray-300 bg-gray-50 px-2 text-gray-600 transition duration-300 ease-in-out hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+        @click="togglePasswordVisibility"
+      >
+        {{ typeValue === "password" ? "visibility" : "visibility_off" }}
+      </div>
     </div>
     <common-transition-expand>
       <span
@@ -81,11 +88,6 @@
 
 <script setup lang="ts">
 import { useField } from "vee-validate";
-
-const inputElement = ref(null);
-const infoHintActive = ref(false);
-const isInputFocused = ref(false);
-const fieldResetActive = ref(false);
 
 const props = defineProps({
   // TODO: type-ot tipizálni
@@ -139,13 +141,19 @@ const props = defineProps({
   inputClass: {
     type: String,
     default:
-      "basis-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
+      "basis-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
   },
   inputMask: {
     type: String,
     default: null,
   },
 });
+
+const inputElement = ref(null);
+const infoHintActive = ref(false);
+const isInputFocused = ref(false);
+const fieldResetActive = ref(false);
+const typeValue = ref(props.type);
 
 const emit = defineEmits<{
   (e: "deleteInput"): void;
@@ -176,6 +184,14 @@ const handleCustomBlur = (event) => {
   if (fieldResetActive.value) {
     inputElement.value.focus();
     fieldResetActive.value = false;
+  }
+};
+
+const togglePasswordVisibility = () => {
+  if (typeValue.value === "password") {
+    typeValue.value = "text";
+  } else {
+    typeValue.value = "password";
   }
 };
 
