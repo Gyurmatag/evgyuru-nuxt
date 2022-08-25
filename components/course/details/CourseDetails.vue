@@ -11,6 +11,8 @@
         :course-id="data._id"
         :title="data.title"
         :description="data.description"
+        :city="data.city"
+        :street-address="data.streetAddress"
         :price="data.price"
         :occasions="data.occasions"
         :date-from="data.dateFrom"

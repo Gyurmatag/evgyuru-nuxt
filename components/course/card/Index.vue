@@ -26,15 +26,15 @@
       <p class="mb-2 p-2 text-center text-sm text-gray-700 dark:text-gray-300">
         {{ description }}
       </p>
-      <div class="m-4 flex flex-col content-start justify-between lg:flex-row">
         <course-card-description-items
+          :city="city"
+          :street-address="streetAddress"
           :price="price"
           :occasions="occasions"
           :date-from="dateFrom"
           :date-to="dateTo"
           :max-group-size="maxGroupSize"
         ></course-card-description-items>
-      </div>
       <div class="border-t-2 border-t-blue-100">
         <div class="m-4 flex">
           <common-transition-expand>
@@ -104,6 +104,14 @@ const props = defineProps({
     required: true,
   },
   description: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  streetAddress: {
     type: String,
     required: true,
   },
