@@ -73,7 +73,7 @@
       }
     },
     "homeThird": {
-      "reviewsTitle": "Rólunk mondták...",
+      "reviewsTitle": "Rólunk mondtátok...",
       "review": {
         "first": {
           "reviewText": "A kisfiam érdekes és színes programokon, kirándulásokon vehetett részt, folyamatosan lekötve érdeklődését, kíváncsiságát, így nagyon jól érezte magát. Az óvónénik kedvesek, gyermekcentrikusak és mindenben partnerek voltak. Köszönjük a lehetőséget.",
@@ -89,6 +89,22 @@
           "reviewText": "Először jelentkeztünk a Manócska Tanoda által rendezett táborba. Rendkívül kedves, lelkiismeretes óvónénik várták hatalmas mosollyal fiamat minden reggel. A változatos, mozgalmas programokkal, kirándulásokkal rengeteg örömet szereztek fiamnak. Minden nap csodálatos volt, gyorsan elrepült az egy hét! Köszönjük a rengeteg törődést és odafigyelést! Mindenkinek csak ajánlani tudjuk Önöket!",
           "reviewDate": "2022.08.25.",
           "parentName": "Melinda"
+        }
+      }
+    },
+    "homeFourth": {
+      "stat": {
+        "first": {
+          "numberText": "Óvodás tábor"
+        },
+        "second": {
+          "numberText": "Táborozó"
+        },
+        "third": {
+          "numberText": "Óvodás kurzus"
+        },
+        "fourth": {
+          "numberText": "Kurzus résztvevő"
         }
       }
     }
