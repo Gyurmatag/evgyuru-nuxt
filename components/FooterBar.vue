@@ -70,6 +70,15 @@
         info@evgyuru.hu
       </a>
     </div>
+    <div class="flex justify-center text-gray-200">
+      <nuxt-link
+        to="/segitseg"
+        class="text-md flex items-center space-x-2 rounded-md border-2 p-2 text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
+      >
+        <span class="material-icons-outlined">help</span>
+        <span>{{ $t("footer.help") }}</span>
+      </nuxt-link>
+    </div>
     <div class="flex flex-col space-y-4 text-center md:space-y-2">
       <div>
         <a

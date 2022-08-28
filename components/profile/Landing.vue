@@ -3,6 +3,7 @@
   <div
     class="my-8 flex max-w-6xl flex-col items-center justify-center md:flex-row"
   >
+    <!-- TODO: w-screen szép/jó megoldás itt, miért működik? -->
     <div class="flex w-screen flex-col space-y-4 p-4">
       <common-hint-card
         v-if="!userStore.user.isActivated"

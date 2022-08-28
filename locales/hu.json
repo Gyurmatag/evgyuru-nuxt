@@ -8,6 +8,7 @@
       "auth": "Autentikáció",
       "projects": "Projektek",
       "donate": "Támogatás",
+      "help": "Segítség",
       "profile": "Profilom",
       "editProfile": "Profilom szerkesztése",
       "passwordReset": "Jelszó visszaállítása"
@@ -315,6 +316,7 @@
   },
   "footer": {
     "financialStatements": "Pénzügyi beszámolók",
+    "help": "Segítség",
     "privacyPolicy": "Adatvédelem",
     "copyright": "© 2022 Évgyűrű Alapítvány"
   },
@@ -345,6 +347,12 @@
       "accountName": "Évgyűrű Alapítvány",
       "accountNumberLabel": "Számlaszám",
       "accountNumber": "11739009-23918317"
+    }
+  },
+  "help": {
+    "title": "Segítség",
+    "preschoolCamps": {
+      "title": "Ovis táborok"
     }
   },
   "project": {
