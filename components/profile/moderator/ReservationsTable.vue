@@ -16,6 +16,9 @@
               {{ $t("profile.moderator.courses.table.telephoneNumber") }}
             </th>
             <th scope="col" class="px-6 py-3">
+              {{ $t("profile.moderator.courses.table.email") }}
+            </th>
+            <th scope="col" class="px-6 py-3">
               {{ $t("profile.moderator.courses.table.address") }}
             </th>
           </tr>
@@ -36,6 +39,9 @@
             </td>
             <td class="px-6 py-4">
               {{ reservation.user.telephoneNumber }}
+            </td>
+            <td class="px-6 py-4">
+              {{ reservation.user.email }}
             </td>
             <td class="px-6 py-4">
               {{ reservation.user.zipCode }}, {{ reservation.user.city }},

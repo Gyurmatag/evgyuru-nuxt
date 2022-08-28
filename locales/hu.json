@@ -227,6 +227,7 @@
           "parentName": "Szülő neve",
           "childName": "Gyermek(ek) neve",
           "telephoneNumber": "Telefonszám",
+          "email": "E-mail cím",
           "address": "Számlázási cím"
         }
       },
