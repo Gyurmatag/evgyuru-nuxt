@@ -80,21 +80,12 @@
 
 <script setup lang="ts">
 import * as Yup from "yup";
-import { useForm } from "vee-validate";
-import { ApplyCourse, Reservation } from "~/models/reservation";
-import { useUserStore } from "~/stores/user";
-import {
-  AuthenticationSteps,
-  CourseApplySteps,
-  FetchMethods,
-} from "~/models/enums";
-import {
-  IsEmailAlreadyRegistered,
-  LoginUser,
-  SignUpUser,
-  User,
-} from "~/models/user";
-import { useCustomFetch } from "~/composables/myFetch";
+import {useForm} from "vee-validate";
+import {ApplyCourse, Reservation} from "~/models/reservation";
+import {useUserStore} from "~/stores/user";
+import {CourseApplySteps, FetchMethods} from "~/models/enums";
+import {IsEmailAlreadyRegistered, LoginUser, SignUpUser, User,} from "~/models/user";
+import {useCustomFetch} from "~/composables/myFetch";
 
 const userStore = useUserStore();
 
@@ -130,17 +121,24 @@ const isDataToBeSaved = ref(false);
 
 // TODO: kiszervezés központi helyre, hogy itt is és az auth-ban is tudjuk használni
 const baseUserDataApplyValidations = {
-  fullName: Yup.string().required("auth.form.errors.fullName.required"),
+  fullName: Yup.string()
+    .required("auth.form.errors.fullName.required")
+    .min(3, "auth.form.errors.fullName.minChars")
+    .max(100, "auth.form.errors.fullName.maxChars"),
   telephoneNumber: Yup.string().required(
     "auth.form.errors.telephoneNumber.required"
   ),
   zipCode: Yup.string()
     .required("auth.form.errors.zipCode.required")
     .min(4, "auth.form.errors.zipCode.minChars"),
-  city: Yup.string().required("auth.form.errors.city.required"),
-  streetAddress: Yup.string().required(
-    "auth.form.errors.streetAddress.required"
-  ),
+  city: Yup.string()
+    .required("auth.form.errors.city.required")
+    .min(2, "auth.form.errors.city.minChars")
+    .max(200, "auth.form.errors.city.maxChars"),
+  streetAddress: Yup.string()
+    .required("auth.form.errors.streetAddress.required")
+    .min(5, "auth.form.errors.streetAddress.minChars")
+    .max(200, "auth.form.errors.streetAddress.maxChars"),
   acceptDataManagement: Yup.boolean().isTrue(),
 };
 

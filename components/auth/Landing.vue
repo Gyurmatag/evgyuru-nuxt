@@ -64,17 +64,12 @@
 </template>
 
 <script setup lang="ts">
-import { useForm } from "vee-validate";
+import {useForm} from "vee-validate";
 import * as Yup from "yup";
-import { FetchMethods, AuthenticationSteps } from "~/models/enums";
-import { useUserStore } from "~/stores/user";
-import { useCustomFetch } from "~/composables/myFetch";
-import {
-  IsEmailAlreadyRegistered,
-  LoginUser,
-  SignUpUser,
-  User,
-} from "~/models/user";
+import {AuthenticationSteps, FetchMethods} from "~/models/enums";
+import {useUserStore} from "~/stores/user";
+import {useCustomFetch} from "~/composables/myFetch";
+import {IsEmailAlreadyRegistered, LoginUser, SignUpUser, User,} from "~/models/user";
 
 const userStore = useUserStore();
 
@@ -92,17 +87,24 @@ const validationSchemas = {
     password: Yup.string().required("auth.form.errors.password.required"),
   }),
   [AuthenticationSteps.NewUserRegister]: Yup.object().shape({
-    fullName: Yup.string().required("auth.form.errors.fullName.required"),
+    fullName: Yup.string()
+      .required("auth.form.errors.fullName.required")
+      .min(3, "auth.form.errors.fullName.minChars")
+      .max(100, "auth.form.errors.fullName.maxChars"),
     telephoneNumber: Yup.string()
       .required("auth.form.errors.telephoneNumber.required")
       .min(17, "auth.form.errors.telephoneNumber.minChars"),
     zipCode: Yup.string()
       .required("auth.form.errors.zipCode.required")
       .min(4, "auth.form.errors.zipCode.minChars"),
-    city: Yup.string().required("auth.form.errors.city.required"),
-    streetAddress: Yup.string().required(
-      "auth.form.errors.streetAddress.required"
-    ),
+    city: Yup.string()
+      .required("auth.form.errors.city.required")
+      .min(2, "auth.form.errors.city.minChars")
+      .max(200, "auth.form.errors.city.maxChars"),
+    streetAddress: Yup.string()
+      .required("auth.form.errors.streetAddress.required")
+      .min(5, "auth.form.errors.streetAddress.minChars")
+      .max(200, "auth.form.errors.streetAddress.maxChars"),
     // TODO: dinamikussá tétel (8 karakter)
     password: Yup.string()
       .required("auth.form.errors.password.required")

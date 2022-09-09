@@ -143,7 +143,9 @@
           "minChars": "A jelszónak legalább 8 karakternek kell lennie"
         },
         "fullName": {
-          "required": "Teljes név kitöltése kötelező!"
+          "required": "Teljes név kitöltése kötelező!",
+          "minChars": "A teljes névnek legalább 3 karakternek kell lennie",
+          "maxChars": "A teljes név maximum 100 karakter lehet"
         },
         "telephoneNumber": {
           "required": "Telefonszám kitöltése kötelező!",
@@ -154,10 +156,14 @@
           "minChars": "Irányítószám nem teljes!"
         },
         "city": {
-          "required": "Város mező kitöltése kötelező!"
+          "required": "Város mező kitöltése kötelező!",
+          "minChars": "A városnak legalább 2 karakternek kell lennie",
+          "maxChars": "A város maximum 200 karakter lehet"
         },
         "streetAddress": {
-          "required": "Részletes cím mező kitöltése kötelező!"
+          "required": "Részletes cím mező kitöltése kötelező!",
+          "minChars": "A részletes címnek legalább 5 karakternek kell lennie",
+          "maxChars": "A részletes cím maximum 200 karakter lehet"
         }
       }
     },
