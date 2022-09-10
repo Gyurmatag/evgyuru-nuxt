@@ -26,17 +26,7 @@
       </common-transition-expand>
     </div>
     <div class="flex flex-row">
-      <div
-        class="flex h-11"
-        :class="[
-          {
-            'border-red-300 focus:border-red-500 dark:border-red-300 dark:focus:border-red-500':
-              meta.touched && !meta.valid,
-            'focus:border-green-500 dark:focus:border-green-500': meta.valid,
-          },
-          inputClass,
-        ]"
-      >
+      <div class="flex h-11" :class="inputWrapperClassRef">
         <!--TODO: basis-full jó megoldás-e? -->
         <component
           :is="isTextArea ? 'textarea' : 'input'"
@@ -45,11 +35,11 @@
           v-maska="inputMask"
           :name="name"
           class="w-full bg-gray-50 focus:outline-none dark:bg-gray-700 dark:text-white"
-          :type="typeValue"
+          :type="typeRef"
           :value="inputValue"
           @input="handleChange"
           @blur="handleCustomBlur"
-          @focus="isInputFocused = true"
+          @focus="handleInputFocus"
         />
         <div
           v-if="inputValue && isInputFocused"
@@ -72,7 +62,7 @@
         class="material-icons-outlined ml-2 flex cursor-pointer items-center rounded-lg border border-gray-300 bg-gray-50 px-2 text-gray-600 transition duration-300 ease-in-out hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
         @click="togglePasswordVisibility"
       >
-        {{ typeValue === "password" ? "visibility" : "visibility_off" }}
+        {{ typeRef === "password" ? "visibility" : "visibility_off" }}
       </div>
     </div>
     <common-transition-expand>
@@ -87,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import { useField } from "vee-validate";
+import {useField} from "vee-validate";
 
 const props = defineProps({
   // TODO: type-ot tipizálni
@@ -138,7 +128,7 @@ const props = defineProps({
     type: String,
     default: "text-gray-800 dark:text-gray-300",
   },
-  inputClass: {
+  inputWrapperClass: {
     type: String,
     default:
       "basis-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500",
@@ -153,7 +143,8 @@ const inputElement = ref(null);
 const infoHintActive = ref(false);
 const isInputFocused = ref(false);
 const fieldResetActive = ref(false);
-const typeValue = ref(props.type);
+const typeRef = ref(props.type);
+const inputWrapperClassRef = ref(props.inputWrapperClass);
 
 const emit = defineEmits<{
   (e: "deleteInput"): void;
@@ -185,21 +176,41 @@ const handleCustomBlur = (event) => {
     inputElement.value.focus();
     fieldResetActive.value = false;
   }
+  inputWrapperClassRef.value = `${props.inputWrapperClass} border-gray-300 dark:border-gray-600`;
 };
 
-const togglePasswordVisibility = () => {
-  if (typeValue.value === "password") {
-    typeValue.value = "text";
-  } else {
-    typeValue.value = "password";
+// TODO: lehet szebben is meg lehet oldani a focus-os border színezést
+const handleInputFocus = () => {
+  isInputFocused.value = true;
+  if (meta.touched && !meta.valid) {
+    inputWrapperClassRef.value = `${props.inputWrapperClass} border-red-300 dark:border-red-300`;
+  } else if (meta.valid) {
+    inputWrapperClassRef.value = `${props.inputWrapperClass} border-green-500 dark:border-green-500`;
   }
 };
 
-// TODO: kérdéses, hogy mennyire szép. Esetleg Githubon megkérdezni?
+const togglePasswordVisibility = () => {
+  if (typeRef.value === "password") {
+    typeRef.value = "text";
+  } else {
+    typeRef.value = "password";
+  }
+};
+
+// TODO: kérdéses, hogy mennyire szép. Esetleg Githubon megkérdezni? async watch?
 watch(
   () => props.value,
   (newValue: string) => {
     handleChange(newValue);
   }
 );
+
+// TODO: ezt lehet vajon szebben, úgy hogy nem az errorMessage-et nézem?
+watch(errorMessage, (newErrorMessage) => {
+  if (newErrorMessage) {
+    inputWrapperClassRef.value = `${props.inputWrapperClass} border-red-300 dark:border-red-300`;
+  } else {
+    inputWrapperClassRef.value = `${props.inputWrapperClass} border-green-500 dark:border-green-500`;
+  }
+});
 </script>

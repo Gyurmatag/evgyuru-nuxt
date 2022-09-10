@@ -31,7 +31,7 @@
         :label="$t('auth.form.saveSignupDataOnCourseApply')"
         :wrapper-class="'flex flex-col space-y-2 items-center'"
         :label-class="'flex cursor-pointer justify-center text-gray-800 dark:text-gray-300'"
-        :input-class="'h-5 w-5 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500'"
+        :input-wrapper-class="'h-5 w-5 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 transition duration-300 ease-in-out focus:border-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500'"
         @input="updateIsDataToBeSaved"
       />
     </div>
