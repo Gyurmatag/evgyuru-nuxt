@@ -216,11 +216,6 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
       });
       if (!error.value) {
         currentStep.value = AuthenticationSteps.SignupSuccess;
-        // TODO: szépítés, kiszervezés, nuxt natív megoldás használata
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
       }
       break;
     }
@@ -229,6 +224,11 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
       break;
     }
   }
+  // TODO: szépítés, kiszervezés, nuxt natív megoldás használata
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 
 const goBackToInitial = () => {
