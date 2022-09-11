@@ -2,7 +2,7 @@
   <div class="my-8 flex flex-col items-center justify-center px-4 md:flex-row">
     <div class="mb-4 flex max-w-6xl flex-col items-center">
       <div
-        class="black:divide-blue-400 flex w-full flex-col space-y-2 divide-x-0 divide-y-2 divide-blue-600 md:space-y-0 md:space-x-2 md:divide-y-0 md:divide-x-2 lg:flex-row"
+        class="black:divide-blue-400 flex w-full flex-col space-y-2 divide-x-0 divide-y-2 divide-blue-600 lg:space-y-0 lg:space-x-2 md:divide-y-0 lg:divide-x-2 lg:flex-row"
       >
         <div class="">
           <home-stat-card

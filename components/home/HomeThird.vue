@@ -7,7 +7,7 @@
         </h1>
       </div>
       <div
-        class="flex w-full flex-col space-y-2 md:space-y-0 md:space-x-2 lg:flex-row"
+        class="flex w-full flex-col space-y-2 lg:space-y-0 lg:space-x-2 lg:flex-row"
       >
         <home-review-card
           :review-text-key="'home.homeThird.review.first.reviewText'"
