@@ -108,6 +108,9 @@
           "numberText": "Kurzus résztvevő"
         }
       }
+    },
+    "homeFifth": {
+      "videoTitle": "Tekintsd meg bemutatkozó videónkat!"
     }
   },
   "auth": {
