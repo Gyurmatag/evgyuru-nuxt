@@ -37,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { useForm } from "vee-validate";
-import { Course, CourseFilter, CourseList } from "~/models/course";
+import {useForm} from "vee-validate";
+import {Course, CourseFilter, CourseList} from "~/models/course";
 
 const props = defineProps({
   projectId: {
@@ -65,6 +65,7 @@ const onSubmit = handleSubmit(async (values) => {
   };
   await refresh();
   courses.value = data.value.courses;
+  currentPage.value = 1
 });
 
 const { API_BASE: baseURL } = useRuntimeConfig();
