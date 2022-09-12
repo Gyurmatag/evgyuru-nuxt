@@ -29,16 +29,23 @@
     <button
       v-if="courses.length !== data.totalItems"
       class="rounded-md bg-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-gray-200 dark:hover:bg-gray-300"
+      :disabled="pending"
       @click="loadNextPage"
     >
-      {{ $t("project.projectDetails.courses.loadMore") }}
+      <span class="flex">
+        {{ $t(nextPageButtonTextKey) }}
+        <common-icon-loading-spin
+          v-if="pending"
+          class="ml-2"
+        ></common-icon-loading-spin>
+      </span>
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import {useForm} from "vee-validate";
-import {Course, CourseFilter, CourseList} from "~/models/course";
+import { useForm } from "vee-validate";
+import { Course, CourseFilter, CourseList } from "~/models/course";
 
 const props = defineProps({
   projectId: {
@@ -51,6 +58,12 @@ const courseFilterFormData = ref<CourseFilter>(null);
 const currentPage = ref(1);
 const limit = 5;
 const courses = ref<Course[]>([]);
+
+const nextPageButtonTextKey = computed(() => {
+  return !pending.value
+    ? "project.projectDetails.courses.loadMore"
+    : "common.wait";
+});
 
 const { handleSubmit } = useForm({});
 
@@ -65,7 +78,7 @@ const onSubmit = handleSubmit(async (values) => {
   };
   await refresh();
   courses.value = data.value.courses;
-  currentPage.value = 1
+  currentPage.value = 1;
 });
 
 const { API_BASE: baseURL } = useRuntimeConfig();
@@ -73,7 +86,7 @@ const { API_BASE: baseURL } = useRuntimeConfig();
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
 // TODO: szép töltési allapot kezelés impelementálása
-const { data, refresh } = await useFetch<CourseList>(
+const { data, refresh, pending } = await useFetch<CourseList>(
   () =>
     `/${COURSE}/${COURSES}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
   {
