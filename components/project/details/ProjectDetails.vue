@@ -33,11 +33,35 @@
 </template>
 
 <script setup lang="ts">
+import { Project } from "~/models/project";
+
 const route = useRoute();
 
 const projectId = route.params.projectId;
 // TODO: error kezelése
-const { data } = await useCustomFetch({
+const { data } = await useCustomFetch<Project>({
   path: `${PROJECT}/${projectId}`,
+});
+
+useMeta({
+  meta: [
+    {
+      hid: "og:url",
+      property: "og:url",
+      content: `${BASE_DOMAIN_URL}${route.fullPath}`,
+    },
+    { hid: "og:type", property: "og:type", content: "website" },
+    { hid: "og:title", property: "og:title", content: data.value.title },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content: data.value.description,
+    },
+    {
+      hid: "og:image",
+      property: "og:image",
+      content: data.value.imageUrl,
+    },
+  ],
 });
 </script>
