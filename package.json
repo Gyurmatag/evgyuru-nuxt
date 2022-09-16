@@ -36,6 +36,7 @@
     "maska": "^1.5.0",
     "pinia": "^2.0.13",
     "pinia-plugin-persistedstate": "^1.5.1",
+    "v3-infinite-loading": "^1.2.1",
     "vee-validate": "^4.5.10",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-datepicker": "^0.3.4",

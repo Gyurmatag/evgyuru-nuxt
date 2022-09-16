@@ -1,5 +1,5 @@
 <template>
-  <svg class="h-5 w-5 animate-spin" viewBox="0 0 24 24">
+  <svg class="animate-spin" :class="svgClass" viewBox="0 0 24 24">
     <circle
       class="opacity-25"
       cx="12"
@@ -15,3 +15,12 @@
     ></path>
   </svg>
 </template>
+
+<script setup lang="ts">
+defineProps({
+  svgClass: {
+    type: String,
+    default: "h-5 w-5",
+  },
+});
+</script>

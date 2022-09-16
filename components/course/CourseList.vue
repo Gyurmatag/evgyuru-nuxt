@@ -26,25 +26,25 @@
         :is-on-details="false"
       />
     </div>
-    <button
-      v-if="courses.length !== data.totalItems"
-      class="rounded-md bg-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-gray-200 dark:hover:bg-gray-300"
-      :disabled="pending"
-      @click="loadNextPage"
-    >
-      <span class="flex">
-        {{ $t(nextPageButtonTextKey) }}
-        <common-icon-loading-spin
-          v-if="pending"
-          class="ml-2"
-        ></common-icon-loading-spin>
-      </span>
-    </button>
+    <infinite-loading @infinite="load">
+      <template #spinner>
+        <div class="flex justify-center">
+          <common-icon-loading-spin
+            svg-class="h-10 w-10"
+          ></common-icon-loading-spin>
+        </div>
+      </template>
+      <template #complete>
+        <span></span>
+      </template>
+    </infinite-loading>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useForm } from "vee-validate";
+// TODO: ide miért is kell import?
+import InfiniteLoading from "v3-infinite-loading";
 import { Course, CourseFilter, CourseList } from "~/models/course";
 
 const props = defineProps({
@@ -58,12 +58,6 @@ const courseFilterFormData = ref<CourseFilter>(null);
 const currentPage = ref(1);
 const limit = 5;
 const courses = ref<Course[]>([]);
-
-const nextPageButtonTextKey = computed(() => {
-  return !pending.value
-    ? "project.projectDetails.courses.loadMore"
-    : "common.wait";
-});
 
 const { handleSubmit } = useForm({});
 
@@ -86,7 +80,7 @@ const { API_BASE: baseURL } = useRuntimeConfig();
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
 // TODO: szép töltési allapot kezelés impelementálása
-const { data, refresh, pending } = await useFetch<CourseList>(
+const { data, refresh } = await useFetch<CourseList>(
   () =>
     `/${COURSE}/${COURSES}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
   {
@@ -98,9 +92,18 @@ const { data, refresh, pending } = await useFetch<CourseList>(
 
 courses.value = data.value.courses;
 
-const loadNextPage = async () => {
-  currentPage.value++;
-  await refresh();
-  courses.value.push(...data.value.courses);
+const load = async ($state) => {
+  try {
+    if (courses.value.length === data.value.totalItems) {
+      $state.complete();
+    } else {
+      currentPage.value++;
+      await refresh();
+      courses.value.push(...data.value.courses);
+      $state.loaded();
+    }
+  } catch (error) {
+    $state.error();
+  }
 };
 </script>
