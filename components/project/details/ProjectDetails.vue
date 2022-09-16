@@ -1,6 +1,6 @@
 <template>
   <common-page-head
-    :subtitle="data.project.title"
+    :subtitle="data.title"
     :is-dynamic-data="true"
   ></common-page-head>
   <div
@@ -10,15 +10,15 @@
       <div class="mb-8 max-w-6xl space-y-2 px-4 text-center">
         <div class="w-full rounded-lg pt-2 pb-2 text-xl">
           <img
-            :alt="data.project.title"
-            :src="data.project.imageUrl"
+            :alt="data.title"
+            :src="data.imageUrl"
             class="m-auto rounded-lg lg:w-3/4 xl:w-1/2"
           />
         </div>
         <div
           class="m-auto text-center text-sm text-gray-800 dark:text-gray-200 lg:w-3/4 xl:w-1/2"
         >
-          <p>{{ data.project.description }}</p>
+          <p>{{ data.description }}</p>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       class="flex w-full flex-col items-center justify-center bg-blue-100 bg-opacity-25 pb-4 dark:bg-gray-700"
     >
       <div class="w-full max-w-6xl items-center justify-center p-6 text-center">
-        <course-list :project-id="data.project._id" />
+        <course-list :project-id="data._id" />
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@ const route = useRoute();
 const projectId = route.params.projectId;
 // TODO: error kezelése
 const { data } = await useCustomFetch<Project>({
-  path: `${PROJECT}/${projectId}`,
+  path: `/${PROJECT}/${projectId}`,
 });
 
 useMeta({
