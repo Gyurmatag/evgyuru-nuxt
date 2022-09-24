@@ -130,9 +130,9 @@ const baseUserDataApplyValidations = {
     .required("auth.form.errors.fullName.required")
     .min(3, "auth.form.errors.fullName.minChars")
     .max(100, "auth.form.errors.fullName.maxChars"),
-  telephoneNumber: Yup.string().required(
-    "auth.form.errors.telephoneNumber.required"
-  ),
+  telephoneNumber: Yup.string()
+    .required("auth.form.errors.telephoneNumber.required")
+    .min(17, "auth.form.errors.telephoneNumber.minChars"),
   zipCode: Yup.string()
     .required("auth.form.errors.zipCode.required")
     .min(4, "auth.form.errors.zipCode.minChars"),
@@ -184,8 +184,8 @@ const validationSchemas = {
       })
     ),
     ...(isDataToBeSaved.value || !!userStore.user.accessToken
-      ? acceptDataManagementValidation
-      : {}),
+      ? {}
+      : acceptDataManagementValidation),
   }),
 };
 
