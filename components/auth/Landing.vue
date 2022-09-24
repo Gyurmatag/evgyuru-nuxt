@@ -171,13 +171,13 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
         initialCache: false,
       });
       if (!error.value) {
-        userStore.user = {
+        userStore.storeUserData({
           ...userData.value,
           // TODO: itt miért is kell konvertálni a accessTokenExpireTimeInMs számmá?
           accessTokenExpireDate: new Date(
-            Date.now() + +userData.value.accessTokenExpireTimeInMs
+              Date.now() + +userData.value.accessTokenExpireTimeInMs
           ),
-        };
+        });
         resetForm();
         // TODO: itt majd reset default value-t meg lehetne határozni
         loginFormData.value = {

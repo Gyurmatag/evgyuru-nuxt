@@ -80,12 +80,17 @@
 
 <script setup lang="ts">
 import * as Yup from "yup";
-import {useForm} from "vee-validate";
-import {ApplyCourse, Reservation} from "~/models/reservation";
-import {useUserStore} from "~/stores/user";
-import {CourseApplySteps, FetchMethods} from "~/models/enums";
-import {IsEmailAlreadyRegistered, LoginUser, SignUpUser, User,} from "~/models/user";
-import {useCustomFetch} from "~/composables/myFetch";
+import { useForm } from "vee-validate";
+import { ApplyCourse, Reservation } from "~/models/reservation";
+import { useUserStore } from "~/stores/user";
+import { CourseApplySteps, FetchMethods } from "~/models/enums";
+import {
+  IsEmailAlreadyRegistered,
+  LoginUser,
+  SignUpUser,
+  User,
+} from "~/models/user";
+import { useCustomFetch } from "~/composables/myFetch";
 
 const userStore = useUserStore();
 
@@ -298,7 +303,7 @@ const onSubmit = handleSubmit(async (values: ApplyCourse) => {
         },
       });
       if (!error.value) {
-        userStore.user = userData.value;
+        userStore.storeUserData(userData.value);
         if (userStore.currentCourseReservedByUser(props.reservations)) {
           currentStep.value = CourseApplySteps.CourseAlreadyAppliedAfterLogin;
         } else {
