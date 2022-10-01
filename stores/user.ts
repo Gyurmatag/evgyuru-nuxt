@@ -23,6 +23,7 @@ export const useUserStore = defineStore("userStore", {
       roles: [],
       reservations: [],
       isActivated: false,
+      areCookiesAccepted: false,
     },
   }),
   getters: {

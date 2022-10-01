@@ -12,6 +12,11 @@
       "profile": "Profilom",
       "editProfile": "Profilom szerkesztése",
       "passwordReset": "Jelszó visszaállítása"
+    },
+    "cookies": {
+      "understand": "Értettem",
+      "acceptMessage": "A honlapon a felhasználói élmény érdekében sütiket alkalmazunk. Az oldal megfelelő működéséhez kérjük fogadja el Adatvédelmi Nyilatkozatunkat.",
+      "privacyPolicy": "Adatkezelési szabályzat"
     }
   },
   "error": {

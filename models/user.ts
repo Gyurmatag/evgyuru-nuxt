@@ -9,6 +9,7 @@ export interface BaseUser {
   zipCode: string;
   city: string;
   streetAddress: string;
+  areCookiesAccepted: boolean;
 }
 
 export interface User extends BaseUser {

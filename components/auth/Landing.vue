@@ -64,12 +64,16 @@
 </template>
 
 <script setup lang="ts">
-import {useForm} from "vee-validate";
+import { useForm } from "vee-validate";
 import * as Yup from "yup";
-import {AuthenticationSteps, FetchMethods} from "~/models/enums";
-import {useUserStore} from "~/stores/user";
-import {useCustomFetch} from "~/composables/myFetch";
-import {IsEmailAlreadyRegistered, LoginUser, SignUpUser, User,} from "~/models/user";
+import { AuthenticationSteps, FetchMethods } from "~/models/enums";
+import { useUserStore } from "~/stores/user";
+import {
+  IsEmailAlreadyRegistered,
+  LoginUser,
+  SignUpUser,
+  User,
+} from "~/models/user";
 
 const userStore = useUserStore();
 
@@ -175,7 +179,7 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           ...userData.value,
           // TODO: itt miért is kell konvertálni a accessTokenExpireTimeInMs számmá?
           accessTokenExpireDate: new Date(
-              Date.now() + +userData.value.accessTokenExpireTimeInMs
+            Date.now() + +userData.value.accessTokenExpireTimeInMs
           ),
         });
         resetForm();

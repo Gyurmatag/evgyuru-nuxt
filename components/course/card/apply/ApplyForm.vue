@@ -96,7 +96,7 @@ const userStore = useUserStore();
 
 const props = defineProps({
   reservations: {
-    type: Object as PropType<[Reservation]>,
+    type: Array as PropType<Array<Reservation>>,
     required: true,
   },
   courseId: {
