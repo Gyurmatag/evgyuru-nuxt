@@ -42,7 +42,7 @@
           reservationsListResponse.length > 0 &&
           reservationsListResponse.length !== data.totalItems
         "
-        class="rounded-md bg-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-gray-200 dark:hover:bg-gray-300"
+        class="rounded-md bg-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-400 dark:bg-gray-500 dark:hover:bg-gray-600"
         @click="loadNextPage"
       >
         {{ $t("profile.user.reservations.loadMore") }}

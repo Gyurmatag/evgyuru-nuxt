@@ -101,6 +101,7 @@ const logoutUser = async () => {
   await navigateTo({
     path: "/",
   });
+  // TODO: cookie kezelés ilyenkor rossz, rá kellene nézni
   userStore.$reset();
 };
 

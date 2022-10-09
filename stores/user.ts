@@ -51,7 +51,10 @@ export const useUserStore = defineStore("userStore", {
   },
   actions: {
     storeUserData(userData: User) {
-      this.user = userData;
+      this.user = {
+        ...this.user,
+        ...userData,
+      };
     },
     activateUser() {
       this.user.isActivated = true;
