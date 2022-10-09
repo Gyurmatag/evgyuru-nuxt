@@ -2,6 +2,9 @@
   <div class="flex justify-between">
     <div>
       {{ courseTitle }}
+      <span class="ml-1 text-sm text-gray-600 dark:text-gray-400"
+        >({{ maxGroupSize }}/{{ reservationsCount }})</span
+      >
       <span v-if="wasDeleteSuccessful" class="text-xs text-red-600">
         {{ $t("profile.moderator.courses.delete.courseDeleted") }}
       </span>
@@ -63,20 +66,38 @@ import { FetchMethods } from "~/models/enums";
 const isDeleteConfirmationMessageVisible = ref(false);
 const wasDeleteSuccessful = ref(false);
 
-defineProps({
+const props = defineProps({
   courseId: {
     type: String,
-    default: null,
+    required: true,
   },
   courseTitle: {
     type: String,
-    default: null,
+    required: true,
+  },
+  maxGroupSize: {
+    type: Number,
+    required: true,
+  },
+  reservations: {
+    type: Object as PropType<[Reservation]>,
+    required: true,
   },
 });
 
 const reservationListData = ref<[Reservation]>(null);
 const courseDetailPanelOpened = ref(false);
 const reservationsDataPending = ref(false);
+
+const reservationsCount = computed(() => {
+  // TODO: lehetséges refakt, miért is kell a + 0?
+  return props.reservations.length
+    ? props.reservations.reduce(
+        (count, current) => count + current.children.length,
+        +0
+      )
+    : 0;
+});
 
 const expandCourse = async (courseId) => {
   if (courseDetailPanelOpened.value === true) {

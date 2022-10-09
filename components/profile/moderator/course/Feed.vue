@@ -30,6 +30,8 @@
       <profile-moderator-course-card
         :course-id="course._id"
         :course-title="course.title"
+        :max-group-size="course.maxGroupSize"
+        :reservations="course.reservations"
       ></profile-moderator-course-card>
     </div>
     <button

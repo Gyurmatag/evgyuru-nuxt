@@ -5,10 +5,10 @@ import { Course } from "~/models/course";
 export interface Reservation {
   _id: string;
   user: BaseUser | string;
-  children: [Child];
-  course: Course;
-  activationKey: string;
-  isActivated: boolean;
+  children: [Child | string];
+  course: Course | string;
+  activationKey?: string;
+  isActivated?: boolean;
 }
 
 export interface ReservationListBasicResponse extends BaseList {
