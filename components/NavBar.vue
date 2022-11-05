@@ -9,7 +9,7 @@
           <div @click="toggleMobileMenu" class="flex md:hidden">
             <button
               type="button"
-              class="text-gray-800 hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400 focus:outline-none"
+              class="text-gray-800 hover:text-gray-700 focus:outline-none dark:text-gray-100 dark:hover:text-gray-400"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -80,7 +80,7 @@
         class="mt-2 flex-col space-y-4 border-b-2 border-gray-200 border-opacity-50 bg-white dark:bg-gray-900"
       >
         <li
-          class="flex cursor-pointer px-5 py-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-300"
+          class="flex cursor-pointer px-5 py-2 text-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:text-gray-100"
           @click="navigateToForTeachers"
         >
           {{ $t("nav.forTeachers") }}
@@ -147,7 +147,7 @@ const onScroll = () => {
 const toggleMobileMenu = () => (showMobileMenu.value = !showMobileMenu.value);
 
 const navigateToForTeachers = async () => {
-  await navigateTo("/pedagogusoknak");
+  await navigateTo("/pedagogusoknak/bullying/temanap");
   showMobileMenu.value = false;
 };
 

@@ -419,6 +419,11 @@
       }
     }
   },
+  "forTeachers": {
+    "themeDay": "Téma nap",
+    "forBusinesses": "Vállalatoknak",
+    "gallery": "Festmények"
+  },
   "documents": {
     "financialStatements": {
       "year": {
