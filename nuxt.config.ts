@@ -2,7 +2,7 @@ import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
   buildModules: ["@intlify/nuxt3", "@pinia/nuxt"],
-  modules: ["@nuxtjs/color-mode"],
+  modules: ["@nuxtjs/color-mode", "@vueuse/nuxt", "@nuxt/content"],
   intlify: {
     localeDir: "locales",
     vueI18n: {

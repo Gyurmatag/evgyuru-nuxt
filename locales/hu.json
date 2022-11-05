@@ -11,7 +11,8 @@
       "help": "Segítség",
       "profile": "Profilom",
       "editProfile": "Profilom szerkesztése",
-      "passwordReset": "Jelszó visszaállítása"
+      "passwordReset": "Jelszó visszaállítása",
+      "forTeachers": "Pedagógusoknak"
     },
     "cookies": {
       "understand": "Elfogadom",
@@ -52,7 +53,8 @@
   "nav": {
     "manocska": "Manócska Tanoda",
     "manocskaShort": "Manócska",
-    "donate": "Támogatás"
+    "donate": "Támogatás",
+    "forTeachers": "Pedagógusoknak"
   },
   "home": {
     "homeFirst": {

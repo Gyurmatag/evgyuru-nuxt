@@ -6,6 +6,24 @@
     <div class="mx-auto max-w-6xl">
       <div class="flex justify-between px-4">
         <div class="flex space-x-4">
+          <div @click="toggleMobileMenu" class="flex md:hidden">
+            <button
+              type="button"
+              class="text-gray-800 hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-400"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-6 w-6 fill-current"
+                id="hamburgerSvg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  id="hamburgerSvgPath"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                ></path>
+              </svg>
+            </button>
+          </div>
           <nuxt-link class="mr-4 inline-block p-1" to="/">
             <img
               alt="Évgyűrű logó"
@@ -16,17 +34,23 @@
         </div>
         <div class="flex items-center space-x-4">
           <nuxt-link
-            class="inline-block rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100 dark:text-white dark:hover:bg-orange-900"
+            class="hidden rounded-md p-1.5 align-bottom transition duration-300 ease-in-out hover:text-blue-800 dark:text-white dark:hover:text-blue-300 md:inline-block"
+            to="/pedagogusoknak"
+            active-class="underline underline-offset-8"
+          >
+            {{ $t("nav.forTeachers") }}
+          </nuxt-link>
+          <nuxt-link
+            class="hidden rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100 dark:text-white dark:hover:bg-orange-900 md:inline-block"
             :to="{
               name: 'projektek-projectId',
               params: { projectId: '61ed941fd0bd9a48509bee27' },
             }"
           >
-            <span class="hidden sm:block">{{ $t("nav.manocska") }}</span>
-            <span class="sm:hidden">{{ $t("nav.manocskaShort") }}</span>
+            {{ $t("nav.manocska") }}
           </nuxt-link>
           <nuxt-link
-            class="inline-block rounded-md bg-blue-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-blue-800"
+            class="hidden rounded-md bg-blue-600 p-2 align-bottom text-white transition duration-300 ease-in-out hover:bg-blue-800 md:inline-block"
             to="/tamogatas"
           >
             {{ $t("nav.donate") }}
@@ -49,6 +73,32 @@
         </div>
       </div>
     </div>
+    <common-transition-expand>
+      <ul
+        ref="mobileMenuElement"
+        v-if="showMobileMenu"
+        class="mt-2 flex-col space-y-4 border-b-2 border-gray-200 border-opacity-50 bg-white dark:bg-gray-900"
+      >
+        <li
+          class="flex cursor-pointer px-5 py-2 text-gray-800 dark:text-gray-100"
+          @click="navigateToForTeachers"
+        >
+          {{ $t("nav.forTeachers") }}
+        </li>
+        <li
+          class="flex cursor-pointer px-5 py-2 text-gray-800 dark:text-gray-100"
+          @click="navigateToManocskaProject"
+        >
+          {{ $t("nav.manocska") }}
+        </li>
+        <li
+          class="flex cursor-pointer px-5 py-2 text-gray-800 dark:text-gray-100"
+          @click="navigateToDonate"
+        >
+          {{ $t("nav.donate") }}
+        </li>
+      </ul>
+    </common-transition-expand>
   </nav>
 </template>
 
@@ -59,7 +109,19 @@ const userStore = useUserStore();
 
 const showNavBar = useState<boolean>("showNavBar", () => true);
 const lastScrollPosition = useState<number>("lastScrollPosition", () => 0);
+const showMobileMenu = ref(false);
 const scrollOffset = 40;
+const mobileMenuElement = ref(null);
+
+onClickOutside(mobileMenuElement, (element) => {
+  if (
+    showMobileMenu.value &&
+    element.target.id !== "hamburgerSvg" &&
+    element.target.id !== "hamburgerSvgPath"
+  ) {
+    showMobileMenu.value = false;
+  }
+});
 
 onMounted(() => {
   lastScrollPosition.value = window.scrollY;
@@ -78,7 +140,28 @@ const onScroll = () => {
     return;
   }
   showNavBar.value = window.top.scrollY < lastScrollPosition.value;
+  showMobileMenu.value = false;
   lastScrollPosition.value = window.top.scrollY;
+};
+
+const toggleMobileMenu = () => (showMobileMenu.value = !showMobileMenu.value);
+
+const navigateToForTeachers = async () => {
+  await navigateTo("/tanaroknak");
+  showMobileMenu.value = false;
+};
+
+const navigateToManocskaProject = async () => {
+  await navigateTo({
+    name: "projektek-projectId",
+    params: { projectId: "61ed941fd0bd9a48509bee27" },
+  });
+  showMobileMenu.value = false;
+};
+
+const navigateToDonate = async () => {
+  await navigateTo("/tamogatas");
+  showMobileMenu.value = false;
 };
 </script>
 
