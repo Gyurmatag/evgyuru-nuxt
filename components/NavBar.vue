@@ -6,19 +6,19 @@
     <div class="mx-auto max-w-6xl">
       <div class="flex justify-between px-4">
         <div class="flex space-x-4">
-          <div @click="toggleMobileMenu" class="flex md:hidden">
+          <div class="flex md:hidden" @click="toggleMobileMenu">
             <button
               type="button"
               class="text-gray-800 hover:text-gray-700 focus:outline-none dark:text-gray-100 dark:hover:text-gray-400"
             >
               <svg
+                id="hamburgerSvg"
                 viewBox="0 0 24 24"
                 class="h-6 w-6 fill-current"
-                id="hamburgerSvg"
               >
                 <path
-                  fill-rule="evenodd"
                   id="hamburgerSvgPath"
+                  fill-rule="evenodd"
                   d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
                 ></path>
               </svg>
@@ -75,8 +75,8 @@
     </div>
     <common-transition-expand>
       <ul
-        ref="mobileMenuElement"
         v-if="showMobileMenu"
+        ref="mobileMenuElement"
         class="mt-2 flex-col space-y-4 border-b-2 border-gray-200 border-opacity-50 bg-white dark:bg-gray-900"
       >
         <li
@@ -103,6 +103,7 @@
 </template>
 
 <script setup lang="ts">
+import {MaybeElementRef} from "@vueuse/core";
 import { useUserStore } from "~/stores/user";
 
 const userStore = useUserStore();
@@ -111,9 +112,10 @@ const showNavBar = useState<boolean>("showNavBar", () => true);
 const lastScrollPosition = useState<number>("lastScrollPosition", () => 0);
 const showMobileMenu = ref(false);
 const scrollOffset = 40;
-const mobileMenuElement = ref(null);
+const mobileMenuElement = ref<HTMLElement>(null);
 
-onClickOutside(mobileMenuElement, (element) => {
+// TODO: típus target-nél nem jó még
+onClickOutside(mobileMenuElement, (element: PointerEvent) => {
   if (
     showMobileMenu.value &&
     element.target.id !== "hamburgerSvg" &&

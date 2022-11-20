@@ -26,7 +26,7 @@
         :is-on-details="false"
       />
     </div>
-    <infinite-loading @infinite="load">
+    <infinite-loading :identifier="infiniteLoadingId" @infinite="load">
       <template #spinner>
         <div class="flex justify-center">
           <common-icon-loading-spin
@@ -58,6 +58,7 @@ const courseFilterFormData = ref<CourseFilter>(null);
 const currentPage = ref(1);
 const limit = 5;
 const courses = ref<Course[]>([]);
+const infiniteLoadingId = ref<number>(+new Date());
 
 const { handleSubmit } = useForm({});
 
@@ -70,9 +71,10 @@ const onSubmit = handleSubmit(async (values) => {
     ...courseFilterFormData.value,
     ...values,
   };
+  currentPage.value = 1;
   await refresh();
   courses.value = data.value.courses;
-  currentPage.value = 1;
+  infiniteLoadingId.value += 1;
 });
 
 const { API_BASE: baseURL } = useRuntimeConfig();
@@ -86,7 +88,6 @@ const { data, refresh } = await useFetch<CourseList>(
   {
     params: { projectId: props.projectId, limit },
     baseURL,
-    initialCache: false,
   }
 );
 
