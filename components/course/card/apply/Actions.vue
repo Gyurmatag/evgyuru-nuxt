@@ -50,7 +50,8 @@
         v-else
         :to="{
           name: 'kurzusok-courseId',
-          params: { courseId, isApplyFormVisible: true },
+          params: { courseId },
+          query: { isApplyFormVisible: true },
         }"
         class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"
       >
@@ -143,7 +144,7 @@ const isDateFromAlreadyPassed = computed(() => {
 });
 
 onMounted(() => {
-  if (route.params.isApplyFormVisible) {
+  if (route.query.isApplyFormVisible) {
     emit("update:isApplyActive", true);
   }
 });

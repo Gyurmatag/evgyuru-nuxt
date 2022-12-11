@@ -38,6 +38,7 @@
 <script setup lang="ts">
 import { useField } from "vee-validate";
 // TODO: miért kell importálni a DatePickert? Valmiért nem jó a pluginban.
+// TODO: erre lecserélni https://github.com/Vuepic/vue-datepicker
 import Datepicker from "vue3-datepicker";
 import { hu } from "date-fns/index.js";
 

@@ -41,6 +41,7 @@
           @blur="handleCustomBlur"
           @focus="handleInputFocus"
         />
+        <!--TODO: nem helyes HTML tag -->
         <div
           v-if="inputValue && isInputFocused"
           class="material-icons-outlined cursor-pointer px-2 text-gray-800 dark:text-gray-300 md:hidden"
