@@ -13,6 +13,7 @@ export const LOGGED_IN_SAVE = "logged-in-save";
 export const USER_RESERVATIONS = "user-reservations";
 export const COURSE = "course";
 export const COURSES = "courses";
+export const SIMPLE_AVAILABLE_COURSES = "simple-available-courses";
 export const PROJECT = "project";
 export const PROJECTS = "projects";
 export const EXTERNAL = "external";

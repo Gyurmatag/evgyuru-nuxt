@@ -11,6 +11,7 @@
       "help": "Segítség",
       "profile": "Profilom",
       "editProfile": "Profilom szerkesztése",
+      "editReservation": "Foglalás módosítása",
       "passwordReset": "Jelszó visszaállítása",
       "forTeachers": "Pedagógusoknak"
     },
@@ -223,8 +224,19 @@
         "empty": "Egyelőre üres... :(",
         "moreCourses": "tudod megnézni jelenlegi kurzusainkat",
         "delete": "Jelentkezés törlése",
+        "modify": "Átjelentkezés",
         "deleteConfirm": "Biztosan törlöd a jelentkezésedet?",
-        "loadMore": "Még több foglalás"
+        "loadMore": "Még több foglalás",
+        "edit": {
+          "title": "Kurzus átjelentkezés",
+          "originalReservation": "Eredeti foglalás",
+          "newReservation": "Új foglalásod adatai",
+          "actionHint": "Válaszd ki a kurzust, amelyre át szeretnéd jelentkeztetni gyermekedet",
+          "selectedCourse": "Kiválasztott kurzus",
+          "childrenSelectHint": "Válaszd ki, hogy mely eddig jelentkezett gyermekedet szeretnéd áthelyezni erre a kurzusra!",
+          "goToMyProfile": "Irány a profilom",
+          "reservationUpdatedSuccessFully": "Sikeres átjelentkezés!"
+        }
       }
     },
     "moderator": {

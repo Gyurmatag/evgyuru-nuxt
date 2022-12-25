@@ -1,4 +1,5 @@
 interface Child {
+  _id: string;
   name: string;
 }
 

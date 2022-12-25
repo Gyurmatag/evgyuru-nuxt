@@ -41,7 +41,7 @@
     "pinia": "^2.0.13",
     "pinia-plugin-persistedstate": "^1.5.1",
     "v3-infinite-loading": "^1.2.1",
-    "vee-validate": "^4.5.10",
+    "vee-validate": "^4.6.2",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-datepicker": "^0.3.4",
     "yup": "0.32.11"

@@ -19,6 +19,23 @@ export interface ReservationListResponse extends BaseList {
   reservations: [AggregatedList<Reservation>];
 }
 
+export interface SimpleCourseListResult {
+  _id: string;
+  title: string;
+  dateFrom: Date | string;
+  dateTo: Date | string;
+  imageUrl: string;
+  project: string;
+}
+
+export interface SimpleCourseListResultList {
+  simplkeCourseListResult: [SimpleCourseListResult];
+}
+
+export interface SimpleReservationListResponse {
+  courses: SimpleCourseListResultList;
+}
+
 export interface ReservationFilter {
   filterDateFromAfterToday: boolean;
 }
@@ -29,3 +46,9 @@ export interface ApplyCourse {
   userEmail?: string;
   isNotRegisteredOnlyForCourseApply?: boolean;
 }
+
+export type EditReservation = {
+  reservationId: string;
+  childrenIdList: [string];
+  targetCourseId: string;
+};
