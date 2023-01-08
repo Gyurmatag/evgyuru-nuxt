@@ -24,9 +24,7 @@ nuxtApp.hook("page:start", () => {
 
 onMounted(() => {
   if (dayjs(new Date()).isAfter(userStore.user.accessTokenExpireDate)) {
-    navigateTo({
-      path: "/",
-    });
+    navigateTo("/");
     userStore.$reset();
   }
 });

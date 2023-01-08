@@ -107,7 +107,6 @@ const onSubmit = handleSubmit(async (values) => {
       city: editProfileFormData.value.city,
       streetAddress: editProfileFormData.value.streetAddress,
     },
-    initialCache: false,
   });
 
   if (!error.value) {

@@ -27,15 +27,14 @@ export const useCustomFetch = <ResponseType>({
   body,
   headers,
   isAuthenticated = false,
-  initialCache = true,
   server = true,
   lazy = false,
 }: FetchInputs) => {
-  const { API_BASE: baseURL } = useRuntimeConfig();
+  const config = useRuntimeConfig();
   const userStore = useUserStore();
   const responseStore = useResponseStore();
   return useFetch<ResponseType, FetchError>(path, {
-    baseURL: customBaseURL || baseURL,
+    baseURL: customBaseURL || config.public.apiBase,
     key: hash(["api-fetch", path, body]),
     method: FetchMethodEnum[method],
     params,
@@ -46,7 +45,6 @@ export const useCustomFetch = <ResponseType>({
         ? { "x-access-token": userStore.user.accessToken }
         : {}),
     },
-    initialCache,
     server,
     lazy,
     async onResponseError({ response }) {

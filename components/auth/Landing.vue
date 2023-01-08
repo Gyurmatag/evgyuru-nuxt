@@ -148,7 +148,6 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
       const { data } = await useCustomFetch<IsEmailAlreadyRegistered>({
         path: `${AUTH}/${IS_EMAIL_ALREADY_REGISTERED}`,
         params: { email: loginFormData.value.email },
-        initialCache: false,
       });
 
       const isEmailAlreadyRegistered = data.value.isEmailAlreadyRegistered;
@@ -172,7 +171,6 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           email: loginFormData.value.email,
           password: loginFormData.value.password,
         },
-        initialCache: false,
       });
       if (!error.value) {
         userStore.storeUserData({
@@ -216,7 +214,6 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
           acceptNewsletter: signUpFormData.value.acceptNewsletter,
           isNotRegisteredOnlyForCourseApply: false,
         },
-        initialCache: false,
       });
       if (!error.value) {
         currentStep.value = AuthenticationSteps.SignupSuccess;

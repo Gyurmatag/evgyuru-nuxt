@@ -42,10 +42,7 @@
           </nuxt-link>
           <nuxt-link
             class="hidden rounded-md border-2 border-manocska p-1.5 align-bottom transition duration-300 ease-in-out hover:bg-orange-100 dark:text-white dark:hover:bg-orange-900 md:inline-block"
-            :to="{
-              name: 'projektek-projectId',
-              params: { projectId: '61ed941fd0bd9a48509bee27' },
-            }"
+            :to="'/projektek/61ed941fd0bd9a48509bee27'"
           >
             {{ $t("nav.manocska") }}
           </nuxt-link>
@@ -103,7 +100,6 @@
 </template>
 
 <script setup lang="ts">
-import {MaybeElementRef} from "@vueuse/core";
 import { useUserStore } from "~/stores/user";
 
 const userStore = useUserStore();
@@ -114,12 +110,11 @@ const showMobileMenu = ref(false);
 const scrollOffset = 40;
 const mobileMenuElement = ref<HTMLElement>(null);
 
-// TODO: típus target-nél nem jó még
 onClickOutside(mobileMenuElement, (element: PointerEvent) => {
   if (
     showMobileMenu.value &&
-    element.target.id !== "hamburgerSvg" &&
-    element.target.id !== "hamburgerSvgPath"
+    (element.target as HTMLElement).id !== "hamburgerSvg" &&
+    (element.target as HTMLElement).id !== "hamburgerSvgPath"
   ) {
     showMobileMenu.value = false;
   }
@@ -154,10 +149,7 @@ const navigateToForTeachers = async () => {
 };
 
 const navigateToManocskaProject = async () => {
-  await navigateTo({
-    name: "projektek-projectId",
-    params: { projectId: "61ed941fd0bd9a48509bee27" },
-  });
+  await navigateTo("projektek/61ed941fd0bd9a48509bee27");
   showMobileMenu.value = false;
 };
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-gray-500 dark:text-gray-400">
-      <span class="material-icons-outlined text-6xl font-light"> face </span>
+      <Icon class="font-light" name="mdi:face-man" size="60" />
       <p>{{ userEmail }}</p>
     </div>
     <common-text-input
@@ -64,7 +64,6 @@ const sendPasswordResetEmail = async () => {
       body: {
         email: props.userEmail,
       },
-      initialCache: false,
     });
     if (!error.value) {
       isForgotPasswordActivated.value = true;

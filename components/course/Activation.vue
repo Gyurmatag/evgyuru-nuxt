@@ -17,7 +17,6 @@ const route = useRoute();
 const { error, pending } = await useCustomFetch({
   path: `${RESERVATION}/${ACTIVATION}/${route.params.activationKey}`,
   method: FetchMethods.PUT,
-  initialCache: false,
   server: false,
   lazy: true,
 });

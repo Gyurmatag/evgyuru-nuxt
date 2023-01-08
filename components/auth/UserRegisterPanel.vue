@@ -1,9 +1,7 @@
 <template>
   <div class="space-y-4">
     <div class="flex flex-col text-gray-800 dark:text-gray-300">
-      <span v-if="isEdit" class="material-icons-outlined text-5xl font-light">
-        edit
-      </span>
+      <Icon class="text-5xl font-light" name="mdi:edit" />
       {{ $t(hintTranslateKey) }}
     </div>
     <div class="text-gray-500 dark:text-gray-400">

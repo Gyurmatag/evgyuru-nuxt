@@ -49,8 +49,7 @@
       <nuxt-link
         v-else
         :to="{
-          name: 'kurzusok-courseId',
-          params: { courseId },
+          path: `/kurzusok/${courseId}`,
           query: { isApplyFormVisible: true },
         }"
         class="p-2 text-gray-700 underline decoration-blue-600 decoration-2 underline-offset-4 transition duration-300 ease-in-out hover:text-gray-900 dark:text-gray-200"

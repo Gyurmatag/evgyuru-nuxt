@@ -173,7 +173,6 @@ const props = defineProps({
 if (props.isEdit) {
   const { data } = await useCustomFetch<Course>({
     path: `/${COURSE}/${route.params.courseId}`,
-    initialCache: false,
   });
   courseFormData.value = {
     ...data.value,

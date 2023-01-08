@@ -68,7 +68,7 @@ const onSubmit = handleSubmit(async (values) => {
   courses.value = data.value.courses;
 });
 
-const { API_BASE: baseURL } = useRuntimeConfig();
+const config = useRuntimeConfig();
 // TODO: error kezelés
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni (https://github.com/nuxt/framework/issues/5993)
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
@@ -78,8 +78,7 @@ const { data, refresh } = await useFetch<CourseList>(
     `/${COURSE}/${COURSES}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
   {
     params: { projectId: "61ed941fd0bd9a48509bee27", limit },
-    baseURL,
-    initialCache: false,
+    baseURL: config.public.apiBase,
   }
 );
 

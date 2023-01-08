@@ -34,10 +34,9 @@ const route = useRoute();
 // TODO: error kezelés
 const { data } = await useCustomFetch<Course>({
   path: `/${COURSE}/${route.params.courseId}`,
-  initialCache: false,
 });
 
-useMeta({
+useHead({
   meta: [
     {
       hid: "og:url",

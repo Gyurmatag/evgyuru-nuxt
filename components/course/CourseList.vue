@@ -77,7 +77,7 @@ const onSubmit = handleSubmit(async (values) => {
   infiniteLoadingId.value += 1;
 });
 
-const { API_BASE: baseURL } = useRuntimeConfig();
+const config = useRuntimeConfig();
 // TODO: error kezelés
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
@@ -87,7 +87,7 @@ const { data, refresh } = await useFetch<CourseList>(
     `/${COURSE}/${COURSES}?page=${currentPage.value}&filterDateFromAfterToday=${courseFilterFormData.value?.filterDateFromAfterToday}`,
   {
     params: { projectId: props.projectId, limit },
-    baseURL,
+    baseURL: config.public.apiBase,
   }
 );
 

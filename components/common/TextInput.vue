@@ -41,30 +41,30 @@
           @blur="handleCustomBlur"
           @focus="handleInputFocus"
         />
-        <!--TODO: nem helyes HTML tag -->
-        <div
-          v-if="inputValue && isInputFocused"
-          class="material-icons-outlined cursor-pointer px-2 text-gray-800 dark:text-gray-300 md:hidden"
+        <button
+          type="button"
+          class="flex cursor-pointer items-center px-2 text-gray-800 dark:text-gray-300 md:hidden"
           @mousedown="resetFieldCustom"
         >
-          close
-        </div>
+          <Icon name="mdi:close" />
+        </button>
       </div>
       <button
         v-if="isRemoveInputActive"
-        class="material-icons-outlined ml-3 h-10 w-10 rounded-lg border border-2 border-red-600 text-xs text-gray-800 transition duration-300 hover:bg-red-50 dark:text-gray-200 dark:hover:bg-red-500"
+        class="ml-3 h-10 w-10 rounded-lg border border-2 border-red-600 text-xs text-gray-800 transition duration-300 hover:bg-red-50 dark:text-gray-200 dark:hover:bg-red-500"
         type="button"
         @click="emit('deleteInput')"
       >
-        close
+        <Icon name="mdi:close" />
       </button>
-      <div
+      <button
         v-if="type === 'password'"
-        class="material-icons-outlined ml-2 flex cursor-pointer items-center rounded-lg border border-gray-300 bg-gray-50 px-2 text-gray-600 transition duration-300 ease-in-out hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+        type="button"
+        class="ml-2 flex cursor-pointer items-center rounded-lg border border-gray-300 bg-gray-50 px-2 text-gray-600 transition duration-300 ease-in-out hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
         @click="togglePasswordVisibility"
       >
-        {{ typeRef === "password" ? "visibility" : "visibility_off" }}
-      </div>
+        <Icon :name="typeRef === 'password' ? 'mdi:eye' : 'mdi:eye-off'" />
+      </button>
     </div>
     <common-transition-expand>
       <span
@@ -78,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-import {useField} from "vee-validate";
+import { useField } from "vee-validate";
 
 const props = defineProps({
   // TODO: type-ot tipizálni

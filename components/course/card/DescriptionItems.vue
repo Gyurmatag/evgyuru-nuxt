@@ -2,25 +2,27 @@
   <div class="mx-4 mb-4 space-y-2 md:space-y-5">
     <div class="flex md:justify-center">
       <common-card-item
-        :icon-name="'location_on'"
+        :icon-name="'mdi:map-marker'"
         :value-text="`${city}, ${streetAddress}`"
       ></common-card-item>
     </div>
-    <div class="flex flex-col content-start justify-between lg:flex-row space-y-2 md:space-y-0">
+    <div
+      class="flex flex-col content-start justify-between space-y-2 md:space-y-0 lg:flex-row"
+    >
       <common-card-item
-        :icon-name="'payments'"
+        :icon-name="'mdi:cash'"
         :value-text="$t('common.priceInHuf', { price })"
       ></common-card-item>
       <common-card-item
-        :icon-name="'numbers'"
+        :icon-name="'mdi:tally-mark-4'"
         :value-text="$t('common.occasions', { occasions })"
       ></common-card-item>
       <common-card-item
-        :icon-name="'date_range'"
+        :icon-name="'mdi:calendar-range-outline'"
         :value-text="$dateIntervalFormat(dateFrom, dateTo)"
       ></common-card-item>
       <common-card-item
-        :icon-name="'person'"
+        :icon-name="'mdi:account'"
         :value-text="$t('common.maxGroupSize', { maxGroupSize })"
       ></common-card-item>
     </div>

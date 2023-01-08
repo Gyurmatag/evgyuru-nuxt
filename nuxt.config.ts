@@ -1,18 +1,29 @@
-import { defineNuxtConfig } from "nuxt";
-
 export default defineNuxtConfig({
-  buildModules: ["@intlify/nuxt3", "@pinia/nuxt"],
-  modules: ["@nuxtjs/color-mode", "@vueuse/nuxt", "@nuxt/content"],
-  intlify: {
-    localeDir: "locales",
+  modules: [
+    "@nuxtjs/color-mode",
+    "@vueuse/nuxt",
+    "@nuxt/content",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "@nuxtjs/i18n",
+    "@nuxtjs/tailwindcss",
+    "nuxt-icon",
+  ],
+  i18n: {
+    langDir: "locales/",
+    defaultLocale: "hu",
+    locales: [
+      {
+        code: "hu",
+        name: "Hungarian",
+        iso: "hu-HU",
+        file: "hu.json",
+        momentLocale: "hu",
+      },
+    ],
     vueI18n: {
+      legacy: false,
       locale: "hu",
-    },
-  },
-  // TODO: ez egy workaround, ha megoldják az issue-t amit bejelentettem ki lehet szedni remélhetőleg: https://github.com/nuxt/framework/issues/6495
-  nitro: {
-    externals: {
-      inline: ["date-fns"],
     },
   },
   css: ["@/assets/styles/main.css"],
@@ -21,19 +32,10 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ["pinia"],
-    postcss: {
-      postcssOptions: require("./postcss.config.js"),
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_BASE,
     },
-  },
-  publicRuntimeConfig: {
-    API_BASE: process.env.API_BASE,
-  },
-  meta: {
-    link: [
-      {
-        href: "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined",
-        rel: "stylesheet",
-      },
-    ],
   },
 });

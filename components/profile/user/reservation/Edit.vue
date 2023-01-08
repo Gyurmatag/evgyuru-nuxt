@@ -170,7 +170,6 @@ const validationSchema = Yup.object().shape({
 const { data: reservationData } = await useCustomFetch<Reservation>({
   path: `/${RESERVATION}/${USER_RESERVATIONS}/${reservationId}`,
   isAuthenticated: true,
-  initialCache: false,
 });
 
 editReservationFormData.value = {
@@ -199,7 +198,6 @@ const { data: availableCourseListData } =
       excludedCourseId: (reservationData.value.course as Course)._id,
     },
     isAuthenticated: true,
-    initialCache: false,
   });
 
 const selectedCourseData = computed(() => {
@@ -226,7 +224,6 @@ const onSubmit = handleSubmit(async (values) => {
       childrenIdList: editReservationFormData.value.childrenIdList,
       targetCourseId: editReservationFormData.value.targetCourseId,
     },
-    initialCache: false,
   });
 
   if (!error.value) {

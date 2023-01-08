@@ -36,7 +36,6 @@ const searchForCity = async (event: InputEvent) => {
     const { data } = await useCustomFetch<City>({
       customBaseURL: "https://hur.webmania.cc/zips",
       path: `/${event.target._value}.json`,
-      initialCache: false,
     });
     isCityFetchPending.value = false;
     fetchedCityName.value = data.value?.zips[0]?.name;

@@ -81,7 +81,7 @@ const onSubmit = handleSubmit(async (values) => {
   reservationsListResponse.value = data.value;
 });
 
-const { API_BASE: baseURL } = useRuntimeConfig();
+const config = useRuntimeConfig();
 // TODO: error kezelés
 // TODO: ideiglenes megoldás, refresh nem működik a custom methodd-al, Githubon kell majd problémát jelezni
 // TODO: params-ban nem működik a reaktivitás (currentPage.value)
@@ -94,8 +94,7 @@ const { data, refresh } = await useFetch<ReservationListResponse>(
       "x-access-token": userStore.user.accessToken,
     },
     params: { limit },
-    baseURL,
-    initialCache: false,
+    baseURL: config.public.apiBase,
   }
 );
 

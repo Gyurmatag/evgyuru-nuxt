@@ -19,7 +19,6 @@ const userStore = useUserStore();
 const { error, pending } = await useCustomFetch({
   path: `${AUTH}/${ACTIVATION}/${route.params.activationKey}`,
   method: FetchMethods.PUT,
-  initialCache: false,
   server: false,
   lazy: true,
 });

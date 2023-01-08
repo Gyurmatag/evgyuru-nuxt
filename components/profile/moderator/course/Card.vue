@@ -19,25 +19,20 @@
     <!-- TODO: kiszervezni a komponenseket --->
     <div v-if="courseDetailPanelOpened">
       <div class="space-x-2">
-        <span
+        <Icon
           v-if="!wasDeleteSuccessful"
-          class="material-icons-outlined cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-red-700 dark:text-gray-400 dark:hover:text-red-700"
+          class="cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-red-700 dark:text-gray-400 dark:hover:text-red-700"
+          name="mdi:delete"
           @click="
             isDeleteConfirmationMessageVisible =
               !isDeleteConfirmationMessageVisible
           "
-        >
-          delete
-        </span>
-        <nuxt-link
-          class="material-icons-outlined cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-orange-700 dark:text-gray-400 dark:hover:text-orange-700"
-          :to="{
-            name: 'profilom-kurzusok-szerkesztes-courseId',
-            params: { courseId },
-          }"
-        >
-          edit
-        </nuxt-link>
+        />
+        <Icon
+          class="cursor-pointer text-3xl text-gray-500 transition duration-300 ease-in-out hover:text-orange-700 dark:text-gray-400 dark:hover:text-orange-700"
+          name="mdi:edit"
+          @click="navigateToEditCoursePage"
+        />
       </div>
       <common-transition-expand>
         <div v-if="isDeleteConfirmationMessageVisible">
@@ -99,7 +94,7 @@ const reservationsCount = computed(() => {
     : 0;
 });
 
-const expandCourse = async (courseId) => {
+const expandCourse = async (courseId: string) => {
   if (courseDetailPanelOpened.value === true) {
     courseDetailPanelOpened.value = false;
   } else {
@@ -110,7 +105,6 @@ const expandCourse = async (courseId) => {
       path: `${RESERVATION}/${RESERVATIONS}`,
       params: { courseId, limit: 0, currentPage: 0 },
       isAuthenticated: true,
-      initialCache: false,
     });
 
     reservationListData.value = data.value.reservations;
@@ -132,5 +126,9 @@ const deleteCourse = async (courseId: string) => {
     wasDeleteSuccessful.value = true;
     courseDetailPanelOpened.value = false;
   }
+};
+
+const navigateToEditCoursePage = async () => {
+  await navigateTo(`profilom/kurzusok/szerkesztes/${props.courseId}`);
 };
 </script>

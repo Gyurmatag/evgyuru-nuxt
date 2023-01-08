@@ -61,8 +61,8 @@
         </svg>
       </a>
     </div>
-    <div class="flex justify-center space-x-2 text-gray-200">
-      <span class="material-icons-outlined">email</span>
+    <div class="flex items-center justify-center space-x-2 text-gray-200">
+      <Icon name="mdi:email" />
       <a
         href="mailto:info@evgyuru.hu"
         class="cursor-pointer transition duration-300 ease-in-out hover:text-gray-300"
@@ -75,7 +75,7 @@
         to="/segitseg"
         class="text-md flex items-center space-x-2 rounded-md border-2 p-2 text-gray-200 transition duration-300 ease-in-out hover:text-gray-300"
       >
-        <span class="material-icons-outlined">help</span>
+        <Icon class="font-light" name="mdi:help" />
         <span>{{ $t("footer.help") }}</span>
       </nuxt-link>
     </div>

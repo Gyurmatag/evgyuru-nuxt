@@ -43,7 +43,7 @@ const { data } = await useCustomFetch<Project>({
   path: `/${PROJECT}/${projectId}`,
 });
 
-useMeta({
+useHead({
   meta: [
     {
       hid: "og:url",

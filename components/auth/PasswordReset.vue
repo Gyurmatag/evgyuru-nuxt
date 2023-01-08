@@ -17,9 +17,7 @@
       >
         <div class="space-y-8">
           <div class="text-gray-500 dark:text-gray-400">
-            <span class="material-icons-outlined text-6xl font-light">
-              key
-            </span>
+            <Icon class="text-6xl font-light" name="mdi:key" />
             <p>{{ $t("auth.passwordReset.greeting") }}</p>
           </div>
           <common-text-input
@@ -90,7 +88,6 @@ const passwordResetFormData = ref<PasswordReset>(null);
 
 await useCustomFetch({
   path: `${AUTH}/${IS_PASSWORD_RESET_KEY_VALID}/${route.params.passwordResetKey}`,
-  initialCache: false,
   server: false,
   lazy: true,
 });
@@ -124,7 +121,6 @@ const onSubmit = handleSubmit(async (values) => {
     body: {
       password: passwordResetFormData.value.password,
     },
-    initialCache: false,
   });
 });
 </script>

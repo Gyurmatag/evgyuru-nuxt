@@ -18,7 +18,7 @@
     </common-transition-expand>
     <div class="mt-2 w-full">
       <nuxt-link
-        :to="{ name: 'kurzusok-courseId', params: { courseId } }"
+        :to="`/kurzusok/${courseId}`"
         class="mb-2 text-center text-2xl font-bold text-blue-600 transition duration-300 ease-in-out hover:text-blue-800 dark:text-gray-200 dark:hover:text-gray-400"
       >
         {{ title }}
@@ -26,15 +26,15 @@
       <p class="mb-2 p-2 text-center text-sm text-gray-700 dark:text-gray-300">
         {{ description }}
       </p>
-        <course-card-description-items
-          :city="city"
-          :street-address="streetAddress"
-          :price="price"
-          :occasions="occasions"
-          :date-from="dateFrom"
-          :date-to="dateTo"
-          :max-group-size="maxGroupSize"
-        ></course-card-description-items>
+      <course-card-description-items
+        :city="city"
+        :street-address="streetAddress"
+        :price="price"
+        :occasions="occasions"
+        :date-from="dateFrom"
+        :date-to="dateTo"
+        :max-group-size="maxGroupSize"
+      ></course-card-description-items>
       <div class="border-t-2 border-t-blue-100">
         <div class="m-4 flex">
           <common-transition-expand>

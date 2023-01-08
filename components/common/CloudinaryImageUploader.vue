@@ -6,12 +6,11 @@
         class="cursor-pointer rounded-md rounded-lg border-2 border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-700 transition duration-300 ease-in-out hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-500"
         :class="uploadPending ? 'disabled animate-pulse' : ''"
       >
-        <i
-          class="material-icons-outlined text-sm"
+        <Icon
+          class="text-sm"
           :class="{ 'text-green-600': uploadDone }"
-        >
-          {{ uploadDone ? "check" : "attach_file" }}
-        </i>
+          :name="uploadDone ? `mdi:check` : 'mdi:attachment'"
+        />
         {{
           uploadDone ? $t("common.replacePicture") : $t("common.browsePicture")
         }}

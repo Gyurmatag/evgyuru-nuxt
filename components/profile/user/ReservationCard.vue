@@ -12,8 +12,7 @@
           <nuxt-link
             v-if="isTitleNavigationEnabled"
             :to="{
-              name: 'kurzusok-courseId',
-              params: { courseId },
+              path: `/kurzusok/${courseId}`,
               query: { fromPage: '/profilom' },
             }"
             class="text-lg font-bold text-gray-800 dark:text-gray-200"
@@ -27,9 +26,10 @@
         <div
           class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400"
         >
-          <i class="material-icons-outlined text-gray-700 dark:text-gray-300">
-            date_range
-          </i>
+          <Icon
+            class="text-gray-700 dark:text-gray-300"
+            name="mdi:calendar-range-outline"
+          />
           <span> {{ courseDateInterval }}</span>
         </div>
       </div>
@@ -41,9 +41,7 @@
       <div
         class="flex items-center space-x-2 border-b-2 border-blue-100 pb-2 dark:border-blue-800"
       >
-        <i class="material-icons-outlined text-gray-700 dark:text-gray-300">
-          person
-        </i>
+        <Icon class="text-gray-700 dark:text-gray-300" name="mdi:account" />
         <div>
           <ul v-for="child in children" :key="child._id">
             <li>
@@ -55,10 +53,7 @@
       <div v-if="areActionsVisible" class="flex space-x-2">
         <div class="flex flex-col">
           <nuxt-link
-            :to="{
-              name: 'profilom-jelentkezesek-reservationId',
-              params: { reservationId },
-            }"
+            :to="`/profilom/jelentkezesek/${reservationId}`"
             class="cursor-pointer border-b border-orange-600 transition duration-300 ease-in-out hover:text-orange-600"
           >
             {{ $t("profile.user.reservations.modify") }}
