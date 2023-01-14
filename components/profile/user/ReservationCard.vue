@@ -4,9 +4,9 @@
       <div class="space-y-1">
         <div class="flex space-x-2 text-left">
           <!-- TODO: image kilóg az elementből, belelóg a paddingba, refakt / javítás kell -->
-          <img
+          <nuxt-img
             alt="course image"
-            :src="courseImageUrl"
+            :src="removeBaseUrlFromImageUrl(courseImageUrl)"
             class="h-6 rounded-md"
           />
           <nuxt-link

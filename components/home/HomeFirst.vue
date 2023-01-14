@@ -18,10 +18,11 @@
         {{ $t("home.homeFirst.thirdRowText") }}
       </div>
     </div>
-    <img
-      alt="main photo"
-      src="https://res.cloudinary.com/gyurmatag/image/upload/v1652370591/%C3%89vgy%C5%B1r%C5%B1/tabla_gyerekek.jpg"
-      class="w-full rounded-md border-8 border-blue-100 border-opacity-50 opacity-80 dark:border-blue-900 md:w-1/2"
+    <nuxt-img
+        alt="Students front of white board"
+        provider="cloudinary"
+        src="/v1652370591/%C3%89vgy%C5%B1r%C5%B1/tabla_gyerekek.jpg"
+        class="w-full rounded-md border-8 border-blue-100 border-opacity-50 opacity-80 dark:border-blue-900 md:w-1/2"
     />
   </div>
 </template>

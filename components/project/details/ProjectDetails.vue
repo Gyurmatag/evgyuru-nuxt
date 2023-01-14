@@ -9,9 +9,10 @@
     <div class="flex w-full flex-col items-center bg-white dark:bg-gray-800">
       <div class="mb-8 max-w-6xl space-y-2 px-4 text-center">
         <div class="w-full rounded-lg pt-2 pb-2 text-xl">
-          <img
+          <nuxt-img
             :alt="data.title"
-            :src="data.imageUrl"
+            provider="cloudinary"
+            :src="removeBaseUrlFromImageUrl(data.imageUrl)"
             class="m-auto rounded-lg lg:w-3/4 xl:w-1/2"
           />
         </div>

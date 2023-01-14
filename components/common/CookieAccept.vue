@@ -1,7 +1,7 @@
 <template>
   <div class="cursor-auto rounded-lg bg-gray-50 p-6 shadow-md dark:bg-gray-700">
     <div class="relative mx-auto -mt-10 mb-3 w-16">
-      <img
+      <nuxt-img
         class="-mt-1"
         src="https://www.svgrepo.com/show/30963/cookie.svg"
         alt="Cookie Icon SVG"

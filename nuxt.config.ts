@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
+    "@nuxt/image-edge",
   ],
   i18n: {
     langDir: "locales/",
@@ -26,6 +27,14 @@ export default defineNuxtConfig({
       locale: "hu",
     },
   },
+  image: {
+    cloudinary: {
+      baseURL: process.env.CLOUDINARY_BASE_URL,
+      modifiers: {
+        width: "600",
+      },
+    },
+  },
   css: ["@/assets/styles/main.css"],
   colorMode: {
     classSuffix: "",
@@ -36,6 +45,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: process.env.API_BASE,
+      cloudinaryBaseUrl: process.env.CLOUDINARY_BASE_URL,
     },
   },
 });

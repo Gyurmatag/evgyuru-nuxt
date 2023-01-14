@@ -9,10 +9,11 @@
       class="m-4 text-left"
     ></common-back-button>
     <common-transition-expand>
-      <img
+      <nuxt-img
         v-if="!isApplyActive"
-        alt="news photo"
-        :src="imageUrl"
+        provider="cloudinary"
+        :alt="`${title} photo`"
+        :src="removeBaseUrlFromImageUrl(imageUrl)"
         class="m-auto rounded-lg lg:w-3/4 xl:w-1/2"
       />
     </common-transition-expand>
