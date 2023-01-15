@@ -1,6 +1,6 @@
 <template>
   <div class="w-full space-y-4 p-5 text-center">
-    <nuxt-img :alt="imgName" :src="`/${imgName}.png`" class="m-auto h-20" />
+    <img :alt="imgName" :src="`/${imgName}.png`" class="m-auto h-20" />
     <div class="text-xl text-gray-800 dark:text-gray-200">
       {{ $t(reasonTitleKey) }}
     </div>

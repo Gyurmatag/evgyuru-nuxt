@@ -25,7 +25,7 @@
             </button>
           </div>
           <nuxt-link class="mr-4 inline-block p-1" to="/">
-            <nuxt-img
+            <img
               alt="Évgyűrű logó"
               src="/logo.png"
               class="h-20 object-contain"
