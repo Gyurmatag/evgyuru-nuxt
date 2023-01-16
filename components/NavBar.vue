@@ -149,7 +149,7 @@ const navigateToForTeachers = async () => {
 };
 
 const navigateToManocskaProject = async () => {
-  await navigateTo("projektek/61ed941fd0bd9a48509bee27");
+  await navigateTo("/projektek/61ed941fd0bd9a48509bee27");
   showMobileMenu.value = false;
 };
 
