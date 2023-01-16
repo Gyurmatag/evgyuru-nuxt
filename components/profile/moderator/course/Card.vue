@@ -103,7 +103,7 @@ const expandCourse = async (courseId: string) => {
     // TODO: esetleg itt a data-t ki lehetne szervezni?
     const { data } = await useCustomFetch<ReservationListBasicResponse>({
       path: `${RESERVATION}/${RESERVATIONS}`,
-      params: { courseId, limit: 0, currentPage: 0 },
+      params: { courseId, limit: 0, page: 0 },
       isAuthenticated: true,
     });
 
