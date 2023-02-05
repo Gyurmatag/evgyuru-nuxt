@@ -29,6 +29,7 @@
     "eslint-plugin-vue": "^8.5.0",
     "nuxt": "3.0.0",
     "nuxt-icon": "^0.1.8",
+    "nuxt-umami": "^1.2.1",
     "postcss": "^8.4.6",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.7",

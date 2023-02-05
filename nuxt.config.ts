@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
     "@nuxt/image-edge",
+    "nuxt-umami",
   ],
   i18n: {
     langDir: "locales/",
@@ -39,8 +40,14 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: "",
   },
-  build: {
-    transpile: ["pinia"],
+  umami: {
+    enable: true, // enable the module? true by default
+    autoTrack: true,
+    doNotTrack: false,
+    cache: false,
+    domains: 'evgyuru.hu',
+    websiteId: 'evgyuru',
+    scriptUrl: 'https://evgyuru-analytics.netlify.app/umami.js',
   },
   runtimeConfig: {
     public: {
