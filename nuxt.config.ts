@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     autoTrack: true,
     doNotTrack: false,
     cache: false,
-    domains: 'evgyuru.hu',
+    domains: 'www.evgyuru.hu',
     websiteId: 'evgyuru',
     scriptUrl: 'https://evgyuru-analytics.netlify.app/umami.js',
   },
