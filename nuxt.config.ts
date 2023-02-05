@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     doNotTrack: false,
     cache: false,
     domains: 'www.evgyuru.hu',
-    websiteId: 'evgyuru',
+    websiteId: '473d70fd-6275-4b0f-a2cc-e5653b7a9ac7',
     scriptUrl: 'https://evgyuru-analytics.netlify.app/umami.js',
   },
   runtimeConfig: {
