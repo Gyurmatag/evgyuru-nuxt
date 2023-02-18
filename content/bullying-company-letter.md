@@ -1,3 +1,6 @@
+---
+title: 'Vállalatoknak | Évgyűrű Alapítvány'
+---
 Tisztelt Cégvezető Asszony/Úr!
 
 Engedje meg, hogy az egri Évgyűrű Alapítvány nevében egy egyedülálló kezdeményezésre hívjuk fel a figyelmét.

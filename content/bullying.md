@@ -1,3 +1,6 @@
+---
+title: 'Téma nap | Évgyűrű Alapítvány'
+---
 **A BULLYING-jelenség kezelése egyedülálló témanap keretében**
 
 **Sajátélmény, szakemberek, kiállítás**

@@ -144,7 +144,7 @@ const onScroll = () => {
 const toggleMobileMenu = () => (showMobileMenu.value = !showMobileMenu.value);
 
 const navigateToForTeachers = async () => {
-  await navigateTo("/pedagogusoknak/bullying/temanap");
+  await navigateTo("/pedagogusoknak/temanap");
   showMobileMenu.value = false;
 };
 
